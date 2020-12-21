@@ -1,4 +1,0 @@
-<!--pages/community/code/code.wxml-->
-<view class="code" bindtap="openImg">
-  <image wx:if="{{wxcode}}" src="{{wxcode}}" style=" position: relative;top: 50%;transform: translateY(-55%);width:90%;display:block;margin:0 auto;" mode="widthFix"></image>
-</view>
