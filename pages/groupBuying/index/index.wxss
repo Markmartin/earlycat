@@ -1,0 +1,10 @@
+.group-buying {
+  position: relative;
+  width: 750rpx;
+  height: 5830rpx;
+}
+
+.group-buying .group-buying-image {
+  width: 100%;
+  height: 100%;
+}

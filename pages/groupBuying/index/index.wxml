@@ -1,0 +1,5 @@
+<!--pages/groupBuying/index/index.wxml-->
+<view class="group-buying">
+  <image class="group-buying-image"
+    src="http://earlycat-app.oss-cn-shanghai.aliyuncs.com/corporate-group-buying-logo-content.jpeg"></image>
+</view>

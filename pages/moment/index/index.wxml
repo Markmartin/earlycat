@@ -1,0 +1,52 @@
+<import src="../../../components/hint/hint.wxml"/>
+<view class="container">
+  <view class="head">
+    <image src="/static/moment/search.png" />
+    <input placeholder="搜索帖子" bindfocus="focusSearch" bindblur="blurSearch" confirm-type="搜索" bindconfirm="searchList" />
+    <!-- <navigator url="/pages/secondhand/issue/issue" hover-class="none" class="issue">发布</navigator> -->
+  </view>
+  <view class="searchCover" wx:if="{{searchCover}}"></view>
+  <view class="title">
+    <view class="tt">社区话题</view>
+    <navigator url="/pages/moment/all/all" hover-class="none" class="txt">
+      <text>全部话题</text>
+      <image src="/static/moment/more.png" />
+    </navigator>
+  </view>
+  <scroll-view scroll-x class="topic">
+    <navigator class="item" wx:for="{{circleList}}" wx:key="id" url="/pages/moment/topic/topic?id={{item.id}}" hover-class="none">
+      <image class="img" src="{{item.picUrl}}" background-size="cover"></image>
+      <view class="tt">{{item.title}}</view>
+    </navigator>
+    <navigator class="item" url="/pages/moment/issue/issue?type=circle" hover-class="none">
+      <image class="img" src="/static/moment/add.png" background-size="cover"></image>
+      <view class="tt">创建话题</view>
+    </navigator>
+  </scroll-view>
+  <view class="title">
+    <view class="tt">话题讨论</view>
+    <!-- <navigator url="/pages/moment/issue/issue" hover-class="none" class="txt">
+      <text>我的讨论</text>
+      <image src="/static/moment/more.png" />
+    </navigator> -->
+  </view>
+  <view class="discuss">
+    <navigator url="/pages/moment/details/details?id={{item.id}}" hover-class="none" class="item" wx:for="{{list}}" wx:key="id">
+      <view class="number">
+        <image src="/static/moment/news.png" style="width:26rpx;height:26rpx;" />
+        <view>{{item.comments}}</view>
+      </view>
+      <view class="cont">
+        <view class="tt">{{item.title}}</view>
+        <view class="info">
+          <image src="{{item.circlePicUrl}}" mode="aspectFill" />
+          <text class="name">{{item.circleName}}</text>
+          <text class="time">{{item.addTime}}</text>
+        </view>
+      </view>
+      <image class="pic" src="{{item.picUrls[0]}}" mode="aspectFill" />
+    </navigator>
+    <view class="no-more" wx:if="{{page > pages && pages != 0}}">已经到底啦</view>
+    <template wx:if="{{!loading && list.length==0 && pages == 0}}" is="hint" data="{{text:'暂无话题信息'}}"></template>
+  </view>
+</view>

@@ -1,0 +1,12 @@
+<!--pages/storedValue/agreement/agreement.wxml-->
+<view class="agreement">
+  <view class="agreement-header">充值说明</view>
+  <view class="agreement-content">
+    <view class="agreement-cell" wx:for="{{agreement}}" wx:key="index">
+      {{item}}
+    </view>
+  </view>
+  <view class="agreement-footer">
+    法律允许的情况下，充值活动的最终解释权归朝菜猫所有。如有其它疑问，欢迎致电客服400-166-9188
+  </view>
+</view>

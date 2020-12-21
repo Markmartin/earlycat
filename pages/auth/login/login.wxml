@@ -1,0 +1,5 @@
+<view class="container">
+	<image src="https://earlycat-app.oss-cn-shanghai.aliyuncs.com/login_back.png" style="width:100%" mode="widthFix"></image>
+	<button type="primary" wx:if="{{showType === 1}}" open-type="getUserInfo" class="wx-login-btn" bindgetuserinfo="wxLogin">微信一键登录</button>
+	<button type="primary" wx:if="{{showType === 2}}" class="wx-login-btn" style="background-color: #04B64E !important;" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">授权手机号</button>
+</view>

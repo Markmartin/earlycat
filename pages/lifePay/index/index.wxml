@@ -1,0 +1,4 @@
+<!--pages/lifePay/index/index.wxml-->
+<view class="container">
+  生活缴费
+</view>

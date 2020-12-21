@@ -1,0 +1,52 @@
+<!--pages/integral/store/store.wxml-->
+<view class="container">
+  <swiper class="jf-banner" indicator-dots="true" indicator-color="rgba(255, 255, 255, .5)" indicator-active-color="#fff" autoplay="true" circular="true" current="{{bannerIndex}}">
+    <block wx:for="{{banner}}" wx:key="id">
+      <swiper-item>
+        <image src="{{item.url}}" mode="aspectFill" lazy-load></image>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="block1 d-flex">
+    <navigator url="/pages/integral/index/index" hover-class="none" class="nav">
+      <view class="d-flex">
+        <view class="iconfont icon-jifen"></view>
+        <view class="tt">积分</view>
+        <view class="txt">100000</view>
+      </view>
+    </navigator>
+    <view class="border"></view>
+    <navigator url="/pages/integral/index/index" hover-class="none" class="nav">
+      <view class="d-flex">
+        <view class="iconfont icon-jifen"></view>
+        <view class="tt">兑换记录</view>
+      </view>
+    </navigator>
+  </view>
+  <view class="jf-head d-flex">
+    <view class="tt">本周热门</view>
+  </view>
+  <view class="jf-list">
+    <navigator url="/pages/integral/details/details?id={{item.id}}" hover-class="none" class="item" wx:for="{{hotList}}" wx:key="item.id">
+      <view class="pic">
+        <image src="{{item.picUrl}}" mode="aspectFill" lazy-load></image>
+      </view>
+      <view class="tt">{{item.name}}</view>
+      <view class="integral">{{item.retailPrice}}积分</view>
+      <view class="price">{{item.counterPrice}}元</view>
+    </navigator>
+  </view>
+  <view class="jf-head d-flex">
+    <view class="tt">全部商品</view>
+  </view>
+  <view class="jf-list">
+    <navigator url="/pages/integral/details/details?id={{item.id}}" hover-class="none" class="item" wx:for="{{hotList}}" wx:key="item.id">
+      <view class="pic">
+        <image src="{{item.picUrl}}" mode="aspectFill" lazy-load></image>
+      </view>
+      <view class="tt">{{item.name}}</view>
+      <view class="integral">{{item.retailPrice}}积分</view>
+      <view class="price">{{item.counterPrice}}元</view>
+    </navigator>
+  </view>
+</view>

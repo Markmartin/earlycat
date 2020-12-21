@@ -1,0 +1,164 @@
+{
+  "pages": [
+    "pages/homepage/homepage",
+    "pages/icons/icon",
+    "pages/community/index/index",
+    "pages/community/guide/guide",
+    "pages/community/binding/binding",
+    "pages/community/chatRoom/chatRoom",
+    "pages/community/editPosts/editPosts",
+    "pages/community/details/details",
+    "pages/community/resident/resident",
+    "pages/community/addResident/addResident",
+    "pages/community/record/record",
+    "pages/community/cut/cut",
+    "pages/community/manage/manage",
+    "pages/community/addCommunity/addCommunity",
+    "pages/discover/index/index",
+    "pages/discover/welfare/welfare",
+    "pages/discover/activity/activity",
+    "pages/auth/login/login",
+    "pages/auth/accountLogin/accountLogin",
+    "pages/auth/register/register",
+    "pages/auth/reset/reset",
+    "pages/checkout/checkout",
+    "pages/set/index/index",
+    "pages/set/site/site",
+    "pages/set/siteAdd/siteAdd",
+    "pages/notices/notices",
+    "pages/outside/outside",
+    "pages/integral/index/index",
+    "pages/integral/store/store",
+    "pages/integral/details/details",
+    "pages/lifeService/index/index",
+    "pages/lifePay/index/index",
+    "pages/fleaMarket/index/index",
+    "pages/groupBuying/index/index",
+    "pages/suggest/suggest",
+    "pages/search/search",
+    "pages/catalog/catalog",
+    "pages/goods/goods",
+    "pages/cart/cart",
+    "pages/payResult/payResult",
+    "pages/ucenter/address/address",
+    "pages/ucenter/order/order",
+    "pages/ucenter/orderDetail/orderDetail",
+    "pages/ucenter/index/index",
+    "pages/ucenter/collect/collect",
+    "pages/ucenter/footprint/footprint",
+    "pages/ucenter/feedback/feedback",
+    "pages/ucenter/couponList/couponList",
+    "pages/ucenter/couponSelect/couponSelect",
+    "pages/topic/topic",
+    "pages/topicComment/topicComment",
+    "pages/topicDetail/topicDetail",
+    "pages/topicCommentPost/topicCommentPost",
+    "pages/comment/comment",
+    "pages/commentPost/commentPost",
+    "pages/about/about",
+    "pages/community/code/code",
+    "pages/message/message",
+    "pages/secondhand/index/index",
+    "pages/secondhand/issue/issue",
+    "pages/secondhand/details/details",
+    "pages/moment/index/index",
+    "pages/moment/all/all",
+    "pages/moment/details/details",
+    "pages/moment/issue/issue",
+    "pages/moment/topic/topic",
+    "pages/group/index/index",
+    "pages/survey/index/index",
+    "pages/circum/index/index",
+    "pages/circum/issue/issue",
+    "pages/circum/details/details",
+    "pages/generalize/code/code",
+    "pages/generalize/earnings/earnings",
+    "pages/generalize/order/order",
+    "pages/generalize/index/index",
+    "pages/generalize/withdraw/withdraw",
+    "pages/generalize/user/user",
+    "pages/preSale/list/list",
+    "pages/ucenter/addressNew/addressNew",
+    "pages/ucenter/addressMap/addressMap",
+    "pages/moreGoods/moreGoods",
+    "pages/moreDiscountGoods/moreDiscountGoods",
+    "pages/refund/refund",
+    "pages/ucenter/afterSaleOrder/afterSaleOrder",
+    "pages/ucenter/afterSaleOrderDetail/afterSaleOrderDetail",
+    "pages/test/test",
+    "pages/frequentlyAskedQuestions/index/index",
+    "pages/recruit/recruit",
+    "pages/storedValue/index/index",
+    "pages/moreBulkyGoods/moreBulkyGoods",
+    "pages/storedValue/agreement/agreement"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "朝菜猫商城",
+    "backgroundColor": "#fff",
+    "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "backgroundColor": "#fff",
+    "borderStyle": "black",
+    "selectedColor": "#80BA64",
+    "color": "#000",
+    "list": [
+      {
+        "pagePath": "pages/homepage/homepage",
+        "iconPath": "assets/image/tabBar/homepage.png",
+        "selectedIconPath": "assets/image/tabBar/homepage-tap.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/catalog/catalog",
+        "iconPath": "assets/image/tabBar/category.png",
+        "selectedIconPath": "assets/image/tabBar/category-tap.png",
+        "text": "分类"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "iconPath": "assets/image/tabBar/cart.png",
+        "selectedIconPath": "assets/image/tabBar/cart-tap.png",
+        "text": "购物车"
+      },
+      {
+        "pagePath": "pages/ucenter/index/index",
+        "iconPath": "assets/image/tabBar/me.png",
+        "selectedIconPath": "assets/image/tabBar/me-tap.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 30000,
+    "connectSocket": 30000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "debug": false,
+  "sitemapLocation": "sitemap.json",
+  "plugins": {
+    "chatGroupPlugin": {
+      "version": "1.0.0",
+      "provider": "wxaae6519cee98d824"
+    },
+    "chooseLocation": {
+      "version": "1.0.3",
+      "provider": "wx76a9a06e5b4e693e"
+    },
+    "tencentvideo": {
+      "version": "1.2.4",
+      "provider": "wxa75efa648b60994b"
+    }
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小区信息的获取与展示"
+    }
+  },
+  "useExtendedLib": {
+    "weui": true
+  }
+}

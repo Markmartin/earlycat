@@ -1,0 +1,219 @@
+{
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": true,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": false,
+    "useApiHook": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "enableEngineNative": false,
+    "bundle": false,
+    "useIsolateContext": true,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": true,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.10.1",
+  "appid": "wxad773ca39b08268b",
+  "projectname": "earlycat-wechat-mini",
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": 0,
+          "name": "分类",
+          "pathName": "pages/catalog/catalog",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 1,
+          "name": "购物车",
+          "pathName": "pages/cart/cart",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "我的",
+          "pathName": "pages/ucenter/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "预售列表",
+          "pathName": "pages/preSale/list/list",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "我的订单",
+          "pathName": "pages/ucenter/order/order",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "订单确认",
+          "pathName": "pages/checkout/checkout",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 6,
+          "name": "新增地址",
+          "pathName": "pages/ucenter/addressNew/addressNew",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "地址地图",
+          "pathName": "pages/ucenter/addressMap/addressMap",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "更多商品",
+          "pathName": "pages/moreGoods/moreGoods",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "更多特价商品",
+          "pathName": "pages/moreDiscountGoods/moreDiscountGoods",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 10,
+          "name": "订单详情",
+          "pathName": "pages/ucenter/orderDetail/orderDetail",
+          "query": "id=105",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "地址列表",
+          "pathName": "pages/ucenter/address/address",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 12,
+          "name": "退款",
+          "pathName": "pages/refund/refund",
+          "query": "orderId=105&goodsId=3",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "登录",
+          "pathName": "pages/auth/login/login",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "售后订单列表",
+          "pathName": "pages/ucenter/afterSaleOrder/afterSaleOrder",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 15,
+          "name": "售后订单详情",
+          "pathName": "pages/ucenter/afterSaleOrderDetail/afterSaleOrderDetail",
+          "query": "orderId=10000044",
+          "scene": null
+        },
+        {
+          "name": "test",
+          "pathName": "pages/test/test",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "FQA",
+          "pathName": "pages/frequentlyAskedQuestions/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "招聘",
+          "pathName": "pages/recruit/recruit",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "储值",
+          "pathName": "pages/storedValue/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "单件批发",
+          "pathName": "pages/moreBulkyGoods/moreBulkyGoods",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "充值协议",
+          "pathName": "pages/storedValue/agreement/agreement",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "支付结果查询",
+          "pathName": "pages/payResult/payResult",
+          "query": "status=1",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

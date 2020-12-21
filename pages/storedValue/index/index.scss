@@ -1,0 +1,241 @@
+@import '../../../style/common.scss';
+
+@mixin scale-animation($scale, $duration) {
+  transform: scale($scale);
+  transition: all $duration ease;
+}
+
+$amount-color: #4c4c4c;
+$give-away-color: #fff;
+$desc-color: #717171;
+$line-color: #9e9e9e;
+
+.stored-value {
+  background-color: white;
+
+  .stored-value-card-container {
+    height: 320rpx;
+
+    .swiper-item {
+      @include absolutely-center;
+      border-radius: 50rpx;
+
+      .stored-value-card {
+        position: relative;
+        width: 500rpx;
+        height: 285rpx;
+        @include absolutely-center;
+        flex-direction: column;
+
+        .stored-value-card-image {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 285rpx;
+        }
+
+        .stored-value-card-amount-container {
+          position: relative;
+          z-index: 999;
+          width: 100%;
+          display: flex;
+          align-items: baseline;
+          // background-color: chocolate;
+          padding: 0 60rpx;
+          box-sizing: border-box;
+
+          .stored-value-card-amount {
+            color: $amount-color;
+            font-size: 60rpx;
+            line-height: 60rpx;
+            font-weight: bold;
+          }
+
+          .stored-value-card-currency-unit {
+            margin-left: 5rpx;
+            color: $amount-color;
+            font-size: 40rpx;
+            line-height: 40rpx;
+          }
+
+          .stored-value-card-give-away {
+            // margin-left: 5rpx;
+            line-height: 30rpx;
+            color: $give-away-color;
+            font-size: 30rpx;
+            text-shadow: 1px 1px 1px #000, -1px -1px 1px #fff;
+          }
+        }
+
+        .stored-value-card-desc {
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          box-sizing: border-box;
+          width: 100%;
+          padding: 0 20rpx 20rpx;
+          line-height: 30rpx;
+          color: $desc-color;
+          font-size: 30rpx;
+          text-align: right;
+        }
+      }
+
+      .select {
+        @include scale-animation(1, 0.5s);
+      }
+
+      .unselect {
+        @include scale-animation(0.85, 0.5s);
+      }
+    }
+  }
+
+  .stored-value-text-container {
+    width: 100%;
+    margin: 20rpx 0;
+    @include absolutely-center;
+
+    .stored-value-text {
+      position: relative;
+      margin: 0 10rpx;
+      padding: 0 5rpx;
+      color: $amount-color;
+      font-size: 30rpx;
+      line-height: 40rpx;
+      height: 40rpx;
+    }
+
+    .select-text {
+      text-shadow: 1px 1px 1px $amount-color, -1px -1px 1px #fff;
+      // text-shadow: -1px -1px 1px #000, 1px 1px 1px #fff;
+      font-weight: bold;
+      transition: all 0.5s ease;
+    }
+
+    .unselect-text {
+      text-shadow: none;
+      font-weight: normal;
+      transition: all 0.1s ease;
+    }
+
+    .select-text::after {
+      position: absolute;
+      content: '';
+      left: 0;
+      bottom: -10rpx;
+      width: 100%;
+      height: 10rpx;
+      background-color: $logo-color;
+      transition: all 0.5s ease;
+    }
+
+    .unselect-text::after {
+      position: absolute;
+      content: '';
+      left: 0;
+      bottom: -10rpx;
+      width: 100%;
+      height: 0;
+      background-color: $logo-color;
+      transition: all 0.5s ease;
+    }
+  }
+
+  .stored-value-record-container {
+    position: relative;
+    width: 750rpx;
+    margin: 30rpx auto 10rpx;
+    height: calc(100vh - env(safe-area-inset-bottom) - 600rpx);
+    background-color: #ebebeb;
+    // border-radius: 20rpx;
+    box-shadow: inset 0rpx 0rpx 20rpx 10rpx #999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 30rpx 0 10rpx;
+
+    .stored-value-record-cell {
+      width: 600rpx;
+      display: grid;
+      grid-template-columns: 450rpx 150rpx;
+      grid-template-rows: 60rpx 50rpx;
+      grid-auto-flow: column;
+      border-bottom: 1rpx solid $line-color;
+      box-sizing: border-box;
+      padding: 20rpx 0;
+
+      .stored-value-record-cell-desc {
+        line-height: 60rpx;
+        font-size: 35rpx;
+        color: $amount-color;
+      }
+
+      .stored-value-record-cell-amount {
+        line-height: 60rpx;
+        font-size: 35rpx;
+        // background-color: burlywood;
+        text-align: right;
+        font-weight: bold;
+        // grid-row-start: 1;
+        // grid-row-end: 3;
+      }
+
+      .stored {
+        color: $unit-color;
+      }
+
+      .consume {
+        color: black;
+      }
+
+      .stored-value-record-cell-time {
+        line-height: 50rpx;
+        font-size: 25rpx;
+        color: $desc-color;
+      }
+
+      .stored-value-record-cell-aditional-amount {
+        line-height: 50rpx;
+        font-size: 30rpx;
+        text-align: right;
+      }
+    }
+
+    .stored-value-record-cell:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .stored-value-footer {
+    position: fixed;
+    left: 0;
+    bottom: calc(env(safe-area-inset-bottom) + 40rpx);
+    width: 750rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .stored-value-footer-pay {
+      width: 600rpx;
+      height: 80rpx;
+      font-size: 40rpx;
+      line-height: 80rpx;
+      background-color: $logo-color;
+      color: white;
+      text-align: center;
+      border-radius: 10rpx;
+    }
+
+    .protocol {
+      margin-top: 10rpx;
+      line-height: 40rpx;
+
+      .protocol-link {
+        color: $logo-color;
+      }
+    }
+  }
+}

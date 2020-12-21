@@ -1,0 +1,143 @@
+html {
+  padding: 0;
+  margin: 0;
+}
+
+.font-label, .frequently-asked-questions .header-card .header-card-left .customer-service-label, .frequently-asked-questions .questions-label, .frequently-asked-questions .questions-list .question-cell .question .question-content {
+  font-size: 30rpx;
+  line-height: 40rpx;
+  color: #5e5e5e;
+  font-weight: bold;
+}
+
+.answer-font, .frequently-asked-questions .questions-list .question-cell .answer {
+  font-size: 25rpx;
+  line-height: 35rpx;
+  color: #5e5e5e;
+}
+
+page {
+  background-color: #ededed;
+}
+
+.frequently-asked-questions {
+  position: relative;
+  width: 100%;
+}
+
+.frequently-asked-questions .header-card {
+  box-sizing: border-box;
+  width: 680rpx;
+  height: 150rpx;
+  margin: 30rpx auto 0;
+  background-color: white;
+  border: 1rpx solid transparent;
+  border-radius: 30rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.frequently-asked-questions .header-card .header-card-left {
+  display: flex;
+  align-items: center;
+  width: 340rpx;
+  height: 150rpx;
+}
+
+.frequently-asked-questions .header-card .header-card-left .customer-service-icon {
+  display: block;
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.frequently-asked-questions .header-card .header-card-left .customer-service-label {
+  margin-left: 20rpx;
+}
+
+.frequently-asked-questions .header-card .header-card-right {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  width: 340rpx;
+  height: 150rpx;
+}
+
+.frequently-asked-questions .header-card .header-card-right .arrow-icon {
+  display: inline-block;
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.frequently-asked-questions .header-card .header-card-right .contact-label {
+  margin-right: 20rpx;
+  width: 160rpx;
+  font-size: 30rpx;
+  line-height: 40rpx;
+  color: #80ba64;
+  font-weight: bold;
+}
+
+.frequently-asked-questions .questions-label {
+  width: 680rpx;
+  margin: 30rpx auto 0;
+}
+
+.frequently-asked-questions .questions-list {
+  position: relative;
+  box-sizing: border-box;
+  width: 680rpx;
+  margin: 30rpx auto 30rpx;
+  padding: 10rpx 20rpx;
+  background-color: white;
+  border: 1rpx solid transparent;
+  border-radius: 30rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.frequently-asked-questions .questions-list .question-cell {
+  width: 100%;
+  padding: 30rpx 0;
+  box-sizing: border-box;
+  border-bottom: 1px solid #ebebeb;
+}
+
+.frequently-asked-questions .questions-list .question-cell .question {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.frequently-asked-questions .questions-list .question-cell .question .question-content {
+  width: 580rpx;
+}
+
+.frequently-asked-questions .questions-list .question-cell .question .arrow {
+  display: inline-block;
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.frequently-asked-questions .questions-list .question-cell .question .arrow-down {
+  transform: rotate(0deg);
+  transition: transform 0.5s;
+}
+
+.frequently-asked-questions .questions-list .question-cell .question .arrow-up {
+  transform: rotate(180deg);
+  transition: transform 0.5s;
+}
+
+.frequently-asked-questions .questions-list .question-cell .answer {
+  display: block;
+  position: relative;
+  margin-top: 20rpx;
+  width: 100%;
+}
+
+.frequently-asked-questions .questions-list .question-cell:last-child {
+  border-bottom: none;
+}

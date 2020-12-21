@@ -1,0 +1,31 @@
+<wxs module="filter" src="../../../utils/filter.wxs"></wxs>
+<view class="container">
+  <view class="d-flex box">
+    <view class="tt">￥</view>
+    <input type="digit" value="{{amount}}" bindinput="changeInput" placeholder="请输入提现金额" />
+  </view>
+  <view class="d-flex info">
+    <view>可提现金额￥{{filter.changeTwoDecimal(remainingIncome)}}</view>
+    <view class="txt" bindtap="ruleBtn">提现规则</view>
+  </view>
+  <button class="btn {{disabled ? 'disabled' : ''}}" bindtap="submitBtn">提现到微信钱包</button>
+  <navigator class="link" url="/pages/generalize/earnings/earnings?type=9" hover-class="none">提现记录</navigator>
+  <view class="modal {{ruleVisible?'show':''}}">
+    <view class="bg" bindtap="closeBtn"></view>
+    <view class="body">
+      <view class="tt">-提现说明-</view>
+      <view class="txt">
+        <view>提现方式：</view>
+        <text>平台商户/分销商/合伙人提现可为：微信（由平台专人进行处理，到账快）</text>
+        <view>提现金额：</view>
+        <text>为减少提现处理时间，我们的最低提现金额为：100元。 如您账号不足该金额则无法进行提现，感谢您的信赖！</text>
+        <view>提现额度：</view>
+        <text>同一用户每日提现申请次数上限为：10次；单日提现申请金额上限：5000元，请知晓！</text>
+        <view>提现处理时间：</view>
+        <text>处理到账时间3个工作日内。如迟迟未到账可联系在线客服进行核查处理！</text>
+        <view>提示：如在平台推广中，有恶意刷单，刷用户等违规行为，我们有权冻结您的平台账户以及有权终止您的提现服务，如金额巨大我们将提交至公安机关处理！</view>
+      </view>
+      <image class="closeBtn" bindtap="closeBtn" src="/static/generalize/ico_close.png"></image>
+    </view>
+  </view>
+</view>

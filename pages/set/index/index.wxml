@@ -1,0 +1,32 @@
+<!--pages/set/set.wxml-->
+<view class="container">
+  <view class="title">功能</view>
+  <view class="list">
+    <button class="item d-flex" hover-class="none" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+      <view class="tt-ico"><text class="iconfont icon-shouji"></text></view>
+      <view class="tt">绑定手机</view>
+      <view class="txt"></view>
+      <view class="other"><text class="iconfont icon-jiantou"></text></view>
+    </button>
+    <navigator url="/pages/set/site/site" hover-class="none" class="item d-flex">
+      <view class="tt-ico"><text class="iconfont icon-dizhi"></text></view>
+      <view class="tt">地址管理</view>
+      <view class="other"><text class="iconfont icon-jiantou"></text></view>
+    </navigator>
+    <view class="item d-flex">
+      <view class="tt-ico"><text class="iconfont icon-tongzhi"></text></view>
+      <view class="tt">消息通知</view>
+      <view class="other"><text class="iconfont icon-jiantou"></text></view>
+    </view>
+    <view class="item d-flex" bindtap="clearBtn">
+      <view class="tt-ico"><text class="iconfont icon-qinglihuancun"></text></view>
+      <view class="tt">清除缓存</view>
+      <view class="other"><text class="iconfont icon-jiantou"></text></view>
+    </view>
+    <navigator url="/pages/set/aboutUs/aboutUs" hover-class="none" class="item d-flex">
+      <view class="tt-ico"><text class="iconfont icon-guanyuwomen"></text></view>
+      <view class="tt">关于我们</view>
+      <view class="other"><text class="iconfont icon-jiantou"></text></view>
+    </navigator>
+  </view>
+</view>

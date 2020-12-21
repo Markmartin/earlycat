@@ -1,0 +1,24 @@
+<view class="list">
+  <view class="item" wx:for="{{addressList}}" wx:key="id" bindtap="addressAddOrUpdate" data-address-id="{{item.id}}">
+    <view class="d-flex box1">
+      <view class="name">{{item.name}}</view>
+      <view>{{item.tel}}</view>
+    </view>
+    <view class="d-flex box2">
+      <view>{{item.province}}{{item.city}}{{item.county}}{{item.addressDetail}}</view>
+      <view><text class="iconfont icon-jiantou"></text></view>
+    </view>
+    <!-- <view class="d-flex box3">
+      <view>邮编：2000</view>
+    </view> -->
+    <view class="d-flex box4">
+      <view class="site-set {{item.isDefault?'current':''}}" catchtap="setDefault">
+        <view class="d-flex">
+          <view class="radio"><text class="iconfont icon-duigou"></text></view>
+          <view>{{item.isDefault?'默认地址':'设为默认'}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="add-site"><view bindtap="addressAddOrUpdate" data-address-id="0">添加新地址</view></view>

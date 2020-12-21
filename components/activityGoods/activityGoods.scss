@@ -1,0 +1,178 @@
+@import '../../style/common.scss';
+
+$back-color: #f0f0f0;
+
+.activity-goods {
+  position: relative;
+  width: 345rpx;
+  margin-top: 10rpx;
+
+  .activity-goods-container {
+    width: 100%;
+    background-color: $back-color;
+    border: 1rpx solid transparent;
+    border-radius: 10rpx;
+    flex-direction: column;
+    align-items: center;
+
+    .goods-image-container {
+      display: block;
+      margin: 0 auto;
+      border-top-left-radius: 10rpx;
+      border-top-right-radius: 10rpx;
+      width: 345rpx;
+      height: 345rpx;
+
+      .goods-image {
+        display: block;
+        margin: 0 auto;
+        border-top-left-radius: 10rpx;
+        border-top-right-radius: 10rpx;
+        width: 345rpx;
+        height: 345rpx;
+      }
+
+      .goods-image-mask {
+        width: 345rpx;
+        height: 345rpx;
+        line-height: 345rpx;
+        text-align: center;
+        font-size: 35rpx;
+        font-weight: bold;
+        border-top-left-radius: 10rpx;
+        border-top-right-radius: 10rpx;
+        background-color: rgba($color: #000000, $alpha: 0.3);
+        color: white;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+    }
+
+    .goods-name {
+      width: 100%;
+      box-sizing: border-box;
+      text-align: left;
+      padding: 0 10rpx;
+      margin-top: 20rpx;
+      font-size: 30rpx;
+      line-height: 40rpx;
+      height: 80rpx;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: black;
+      font-weight: bold;
+    }
+
+    .goods-description {
+      width: 100%;
+      box-sizing: border-box;
+      text-align: left;
+      padding: 0 10rpx;
+      // margin-top: 10rpx;
+      font-size: 25rpx;
+      line-height: 30rpx;
+      height: 60rpx;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .goods-footer {
+      width: 100%;
+      box-sizing: border-box;
+      // margin-top: 10rpx;
+      padding: 0 10rpx;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .price {
+        color: $theme-color;
+        font-size: 35rpx;
+        line-height: 100rpx;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .cart {
+        display: block;
+        width: 100rpx;
+        height: 100rpx;
+      }
+    }
+  }
+
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: space-between;
+  // margin-top: 20rpx;
+
+  // .activity-goods-image {
+  //   width: 100%;
+  //   height: 250rpx;
+  //   border: 1rpx solid transparent;
+  //   border-top-left-radius: 30rpx;
+  //   border-top-right-radius: 30rpx;
+  // }
+
+  // .activity-goods-container {
+  //   // margin-top: 10rpx;
+  //   padding: 15rpx 0;
+  //   width: 100%;
+  //   height: 110rpx;
+  //   display: flex;
+  //   justify-content: space-around;
+  //   align-items: center;
+
+  //   .activity-goods-text {
+  //     width: 220rpx;
+  //     height: 120rpx;
+  //     display: flex;
+  //     flex-direction: column;
+  //     justify-content: center;
+
+  //     .activity-goods-name {
+  //       display: block;
+  // font-size: 30rpx;
+  // line-height: 40rpx;
+  //       width: 220rpx;
+
+  // display: -webkit-box;
+  // -webkit-box-orient: vertical;
+  // -webkit-line-clamp: 2;
+  // overflow: hidden;
+  // text-overflow: ellipsis;
+  //     }
+
+  //     .activity-goods-unit {
+  //       display: block;
+  //       font-size: 30rpx;
+  //       line-height: 40rpx;
+  //       color: $unit-color;
+  //     }
+  //   }
+
+  //   .activity-goods-cart-back {
+  //     width: 70rpx;
+  //     height: 70rpx;
+  //     background-color: $theme-color;
+  //     border: 1rpx solid transparent;
+  //     border-radius: 35rpx;
+  //     display: flex;
+  //     justify-content: center;
+  //     align-items: center;
+
+  //     .activity-goods-cart {
+  //       width: 60rpx;
+  //       height: 60rpx;
+  //     }
+  //   }
+  // }
+}

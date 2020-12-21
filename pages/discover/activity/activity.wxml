@@ -1,0 +1,4 @@
+<!--pages/discover/activity/activity.wxml-->
+<view class="container">
+  {{detailsData}}
+</view>

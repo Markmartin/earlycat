@@ -1,0 +1,84 @@
+<!--pages/community/details/details.wxml-->
+<view class="container">
+  <view class="details-head d-flex">
+    <view class="avatar"><image src="{{detailsData.userInfo.avatar}}"></image></view>
+    <view class="info">
+      <view class="name">{{detailsData.userInfo.nickname}}</view>
+      <view class="box1">
+        <view class=""></view>
+        <view class="time">{{detailsData.addTime}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="details-cont">
+    <view class="txt">{{detailsData.moment}}</view>
+    <view class="pic-list d-flex {{detailsData.picUrls.length === 1 ? 'pic-list-1' : ''}} {{detailsData.picUrls.length === 2 ? 'pic-list-2' : ''}} {{detailsData.picUrls.length > 2 ? 'pic-list-3' : ''}}" wx:if="{{detailsData.hasPicture && detailsData.picUrls.length > 0}}">
+    <image class="pic-item" src="{{imgItem}}" wx:for="{{detailsData.picUrls}}" wx:for-item="imgItem" wx:key="*this" data-list="{{detailsData.picUrls}}" data-src="{{imgItem}}" bindtap="imgPreview" mode="aspectFill" lazy-load></image>
+    </view>
+    <view class="browse">{{detailsData.views}}次阅读</view>
+  </view>
+  <view class="details-footer">
+    <view class="d-flex">
+      <view class="input"><text>写评论...</text></view>
+      <view class="icons-btn"><text class="iconfont icon-fenxiang"></text><view class="number"></view></view>
+      <view class="icons-btn"><text class="iconfont icon-pinglun"></text><view class="number"></view></view>
+      <view class="icons-btn"><text class="iconfont icon-xihuan"></text><view class="number"></view></view>
+    </view>
+  </view>
+  <view class="details-tool">
+    <view class="details-nav d-flex">
+      <!-- <view class="item {{type === 'share' ? 'current' : ''}}" data-type="share" bindtap="clickNav"><text>分享 {{detailsData.shares}}</text></view> -->
+      <view class="item {{type === 'comment' ? 'current' : ''}}" data-type="comment" bindtap="clickNav"><text>评论 {{detailsData.comments}}</text></view>
+      <view class="item {{type === 'like' ? 'current' : ''}}" data-type="like" bindtap="clickNav"><text>点赞 {{detailsData.likes}}</text></view>
+    </view>
+    <view class="details-nav-cont" style="height: {{detailsToolHeight}}px;">
+      <!-- <scroll-view scroll-y style="height: {{detailsToolHeight}}px; display: {{type === 'share' ? 'block' : 'none'}}" bindscrolltolower="getShare">
+        <view class="comment-list">
+          <view class="item d-flex" wx:for="{{share_list}}" wx:key="{{item.id}}">
+            <view class="avatar"><image src="{{item.userInfo.avatar}}"></image></view>
+            <view class="cont">
+              <view class="name">{{item.userInfo.nickname}}</view>
+              <view class="txt">{{item.content}}</view>
+              <view class="time">{{item.addTime}}</view>
+            </view>
+          </view>
+        </view>
+        <view class="loading" wx:if="{{share_loading}}">正在加载中--分享</view>
+      </scroll-view> -->
+      <scroll-view scroll-y style="height: {{detailsToolHeight}}px; display: {{type === 'comment' ? 'block' : 'none'}}" bindscrolltolower="getComment">
+        <view class="comment-list">
+          <view class="item d-flex" wx:for="{{comment_list}}" wx:key="{{item.id}}">
+            <view class="avatar"><image src="{{item.userInfo.avatar}}"></image></view>
+            <view class="cont">
+              <view class="name">{{item.userInfo.nickname}}</view>
+              <view class="txt">{{item.content}}</view>
+              <view class="time">{{item.addTime}}</view>
+            </view>
+          </view>
+        </view>
+        <view class="loading" wx:if="{{comment_loading}}">正在加载中--评论</view>
+      </scroll-view>
+      <scroll-view scroll-y style="height: {{detailsToolHeight}}px; display: {{type === 'like' ? 'block' : 'none'}}" bindscrolltolower="getLike">
+        <view class="like-list">
+          <view class="item d-flex" wx:for="{{like_list}}" wx:key="{{item.id}}">
+            <view class="avatar"><image src="{{item.userInfo.avatar}}"></image></view>
+            <view class="cont">{{item.userInfo.nickname}}</view>
+          </view>
+        </view>
+        <view class="loading" wx:if="{{like_loading}}">正在加载中--点赞</view>
+      </scroll-view>
+    </view>
+  </view>
+  <view class="details-footer">
+    <view class="d-flex box1 {{!detailsFooter ? 'none' : ''}}">
+      <view class="input" bindtap="detailsFooterMethod" data-flage="true"><text>写评论...</text></view>
+      <button open-type="share" hover-class="none" class="icons-btn"><text class="iconfont icon-fenxiang"></text></button>
+      <view class="icons-btn" bindtap="commentBtn"><text class="iconfont icon-pinglun"></text><view class="number">{{detailsData.comments}}</view></view>
+      <view class="icons-btn" bindtap="likeBtn"><text class="iconfont icon-xihuan {{detailsData.liked ? 'icon-xihuan-true' : ''}}"></text></view>
+    </view>
+    <view class="d-flex box2 {{detailsFooter ? 'none' : ''}}">
+      <input placeholder="优质评论将会被优先展示" placeholder-style="color:#b9b9b9" data-flage="false" focus name="input" bindblur="detailsFooterMethod" bindinput="bindInput" focus="{{!detailsFooter}}" value="{{inputValue}}"></input>
+      <button bindtap="bindFormSubmit">发布</button>
+    </view>
+  </view>
+</view>

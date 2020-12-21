@@ -1,0 +1,14 @@
+<view class="container">
+  <scroll-view class="topic-list" scroll-y="true" scroll-top="{{scrollTop}}">
+    <navigator class="item" wx:for="{{topicList}}" wx:key="id" url="../topicDetail/topicDetail?id={{item.id}}">
+      <image class="img" src="{{item.picUrl}}"></image>
+      <view class="info">
+        <view class="title">{{item.title}}</view>
+        <view class="d-flex">
+          <view class="txt flex1">{{item.subtitle}}</view>
+          <view class="browse">{{item.readCount}}浏览</view>
+        </view>
+      </view>
+    </navigator>
+  </scroll-view>
+</view>

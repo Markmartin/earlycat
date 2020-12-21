@@ -1,0 +1,42 @@
+html {
+  padding: 0;
+  margin: 0;
+}
+
+.more-goods .list-container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 750rpx;
+  height: 100vh;
+}
+
+.more-goods .list-container .goods {
+  padding: 10rpx 20rpx;
+}
+
+.more-goods .list-container .goods .title-container {
+  width: 100%;
+  border-bottom: 1px solid #80ba64;
+  display: flex;
+  justify-content: center;
+}
+
+.more-goods .list-container .goods .title-container .title {
+  padding: 5rpx 40rpx;
+  font-size: 35rpx;
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+  text-align: center;
+  color: white;
+  background-color: #80ba64;
+}
+
+.more-goods .list-container .goods .activity-goods-list-container {
+  width: 710rpx;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}

@@ -1,0 +1,218 @@
+@import '../../style/common.scss';
+
+.homepage {
+  .header {
+    position: fixed;
+    width: 750rpx;
+    background-color: black;
+    top: -10rpx;
+    height: 100rpx;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    .address-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      width: 70rpx;
+
+      .navigator {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100rpx;
+        z-index: 999;
+      }
+
+      // .address {
+      //   padding: 0 10rpx 0 20rpx;
+      //   font-size: 35rpx;
+      //   color: white;
+      // }
+
+      .icon-location {
+        display: block;
+        padding: 0 10rpx;
+        width: 60rpx;
+        height: 55rpx;
+      }
+    }
+
+    .search-container {
+      margin-left: 20rpx;
+      width: 600rpx;
+      height: 70rpx;
+      border-radius: 35rpx;
+      background-color: white;
+    }
+  }
+
+  .address-layer {
+    position: fixed;
+    top: 110rpx;
+    left: 10rpx;
+    max-width: 250rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    // -ms-text-overflow: ellipsis;
+    white-space: nowrap;
+    // height: 100rpx;
+    border-radius: 20rpx;
+    color: white;
+    line-height: 40rpx;
+    padding: 5rpx 20rpx;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+    z-index: 999;
+  }
+
+  .content {
+    position: fixed;
+    width: 100%;
+    top: 100rpx;
+    height: calc(100vh - 100rpx);
+    background-color: white;
+
+    .banner {
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .features {
+      @include absolutely-center;
+      width: 100%;
+      height: 70rpx;
+      box-sizing: border-box;
+      padding: 10rpx 0;
+
+      .feature-text {
+        color: $theme-color;
+        padding: 0 20rpx;
+        line-height: 40rpx;
+        font-size: 35rpx;
+        border-right: 1px solid $theme-color;
+      }
+
+      .feature-text:last-child {
+        border-right: none;
+      }
+    }
+
+    .category {
+      position: relative;
+      width: 750rpx;
+      margin: 10rpx auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: space-between;
+      background-color: white;
+
+      .item {
+        margin-top: 10rpx;
+        width: 20%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+        .item-icon {
+          display: block;
+          width: 130rpx;
+          height: 130rpx;
+        }
+
+        .item-label {
+          width: 100%;
+          text-align: center;
+          font-size: 30rpx;
+          font-weight: bold;
+          color: #5e5e5e;
+        }
+      }
+    }
+
+    // 通用title
+    .title-container {
+      width: 100%;
+      border-bottom: 1px solid $theme-color;
+      display: flex;
+      justify-content: center;
+
+      .title {
+        padding: 5rpx 40rpx;
+        font-size: 35rpx;
+        border-top-left-radius: 20rpx;
+        border-top-right-radius: 20rpx;
+        text-align: center;
+        color: white;
+        background-color: $theme-color;
+      }
+    }
+
+    // 活动商品列表
+    .activity-goods-list-container {
+      width: 710rpx;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .more {
+      width: 710rpx;
+      margin: 20rpx auto 30rpx;
+      text-align: center;
+      line-height: 60rpx;
+      font-size: 40rpx;
+      border: 1px solid $theme-color;
+      border-radius: 30rpx;
+      color: $theme-color;
+    }
+
+    .limited-time-special-offer {
+      padding: 10rpx 20rpx;
+
+      .count-down-container {
+        margin-top: 20rpx;
+        margin-bottom: 20rpx;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .right-space {
+          margin-right: 15rpx;
+        }
+
+        .colon {
+          width: 30rpx;
+          text-align: center;
+        }
+
+        .border-count-down {
+          text-align: center;
+          width: 40rpx;
+          padding: 5rpx 10rpx;
+          color: white;
+          background-color: black;
+          border-radius: 10rpx;
+        }
+      }
+    }
+
+    .hot-goods {
+      padding: 10rpx 20rpx;
+    }
+
+    .new-goods {
+      padding: 10rpx 20rpx;
+    }
+
+    .pre-sale {
+      padding: 10rpx 20rpx;
+    }
+  }
+}

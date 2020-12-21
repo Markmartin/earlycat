@@ -1,0 +1,187 @@
+html {
+  padding: 0;
+  margin: 0;
+}
+
+.address-new .title-container {
+  margin: 0 20rpx;
+  border-bottom: 1px solid #80ba64;
+  display: flex;
+  justify-content: center;
+}
+
+.address-new .title-container .title {
+  padding: 5rpx 40rpx;
+  font-size: 35rpx;
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+  text-align: center;
+  color: white;
+  background-color: #80ba64;
+}
+
+.address-new .form-container {
+  margin-top: 20rpx;
+  width: 710rpx;
+  margin: 0 auto;
+}
+
+.address-new .form-container .form-item {
+  margin-top: 20rpx;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.address-new .form-container .form-item .checkbox {
+  margin-left: 30rpx;
+}
+
+.address-new .form-container .form-item .form-item-label {
+  display: inline-block;
+  width: 150rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 35rpx;
+  color: #80ba64;
+  text-align: center;
+}
+
+.address-new .form-container .form-item .form-item-wrapper {
+  display: inline-block;
+  margin-left: 10rpx;
+  width: 500rpx;
+  height: 70rpx;
+  border: 1px solid #9b9b9b;
+  border-radius: 35rpx;
+  padding: 0 30rpx;
+}
+
+.address-new .form-container .form-item .form-item-wrapper .form-item-input {
+  width: 480rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  display: inline-block;
+}
+
+.address-new .form-container .form-item .form-item-wrapper-textarea {
+  display: inline-block;
+  margin-left: 10rpx;
+  margin-top: 10rpx;
+  width: 500rpx;
+  height: 140rpx;
+  border: 1px solid #9b9b9b;
+  border-radius: 35rpx;
+  padding: 20rpx 30rpx;
+}
+
+.address-new .form-container .form-item .form-item-wrapper-textarea .form-item-textarea {
+  width: 480rpx;
+  height: 140rpx;
+  display: inline-block;
+}
+
+.address-new .form-container .form-item .form-item-wrapper-location {
+  display: inline-block;
+  width: 350rpx;
+  margin-left: 10rpx;
+  height: 70rpx;
+  border: 1px solid #9b9b9b;
+  border-radius: 35rpx;
+  padding: 0 30rpx;
+}
+
+.address-new .form-container .form-item .form-item-wrapper-location .form-item-wrapper-location-input {
+  width: 330rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  display: inline-block;
+}
+
+.address-new .form-container .form-item .form-location-container {
+  margin-left: 10rpx;
+  width: 140rpx;
+  border: 1px solid transparent;
+  text-align: center;
+  height: 70rpx;
+  line-height: 70rpx;
+  border-radius: 35rpx;
+  background-color: #80ba64;
+  color: white;
+}
+
+.address-new .form-container .form-item .form-item-container {
+  display: inline-block;
+  margin-left: 10rpx;
+  width: 550rpx;
+  height: 70rpx;
+}
+
+.address-new .form-container .form-item .form-item-container .button {
+  display: inline-block;
+  font-size: 35rpx;
+  line-height: 60rpx;
+  height: 60rpx;
+  width: 250rpx;
+  color: white;
+  text-align: center;
+  border-radius: 30rpx;
+}
+
+.address-new .form-container .form-item .form-item-container .button + .button {
+  margin-left: 10rpx;
+}
+
+.address-new .form-container .form-item .form-item-container .tag {
+  display: inline-block;
+  font-size: 35rpx;
+  line-height: 60rpx;
+  height: 60rpx;
+  width: 160rpx;
+  color: white;
+  text-align: center;
+  border-radius: 30rpx;
+}
+
+.address-new .form-container .form-item .form-item-container .tag + .tag {
+  margin-left: 10rpx;
+}
+
+.address-new .form-container .form-item .form-item-container .selected {
+  background-color: #80ba64;
+}
+
+.address-new .form-container .form-item .form-item-container .unselected {
+  background-color: #d3d3d3;
+}
+
+.address-new .footer {
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
+.address-new .footer .button {
+  width: 50%;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  color: white;
+}
+
+.address-new .footer .cancle {
+  background-color: #d3d3d3;
+}
+
+.address-new .footer .save {
+  background-color: #80ba64;
+}
+
+.address-new .address-picker {
+  width: 750rpx;
+  height: 100vh;
+}

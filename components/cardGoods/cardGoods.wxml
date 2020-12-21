@@ -1,0 +1,13 @@
+<!--components/cardGoods/cardGoods.wxml-->
+<view class="card-goods" bindtap="gotoGoodsDetail">
+  <view class="card-goods-container">
+    <view class="goods-image-container">
+      <view class="goods-image-mask" wx:if="{{!canBuy && !isGroup}}">抢光了</view>
+      <image class="goods-image" src="{{imageUrl}}"></image>
+    </view>
+    <view class="card-goods-footer">
+      <view class="price">{{goodsPrice}}元/{{unit}}</view>
+      <view class="original-price">原价：{{goodsOriginalPrice}}</view>
+    </view>
+  </view>
+</view>

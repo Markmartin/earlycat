@@ -1,0 +1,120 @@
+html {
+  padding: 0;
+  margin: 0;
+}
+
+.after-sale-order-cell {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 20rpx;
+}
+
+.after-sale-order-cell .cell-header {
+  width: 100%;
+  height: 50rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.after-sale-order-cell .cell-header .order-no {
+  font-size: 30rpx;
+  line-height: 30rpx;
+}
+
+.after-sale-order-cell .cell-header .order-status {
+  color: #b4282d;
+  font-size: 30rpx;
+  line-height: 30rpx;
+}
+
+.after-sale-order-cell .goods-list {
+  margin-top: 10rpx;
+  width: 100%;
+}
+
+.after-sale-order-cell .goods-list .goods {
+  display: flex;
+  align-items: center;
+  height: 220rpx;
+  border-top: 1px solid #ececec;
+  border-bottom: 1px solid #ececec;
+}
+
+.after-sale-order-cell .goods-list .goods .goods-image-container {
+  width: 200rpx;
+  height: 200rpx;
+}
+
+.after-sale-order-cell .goods-list .goods .goods-image-container .goods-icon {
+  position: absolute;
+  left: 0;
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.after-sale-order-cell .goods-list .goods .goods-image-container .goods-image {
+  width: 200rpx;
+  height: 200rpx;
+}
+
+.after-sale-order-cell .goods-list .goods .goods-info {
+  box-sizing: border-box;
+  width: 390rpx;
+  height: 200rpx;
+  padding: 10rpx 20rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.after-sale-order-cell .goods-list .goods .goods-info .goods-name {
+  line-height: 40rpx;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+
+.after-sale-order-cell .goods-list .goods .goods-info .goods-number {
+  margin-top: 10rpx;
+  line-height: 30rpx;
+  font-size: 25rpx;
+}
+
+.after-sale-order-cell .goods-list .goods .goods-refund-amount {
+  width: 120rpx;
+  height: 200rpx;
+}
+
+.after-sale-order-cell .goods-list .goods .goods-refund-amount .refund-amount-label {
+  text-align: right;
+}
+
+.after-sale-order-cell .goods-list .goods .goods-refund-amount .refund-amount {
+  padding: 10rpx 0;
+  text-align: right;
+  color: #b4282d;
+  font-size: 30rpx;
+  line-height: 30rpx;
+}
+
+.after-sale-order-cell .cell-footer {
+  width: 100%;
+  height: 50rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.after-sale-order-cell .cell-footer .order-refund-number {
+  font-size: 30rpx;
+  line-height: 30rpx;
+}
+
+.after-sale-order-cell .cell-footer .order-refund-amount {
+  font-size: 30rpx;
+  line-height: 30rpx;
+}
+
+.after-sale-order-cell .cell-footer .order-refund-amount .amout {
+  color: #b4282d;
+}

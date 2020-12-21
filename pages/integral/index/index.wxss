@@ -1,0 +1,5 @@
+.jf-head{
+  height: 300rpx;
+  background: #cbcccc;
+  text-align: center;
+}

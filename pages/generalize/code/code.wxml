@@ -1,0 +1,11 @@
+<view class="container">
+  <image wx:if="{{userInfo.userCodeUrl}}" src="{{userInfo.userCodeUrl}}" mode="widthFix"
+    data-src="{{userInfo.userCodeUrl}}" data-list="{{[userInfo.userCodeUrl]}}" bindtap="imgPreview"></image>
+  <view class="tt"><text class="dot1" style="margin-right: 13.2rpx;"></text><text class="dot2"
+      style="margin-right:16.8rpx"></text>朝菜猫推广规则<text class="dot2"
+      style="margin-right: 13.2rpx;margin-left:16.8rpx"></text><text class="dot1"></text></view>
+  <view class="txt">1.通过朝菜猫推广码注册到平台的用户，归属于该推广用户。</view>
+  <!-- <view class="txt">2.每增加一个推广用户，平台奖励所属用户金额2元，用户首单再奖励6元，复购单每单奖励用户金额为1.5元。</view> -->
+  <view class="txt">2.如发现有恶意刷的行为，朝菜猫有权不发放或撤回发放的奖励，并保留追究法律责任的权利。</view>
+  <view class="txt">3.此活动解释权归朝菜猫所有。</view>
+</view>

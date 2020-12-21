@@ -1,0 +1,10 @@
+<!--pages/integral/index/index.wxml-->
+<view class="container">
+  <view class="jf-head">
+    <view>可用积分</view>
+    <view>12300</view>
+  </view>
+  <view class="nav d-flex">
+    <view class="item" wx:for="{{navList}}" wx:key="id" bindtap="navBtn">{{item.title}}</view>
+  </view>
+</view>

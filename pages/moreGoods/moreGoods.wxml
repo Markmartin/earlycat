@@ -1,0 +1,16 @@
+<!--pages/moreGoods/moreGoods.wxml-->
+<view class="more-goods">
+  <scroll-view class="list-container" scroll-y="true" enable-flex="true" bindscrolltolower="loadMoreGoods">
+    <view class="goods">
+      <view class="title-container" wx:if="{{title}}">
+        <view class="title">{{title}}</view>
+      </view>
+      <view class="activity-goods-list-container">
+        <activity-goods wx:for="{{goodsList}}" wx:key="index" goodsId="{{item.id}}" imageUrl="{{item.picUrl}}"
+          goodsName="{{item.title}}" goodsDescription="{{item.subtitle}}" goodsPrice="{{item.onlinePrice}}"
+          unit="{{item.unit}}" goodsOriginalPrice="{{item.counterPrice}}" canBuy="{{item.totalNumber>0?true:false}}">
+        </activity-goods>
+      </view>
+    </view>
+  </scroll-view>
+</view>

@@ -1,0 +1,95 @@
+<wxs module="filter" src="../../../utils/filter.wxs"></wxs>
+<view class="container">
+  <view class="head">
+    <view class="d-flex">
+      <view class="tt flex1">总单数</view>
+      <view class="picker d-flex" bindtap="filterShow">
+        <view>{{queryStartTime == '' ? '全部' : queryStartTime+'至'+queryEndTime}}</view>
+        <image src="/static/generalize/ico-select.png"></image>
+      </view>
+    </view>
+    <view class="number">{{totalOrders}}单</view>
+    <view class="txt d-flex">
+      <view class="flex1">首单数: {{firstOrders}}单</view>
+      <view class="flex1">复购单数: {{repeatOrders}}单</view>
+      <!-- <view class="flex1">无效单数: {{invalidOrders}}单</view> -->
+    </view>
+  </view>
+  <view class="nav d-flex">
+    <view class="flex1 {{item.value === status ? 'cur' : ''}}" bindtap="navBtn" data-idx="{{index}}"
+      wx:for="{{navList}}" wx:key="index"><text>{{item.name}}</text></view>
+  </view>
+  <view class="list">
+    <view class="item" wx:for="{{list}}" wx:key="index">
+      <view class="hd d-flex">
+        <view class="flex1 tt">提成金额 <text>￥{{filter.changeTwoDecimal(item.commission.amount)}}</text></view>
+        <view class="status" wx:if="{{item.commission.status === 0}}">即将到账</view>
+        <view class="status" wx:elif="{{item.commission.status === 1}}">已到账</view>
+        <view class="status" wx:else>无效订单</view>
+      </view>
+      <view class="user d-flex">
+        <image src="{{item.commission.orderUserAvatar}}" mode="aspectFill"></image>
+        <view class="name">{{item.commission.orderUserNickname}}</view>
+      </view>
+      <view class="txt">订单编号: {{item.commission.orderSn}}</view>
+      <view class="txt">下单时间: {{item.commission.addTime}}</view>
+      <view class="txt">订单状态: {{item.commission.orderStatus}}</view>
+      <view class="txt">实付金额: {{item.orderInfo.actualPrice}}</view>
+      <view class="detailsBtn {{item.showDetail ? 'show' : ''}}" bindtap="clickRow" data-idx="{{index}}">
+        <text>订单详情</text>
+        <image src="/static/generalize/ico_more.png"></image>
+      </view>
+      <view class="goods" wx:if="{{item.showDetail}}">
+        <view class="goods-item d-flex" wx:for="{{item.goodsList}}" wx:for-index="idx" wx:for-item="itemName">
+          <image src="{{itemName.picUrl}}" mode="aspectFill"></image>
+          <view class="cont flex1">
+            <view class="name">{{itemName.goodsName}}</view>
+            <view class="info">
+              <text>单价:￥{{itemName.price}}</text>数量:{{itemName.number}}
+            </view>
+          </view>
+          <view class="price">￥{{itemName.price * itemName.number}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="no-more" wx:if="{{page > pages && pages != 0}}">已经到底啦</view>
+  <view class="no-data" wx:if="{{list.length == 0 && !loading && pages == 0}}">
+    <image src="/static/generalize/no-order.png"></image>
+    <view>暂无订单数据~~</view>
+  </view>
+  <view class="filtrate {{filterFlag ? 'show' : ''}}">
+    <view class="box">
+      <view class="close">
+        <image bindtap="filterHide" src="/static/generalize/close.png"></image>
+      </view>
+      <view class="tt">交易时间</view>
+      <view class="cont">
+        <view class="item {{filterType == '0' ? 'cur' : ''}}" data-type="0" bindtap="filterSelect">查看全部</view>
+      </view>
+      <view class="tt">自定义</view>
+      <view class="cont d-flex">
+        <view class="item {{filterType == '1' ? 'cur' : ''}}" data-type="1" bindtap="filterSelect">
+          {{filterQueryStartTime == '' ? '-' : filterQueryStartTime}}</view>
+        <view class="to">至</view>
+        <view class="item {{filterType == '2' ? 'cur' : ''}}" data-type="2" bindtap="filterSelect">
+          {{filterQueryEndTime == '' ? '-' : filterQueryEndTime}}</view>
+      </view>
+      <view style="display:{{filterType != '0' ? 'block' : 'none'}}">
+        <picker-view indicator-style="height: 38px;" style="width: 100%; height: 100px;" value="{{value}}"
+          bindchange="bindDateChangeStart">
+          <picker-view-column>
+            <view wx:for="{{years}}" wx:key="index" style="line-height: 38px; text-align: center;">{{item}}年</view>
+          </picker-view-column>
+          <picker-view-column>
+            <view wx:for="{{months}}" wx:key="index" style="line-height: 38px; text-align: center;">{{item}}月</view>
+          </picker-view-column>
+          <picker-view-column>
+            <view wx:for="{{days}}" wx:key="index" style="line-height: 38px; text-align: center;">{{item}}日</view>
+          </picker-view-column>
+        </picker-view>
+      </view>
+      <button class="confirm" bindtap="confirmBtn">确定</button>
+    </view>
+  </view>
+</view>

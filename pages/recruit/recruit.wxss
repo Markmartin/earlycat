@@ -1,0 +1,172 @@
+html {
+  padding: 0;
+  margin: 0;
+}
+
+.selected {
+  background-color: #80ba64;
+}
+
+.unselected {
+  background-color: #d3d3d3;
+}
+
+.recruit {
+  position: relative;
+}
+
+.recruit .recruit-title-container {
+  margin: 0 20rpx;
+  border-bottom: 1px solid #80ba64;
+  display: flex;
+  justify-content: center;
+}
+
+.recruit .recruit-title-container .title {
+  padding: 5rpx 40rpx;
+  font-size: 35rpx;
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+  text-align: center;
+  color: white;
+  background-color: #80ba64;
+}
+
+.recruit .form {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10rpx 25rpx;
+}
+
+.recruit .form .form-item-top {
+  margin-top: 20rpx;
+}
+
+.recruit .form .form-item {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+}
+
+.recruit .form .form-item .form-item-label {
+  width: 200rpx;
+  height: 70rpx;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+.recruit .form .form-item .form-item-label .required {
+  margin-right: 5rpx;
+  font-size: 30rpx;
+  line-height: 30rpx;
+  color: red;
+}
+
+.recruit .form .form-item .form-item-label .label {
+  margin-right: 10rpx;
+  font-size: 30rpx;
+  line-height: 30rpx;
+  color: #80ba64;
+  font-weight: bold;
+}
+
+.recruit .form .form-item .form-item-wrapper {
+  width: 500rpx;
+  min-height: 70rpx;
+}
+
+.recruit .form .form-item .form-item-wrapper .input-wrapper {
+  width: 460rpx;
+  height: 70rpx;
+  border: 1px solid #9b9b9b;
+  border-radius: 10rpx;
+  padding: 0 15rpx;
+  box-sizing: border-box;
+}
+
+.recruit .form .form-item .form-item-wrapper .input-wrapper .input-component {
+  width: 100%;
+  height: 100%;
+  font-size: 30rpx;
+  line-height: 70rpx;
+}
+
+.recruit .form .form-item .form-item-wrapper .textarea-wrapper {
+  position: relative;
+  width: 460rpx;
+  height: 180rpx;
+  border: 1px solid #9b9b9b;
+  border-radius: 10rpx;
+  padding: 10rpx 15rpx;
+  box-sizing: border-box;
+}
+
+.recruit .form .form-item .form-item-wrapper .textarea-wrapper .textarea-component {
+  width: 100%;
+  height: 100%;
+  font-size: 30rpx;
+  line-height: 30rpx;
+}
+
+.recruit .form .form-item .form-item-wrapper .radio-wrapper {
+  width: 100%;
+  height: 70rpx;
+  display: flex;
+  align-items: center;
+}
+
+.recruit .form .form-item .form-item-wrapper .radio-wrapper .gender-radio {
+  width: 45%;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 35rpx;
+  text-align: center;
+  border-radius: 10rpx;
+  color: white;
+  margin-right: 10rpx;
+}
+
+.recruit .form .form-item .form-item-wrapper .radio-wrapper .drive-radio {
+  width: 45%;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 35rpx;
+  text-align: center;
+  border-radius: 10rpx;
+  color: white;
+  margin-right: 10rpx;
+}
+
+.recruit .form .form-item .form-item-wrapper .checkbox-wrapper {
+  width: 100%;
+  min-height: 70rpx;
+  display: flex;
+  align-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.recruit .form .form-item .form-item-wrapper .checkbox-wrapper .job-checkbox {
+  margin-top: 10rpx;
+  width: 45%;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 35rpx;
+  text-align: center;
+  border-radius: 10rpx;
+  color: white;
+  margin-right: 10rpx;
+}
+
+.recruit .form .submit {
+  margin: 50rpx auto 30rpx;
+  width: 500rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 40rpx;
+  color: white;
+  background-color: #80ba64;
+  border-radius: 20rpx;
+  text-align: center;
+}

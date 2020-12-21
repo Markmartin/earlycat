@@ -1,0 +1,51 @@
+<!--pages/moreBulkyGoods/moreBulkyGoods.wxml-->
+<view class="more-bulky-goods">
+  <!-- tag header -->
+  <view class="category-header">
+    <scroll-view class="list-group-header" scroll-x="true" enable-flex="true" scroll-into-view="tag{{currentGroup.id}}"
+      scroll-with-animation="true">
+      <view wx:for="{{bulkyGroup}}" wx:key="index" class="tag {{item.id === currentGroup.id ? 'selected' : 'normal'}}"
+        id="tag{{item.id}}" bindtap="tapGroup" data-item="{{item}}">{{item.subtitle}}</view>
+    </scroll-view>
+    <view class="toggle-container" bindtap="showGroupMenu">
+      <image class="toggle-icon {{showMenu?'up':'dowm'}}" src="../../assets/image/common/arrow-down-dark.png">
+      </image>
+    </view>
+  </view>
+
+  <!-- tag-menu -->
+  <view class="category-menu" wx:if="{{showMenu}}">
+    <view wx:for="{{bulkyGroup}}" wx:key="index" class="tag-item-container">
+      <view class="tag-item {{item.id === currentGroup.id ? 'selected' : 'normal'}}" bindtap="tapGroup"
+        data-item="{{item}}">{{item.subtitle}}</view>
+    </view>
+  </view>
+
+  <scroll-view class="list-container" scroll-y="{{true}}" enable-flex="true" bindscrolltolower="loadMoreGoods">
+    <view class="discount-goods">
+      <view class="title-container">
+        <view class="title">单件批发</view>
+      </view>
+
+      <!-- <view class="count-down-container" wx:if="{{countDownData}}">
+        <view class="right-space">仅剩</view>
+        <view class="border-count-down right-space" style="width:70rpx">{{countDownData.days}}天</view>
+        <view class="border-count-down">{{countDownData.hours<10?('0'+countDownData.hours):countDownData.hours}}</view>
+        <view class="colon">:</view>
+        <view class="border-count-down">{{countDownData.minutes<10?('0'+countDownData.minutes):countDownData.minutes}}
+        </view>
+        <view class="colon">:</view>
+        <view class="border-count-down">{{countDownData.seconds<10?('0'+countDownData.seconds):countDownData.seconds}}
+        </view>
+      </view> -->
+    </view>
+
+    <view class="activity-goods-list-container">
+      <activity-goods wx:for="{{bulkyGoods}}" wx:key="index" groupId="{{item.presellId}}" goodsId="{{item.goodsVo.id}}"
+        imageUrl="{{item.goodsVo.picUrl}}" goodsName="{{item.goodsVo.title}}"
+        goodsDescription="{{item.goodsVo.subtitle}}" goodsPrice="{{item.goodsVo.onlinePrice}}"
+        unit="{{item.goodsVo.unit}}" goodsOriginalPrice="{{item.goodsVo.counterPrice}}" canBuy="{{!item.isSellOut}}">
+      </activity-goods>
+    </view>
+  </scroll-view>
+</view>

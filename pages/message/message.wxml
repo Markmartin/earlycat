@@ -1,0 +1,22 @@
+<wxs module="filter" src="../../utils/filter.wxs"></wxs>
+<import src="../../components/hint/hint.wxml"/>
+<view class="container">
+  <scroll-view class="list" style="height:{{scrollHeight}}px" scroll-y="true" bindscrolltolower="getGoodsList">
+    <block wx:for="{{list}}" wx:key="id">
+      <navigator wx:if="{{item.type == '1'}}" url="/pages/survey/index/index?id={{item.content}}" hover-class="none" class="item">
+        <view>{{item.title}}</view>
+        <view class="time">{{filter.timeCutout(item.startTime)}}</view>
+      </navigator>
+      <navigator wx:else url="/pages/notices/notices?id={{item.id}}" hover-class="none" class="item">
+        <view>{{item.title}}</view>
+        <view class="time">{{filter.timeCutout(item.startTime)}}</view>
+      </navigator>
+    </block>
+    <view class="loading" wx:if="{{loading}}">
+      <image src="/images/icon_loading.png" />
+      <text>加载中...</text>
+    </view>
+    <view class="no-more" wx:if="{{page > pages && pages != 0}}">已经到底啦</view>
+    <template wx:if="{{!loading && list.length==0 && pages == 0}}" is="hint" data="{{text:'暂无公告'}}"></template>
+  </scroll-view>
+</view>

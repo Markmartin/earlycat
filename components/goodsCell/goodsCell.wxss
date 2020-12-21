@@ -1,0 +1,123 @@
+.goods-cell {
+  position: relative;
+  width: 100%;
+  background-color: white;
+  border-radius: 10rpx;
+}
+
+.goods-cell .goods-image-container {
+  position: relative;
+  width: 100%;
+}
+
+.goods-cell .goods-image-container .is-new {
+  position: absolute;
+  left: 20rpx;
+  top: 20rpx;
+  padding: 0 20rpx 0 30rpx;
+  background-color: #80ba64;
+  color: white;
+  font-size: 25rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  border-radius: 20rpx;
+  letter-spacing: 10rpx;
+}
+
+.goods-cell .goods-image-container .is-hot {
+  position: absolute;
+  left: 20rpx;
+  top: 20rpx;
+  padding: 0 20rpx;
+  background-color: #fe9513;
+  color: white;
+  font-size: 25rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  border-radius: 20rpx;
+}
+
+.goods-cell .goods-image-container .goods-image-mask {
+  width: 100%;
+  height: 350rpx;
+  line-height: 350rpx;
+  text-align: center;
+  font-size: 35rpx;
+  font-weight: bold;
+  border-top-left-radius: 10rpx;
+  border-top-right-radius: 10rpx;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.goods-cell .goods-image-container .goods-image {
+  width: 100%;
+  height: 350rpx;
+  border-top-left-radius: 10rpx;
+  border-top-right-radius: 10rpx;
+}
+
+.goods-cell .goods-content {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0 20rpx;
+}
+
+.goods-cell .goods-content .goods-name {
+  width: 100%;
+  text-align: left;
+  font-size: 25rpx;
+  line-height: 30rpx;
+  height: 60rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #474747;
+  font-weight: bold;
+}
+
+.goods-cell .goods-content .goods-description {
+  width: 100%;
+  text-align: left;
+  margin-top: 10rpx;
+  font-size: 25rpx;
+  line-height: 30rpx;
+  height: 60rpx;
+  color: #b5b5b5;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.goods-cell .goods-footer {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.goods-cell .goods-footer .goods-price {
+  flex-grow: 1;
+  margin-right: 10rpx;
+  color: #005d3b;
+  font-size: 35rpx;
+  line-height: 100rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.goods-cell .goods-footer .cart {
+  display: block;
+  width: 100rpx;
+  height: 100rpx;
+}

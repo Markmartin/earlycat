@@ -1,0 +1,31 @@
+/* pages/set/set.wxss */
+page{
+  background: #f1f1f1;
+}
+.title{
+  padding: 30rpx 30rpx;
+}
+.list{
+  position: relative;
+}
+.list .item{
+  height: 100rpx;
+  border-bottom: #f1f1f1 1rpx solid;
+  padding: 0 30rpx;
+  font-size: 28rpx;
+  color: #666;
+  background: #fff;
+  text-align: left;
+  border-radius: 0;
+  line-height: auto;
+}
+.list .item .tt-ico{
+  font-size: 40tpx;
+}
+.list .item .tt{
+  margin-left: 20rpx;
+  flex: 1;
+}
+.list .item .txt{
+  margin-right: 20rpx;
+}

@@ -1,0 +1,273 @@
+page {
+  height: 100%;
+  width: 100%;
+  background: #f4f4f4;
+}
+
+.orders-switch {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  height: 84rpx;
+  z-index: 999;
+  /* border-bottom: 1px solid rgba(0,0,0,.15); */
+}
+
+.orders-switch .item {
+  display: inline-block;
+  height: 82rpx;
+  width: 20%;
+  /* padding: 0 15rpx; */
+  text-align: center;
+}
+
+.orders-switch .item .txt {
+  display: inline-block;
+  height: 82rpx;
+  /* padding: 0 20rpx; */
+  line-height: 82rpx;
+  color: #9a9ba1;
+  font-size: 30rpx;
+  /* width: 170rpx; */
+}
+
+.orders-switch .item.active .txt {
+  color: #ab956d;
+  border-bottom: 4rpx solid #ab956d;
+}
+
+.no-order {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.no-order .c {
+  width: 100%;
+  height: auto;
+  margin-top: 200rpx;
+}
+
+.no-order .c image {
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+}
+
+.no-order .c text {
+  margin: 0 auto;
+  display: block;
+  width: 258rpx;
+  height: 29rpx;
+  line-height: 29rpx;
+  text-align: center;
+  font-size: 29rpx;
+  color: #999;
+}
+
+.orders {
+  height: auto;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 84rpx;
+}
+
+.order {
+  background: #fff;
+}
+
+.order .h {
+  height: 83.3rpx;
+  line-height: 83.3rpx;
+  margin-left: 31.25rpx;
+  padding-right: 31.25rpx;
+  border-bottom: 1px solid #f4f4f4;
+  font-size: 30rpx;
+  color: #333;
+}
+
+.order .h .l {
+  float: left;
+}
+
+.order .h .l .copy {
+  /* margin-top: -10rpx; */
+  margin-left: 20rpx;
+  line-height: 30rpx;
+  font-size: 25rpx;
+  padding: 5rpx;
+  border-radius: 5rpx;
+  color: #666666;
+  border: 1px solid #717171;
+}
+
+.order .h .r {
+  float: right;
+  color: #b4282d;
+  font-size: 24rpx;
+}
+
+.order .goods {
+  display: flex;
+  align-items: center;
+  margin-left: 31.25rpx;
+}
+
+.order .goods .img {
+  position: relative;
+  height: 145.83rpx;
+  width: 145.83rpx;
+  background: #f4f4f4;
+}
+
+.order .goods .img .pre-icon {
+  position: absolute;
+  /* left: 0;
+  top: 0; */
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.order .goods .img image {
+  height: 145.83rpx;
+  width: 145.83rpx;
+}
+
+.order .goods .info {
+  min-height: 145.83rpx;
+  flex: 1;
+  padding-left: 20rpx;
+}
+
+.order .goods .name {
+  margin-top: 30rpx;
+  display: block;
+  color: #333;
+  font-size: 30rpx;
+}
+
+.order .goods .number {
+  display: block;
+  height: 37rpx;
+  line-height: 37rpx;
+  color: #666;
+  font-size: 25rpx;
+}
+
+.order .goods .status {
+  width: 105rpx;
+  color: #b4282d;
+  font-size: 25rpx;
+}
+
+.order .b {
+  height: 103rpx;
+  line-height: 103rpx;
+  margin-left: 31.25rpx;
+  padding-right: 31.25rpx;
+  border-top: 1px solid #f4f4f4;
+  font-size: 30rpx;
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order .b .l {
+  /* float: left; */
+}
+
+
+
+.order .b .r {
+  /* float: right; */
+  display: flex;
+  align-items: center;
+}
+
+.order .b .r .arrow {
+  width: 35rpx;
+  height: 35rpx;
+  margin-left: 16rpx;
+}
+
+.order .b .r .top {
+  transform: rotate(180deg);
+  transition: transform 0.5s;
+}
+
+.order .b .r .down {
+  transform: rotate(0deg);
+  transition: transform 0.5s;
+}
+
+.order .b .btn {
+  /* margin-top: 19rpx;
+  height: 64.5rpx;
+  line-height: 64.5rpx;
+  text-align: center;
+  padding: 0 20rpx;
+  border-radius: 5rpx;
+  font-size: 28rpx;
+  color: #fff;
+  background: #b4282d; */
+  /* padding: 5rpx 20rpx; */
+  padding: 0 30rpx;
+  height: 64.5rpx;
+  line-height: 64.5rpx;
+  text-align: center;
+  border-radius: 40rpx;
+  border: 1px solid #717171;
+}
+
+.order-express {
+  margin-top: 20rpx;
+  width: 100%;
+  /* height: 100rpx; */
+  background: #fff;
+}
+
+.order-express .title {
+  /* float: left; */
+  width: 100%;
+  /* margin-bottom: 20rpx; */
+  padding: 10rpx;
+}
+
+.order-express .t {
+  font-size: 29rpx;
+  margin-left: 10.25rpx;
+  color: #a78845;
+}
+
+.order-express .b {
+  font-size: 29rpx;
+  margin-top: 20rpx;
+  margin-left: 10.25rpx;
+  color: #a78845;
+}
+
+.order-express .traces {
+  padding: 0 17.5rpx 17.5rpx;
+  background: #fff;
+  border-bottom: 1rpx solid #f1e6cdcc;
+}
+
+.order-express .trace {
+  padding-bottom: 17.5rpx;
+  padding-top: 17.5rpx;
+  background: #fff;
+}
+
+.order-express .acceptTime {
+  margin-top: 20rpx;
+  margin-right: 40rpx;
+  text-align: left;
+  font-size: 26rpx;
+}
+
+.order-express .acceptStation {
+  font-size: 26rpx;
+}

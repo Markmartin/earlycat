@@ -1,0 +1,22 @@
+<!-- pages/ucenter/addressMap/addressMap.wxml -->
+<view class="address-map">
+	<view class="header">
+		<view class="label-container">
+			<view class="region">{{cityArray[cityIndex]}}</view>
+			<!-- <image class="arrow" src="/assets/image/arrow/arrow_down_dark_line.png"></image> -->
+		</view>
+		<view class="search-input-container">
+			<input class="search-input" type="search" bindinput="updateSearchKeyword"></input>
+		</view>
+	</view>
+	<scroll-view class="address-list" scroll-y="true">
+		<view class="address-cell" wx:for="{{addressList}}" wx:key="index" bindtap="selectAddress" data-item="{{item}}">
+			<view class="address-name">{{item.title}}</view>
+			<view class="address">{{item.address}}</view>
+		</view>
+	</scroll-view>
+
+	<view style="padding: 0 30rpx;font-size:28rpx;text-align:center;" wx:if="{{addressList.length == 0 }}">
+		地址信息为空
+	</view>
+</view>

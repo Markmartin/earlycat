@@ -1,0 +1,154 @@
+page {
+  background: #f4f4f4;
+  font-size: 28rpx;
+}
+.add-address .add-form {
+  width: 100%;
+}
+.add-address .form-item {
+  background: #fff;
+  padding: 20rpx 30rpx;
+  border-bottom: 1px solid #f1f1f1;
+  display: flex;
+  align-items: center;
+}
+.add-address .input {
+  flex: 1;
+  height: 44rpx;
+  line-height: 44rpx;
+  overflow: hidden;
+}
+
+.add-address .form-default {
+  margin-top: 20rpx;
+  border-top: 1px solid #f1f1f1;
+  border-bottom: 1px solid #f1f1f1;
+  background: #fff;
+  padding: 30rpx;
+}
+
+.default-input .radio{
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 100%;
+  border: #cbcccc 1rpx solid;
+  background: #fff;
+  text-align: center;
+  line-height: 40rpx;
+  margin-right: 20rpx;
+}
+.default-input .radio text{display: none;font-size: 24rpx;}
+
+.default-input.selected .radio{
+  background: #ff8900;
+  border: #ff8900 1rpx solid;
+  color: #fff;
+}
+.default-input.selected .radio text{display: block;}
+
+.add-address .cannel, .add-address .save {
+  margin: 40rpx 30rpx;
+  background: #fd651f;
+  border-radius: 10rpx;
+  width: 690rpx;
+  height: 90rpx;
+  text-align: center;
+  line-height: 90rpx;
+  font-size: 32rpx;
+  color: #fff;
+  border: none;
+}
+
+
+.region-select {
+  width: 100%;
+  height: 600rpx;
+  background: #fff;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  bottom: 0;
+}
+
+.region-select .hd {
+  height: 108rpx;
+  width: 100%;
+  border-bottom: 1px solid #f4f4f4;
+  padding: 46rpx 30rpx 0 30rpx;
+}
+
+.region-select .region-selected {
+  float: left;
+  height: 60rpx;
+  display: flex;
+}
+
+.region-select .region-selected .item {
+  max-width: 140rpx;
+  margin-right: 30rpx;
+  text-align: left;
+  line-height: 60rpx;
+  height: 100%;
+  color: #333;
+  font-size: 28rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.region-select .region-selected .item.disabled {
+  color: #999;
+}
+
+.region-select .region-selected .item.selected {
+  color: #fd651f;
+}
+
+.region-select .done {
+  float: right;
+  height: 60rpx;
+  width: 60rpx;
+  border: none;
+  background: #fff;
+  line-height: 60rpx;
+  text-align: center;
+  color: #333;
+  font-size: 28rpx;
+}
+
+.region-select .done.disabled {
+  color: #999;
+}
+
+.region-select .bd {
+  height: 492rpx;
+  width: 100%;
+  padding: 0 30rpx;
+}
+
+.region-select .region-list {
+  height: 492rpx;
+}
+
+.region-select .region-list .item {
+  width: 100%;
+  height: 104rpx;
+  line-height: 104rpx;
+  text-align: left;
+  color: #333;
+  font-size: 28rpx;
+}
+
+.region-select .region-list .item.selected {
+  color: #fd651f;
+}
+
+.bg-mask {
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 8;
+}

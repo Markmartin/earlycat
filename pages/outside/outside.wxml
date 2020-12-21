@@ -1,0 +1,5 @@
+<import src="../../lib/wxParse/wxParse.wxml"/>
+<view class="container">
+  <view wx:if="{{detailsData.type == 1}}"><template is="wxParse" data="{{wxParseData:htmlContent.nodes}}"/></view>
+  <view wx:if="{{detailsData.type == 2}}"><web-view src="{{detailsData.content}}" /></view>
+</view>

@@ -1,0 +1,98 @@
+<view class="container" style="padding-top:{{navBar.height}}px;">
+  <form bindsubmit="bindFormSubmit">
+    <view class="navBar" style="height:{{navBar.height}}px;">
+      <navigator open-type="navigateBack" hover-class="none" style="margin-top:{{navBar.top}}px;padding:0 {{navBar.left}}px;height:{{navBar.buttonHeight}}px;" class="return"><image src="/static/moment/return.png"></image></navigator>
+      <button form-type="submit" hover-class="none" style="right:{{navBar.right}}px;height:{{navBar.buttonHeight}}px;line-height:{{navBar.buttonHeight}}px;top:{{navBar.top}}px"><image src="/static/moment/issue.png" /><text>发布</text></button>
+    </view>
+    <view class="form-group form-block">
+      <view class="form-label">场地照片</view>
+      <view class="form-control">
+        <view class="pic-list d-flex">
+          <view class="item" wx:for="{{sitePicUrls}}" wx:key="*this" data-list="{{sitePicUrls}}" data-src="{{item}}" bindtap="imgPreview">
+            <image src="{{item}}" class="pic" mode="aspectFill"></image>
+            <image src="/static/moment/delete.png" class="img-delete" data-idx="{{index}}" catchtap="delPic" data-key="sitePicUrls"></image>
+          </view>
+          <image class="item" src="/static/moment/add_pic.png" bindtap="chooseImage" data-key="sitePicUrls" wx:if="{{sitePicUrls.length < maxPic}}"></image>
+        </view>
+      </view>
+    </view>
+    <view class="form-group">
+      <view class="form-label">发布栏位<text>*</text></view>
+      <view class="form-control">
+        <picker bindchange="bindTypeChange" value="{{formData.type}}" range="{{typeList}}">
+          <view class="picker">
+            {{typeList[formData.type]}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="form-group">
+      <view class="form-label">商家名称<text>*</text></view>
+      <view class="form-control">
+        <input maxlength="30" placeholder="输入商家名称" placeholder-class="placeholder" name="name" />
+      </view>
+    </view>
+    <view class="form-group">
+      <view class="form-label">详细地址<text>*</text></view>
+      <view class="form-control">
+        <input placeholder="输入详细地址" placeholder-class="placeholder" name="address" />
+      </view>
+    </view>
+    <view class="form-group">
+      <view class="form-label">联系人电话<text>*</text></view>
+      <view class="form-control">
+        <input placeholder="输入联系人电话" placeholder-class="placeholder" type="number" name="telephone" />
+      </view>
+    </view>
+    <view class="form-group">
+      <view class="form-label">服务报价<text>*</text></view>
+      <view class="form-control">
+        <input placeholder="输入服务报价(元)" placeholder-class="placeholder" type="digit" name="floorPrice" />
+      </view>
+    </view>
+    <view class="form-group">
+      <view class="form-label">自定义标签<text>*</text></view>
+      <view class="form-control">
+        <input placeholder="输入标签" placeholder-class="placeholder" value="{{tagValue}}" confirm-type="添加" bindconfirm="addTag" />
+      </view>
+    </view>
+    <view class="tagList">
+      <view class="item" wx:for="{{tagList}}" wx:key="index">{{item}}<text bindtap="delTag" data-idx="{{index}}">x</text></view>
+    </view>
+    <view class="form-group">
+      <view class="form-label">营业时间(开始)<text>*</text></view>
+      <view class="form-control">
+        <picker mode="time" value="{{startTime}}" bindchange="bindStartTimeChange">
+          <view class="picker">{{startTime}}</view>
+        </picker>
+      </view>
+    </view>
+    <view class="form-group">
+      <view class="form-label">营业时间(结束)<text>*</text></view>
+      <view class="form-control">
+        <picker mode="time" value="{{endTime}}" bindchange="bindEndTimeChange">
+          <view class="picker">{{endTime}}</view>
+        </picker>
+      </view>
+    </view>
+    <view class="form-group form-block">
+      <view class="form-label">商家介绍</view>
+      <view class="form-control">
+        <textarea placeholder="请输入商家介绍" placeholder-class="placeholder" disable-default-padding="true"  name="desc"></textarea>
+      </view>
+    </view>
+    <view class="form-group form-block">
+      <view class="form-label">营业执照<text>*</text></view>
+      <view class="form-control">
+        <view class="pic-list d-flex">
+          <view class="item" wx:for="{{licensePicUrls}}" wx:key="*this" data-list="{{licensePicUrls}}" data-src="{{item}}" bindtap="imgPreview">
+            <image src="{{item}}" class="pic" mode="aspectFill"></image>
+            <image src="/static/moment/delete.png" class="img-delete" data-idx="{{index}}" catchtap="delPic" data-key="licensePicUrls"></image>
+          </view>
+          <image class="item" src="/static/moment/add_pic.png" bindtap="chooseImage" data-key="licensePicUrls" wx:if="{{licensePicUrls.length < maxPic}}"></image>
+        </view>
+      </view>
+    </view>
+
+  </form>
+</view>

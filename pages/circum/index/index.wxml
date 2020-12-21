@@ -1,0 +1,42 @@
+<wxs module="filter" src="../../../utils/filter.wxs"></wxs>
+<view class="container">
+  <!-- <view class="head">
+    <image src="/static/moment/search.png" />
+    <input placeholder="搜索" confirm-type="搜索" bindfocus="focusSearch" bindblur="blurSearch" bindconfirm="searchList" />
+  </view>
+  <view class="searchCover" wx:if="{{searchCover}}"></view> -->
+  <image wx:if="{{type == 0}}" src="https://sesame.oss-cn-shanghai.aliyuncs.com/6avfnvzw1jzw38854zbq.png" style="width:690rpx;height:130rpx;margin:0 auto;display:block;"></image>
+  <image wx:if="{{type == 1}}" src="https://sesame.oss-cn-shanghai.aliyuncs.com/8b2syjzwzdjhznehpvd4.png" style="width:690rpx;height:130rpx;margin:0 auto;display:block;"></image>
+  <view class="list" wx:if="{{type == 0 || type == 1}}">
+    <navigator url="/pages/circum/details/details?id={{item.id}}&type={{type}}" hover-class="none" class="item" wx:for="{{list}}" wx:key="id">
+      <image mode="aspectFill" class="pic" src="{{item.picUrls[0]}}"></image>
+      <view class="cont">
+        <view class="tt">{{item.name}}</view>
+        <view class="tag"><text wx:for="{{item.businessScope}}" wx:for-index="idx" wx:for-item="itemName" wx:key="idx">{{itemName}}</text></view>
+        <view class="address d-flex">
+          <view class="flex1"><text>{{item.address}}</text></view>
+          <image src="/static/moment/site.png" class="site" wx:if="{{item.distance}}"></image>
+          <view wx:if="{{item.distance}}">{{filter.distance(item.distance)}}</view>
+        </view>
+      </view>
+    </navigator>
+  </view>
+  <view class="list1" wx:else>
+    <navigator url="/pages/circum/details/details?id={{item.id}}&type={{type}}" hover-class="none" class="item" wx:for="{{list}}" wx:key="id">
+      <image mode="aspectFill" class="pic" src="{{item.picUrls[0]}}"></image>
+      <view class="cont">
+        <view class="tt">{{item.name}}</view>
+        <view class="time">营业时间：{{item.businessTime}}</view>
+        <view class="tag"><text wx:for="{{item.businessScope}}" wx:for-index="idx" wx:for-item="itemName" wx:key="idx">{{itemName}}</text></view>
+        <view class="price d-flex">
+          <view class="flex1">人均￥{{item.floorPrice}}</view>
+          <image src="/static/moment/site.png" class="site" wx:if="{{item.distance}}"></image>
+          <view wx:if="{{item.distance}}">{{filter.distance(item.distance)}}</view>
+        </view>
+      </view>
+    </navigator>
+  </view>
+  <view class="no-more" wx:if="{{page > pages && pages != 0}}">已经到底啦</view>
+  <template wx:if="{{list.length == 0 && !loading && pages == 0}}" is="hint" data="{{text:'暂无数据'}}"></template>
+  <navigator url="/pages/circum/issue/issue?type={{type}}" hover-class="none" class="issue"><image src="/static/moment/issue1.png"></image></navigator>
+</view>

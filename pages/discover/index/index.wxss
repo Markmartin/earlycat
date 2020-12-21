@@ -1,0 +1,49 @@
+.container{
+  padding: 0 30rpx;
+}
+.subject{
+  width: 100%;
+  height: 220rpx;
+}
+.subject image{
+  width: 100%;
+  height: 100%;
+  border-radius: 20rpx;
+}
+.discover-nav{
+  width: 100%;
+  display: flex;
+  flex-direction:row;
+  background: #fff;
+  border-bottom: #ebebeb 2rpx solid;
+}
+.discover-nav-fixed{
+  padding: 0 30rpx;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 10;
+}
+.nav-item{
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  font-size: 32rpx;
+  position: relative;
+  padding: 0 30rpx;
+}
+.nav-item-active::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2rpx;
+  height: 5rpx;
+  background: #ff8900;
+}
+.discover-wrap{
+  position: relative;
+  z-index: 1;
+  padding: 30rpx 0;
+}

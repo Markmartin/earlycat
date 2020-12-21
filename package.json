@@ -1,0 +1,23 @@
+{
+  "name": "zcm-miniprogram",
+  "version": "1.0.0",
+  "description": "朝菜猫商城小程序",
+  "main": "app.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://gitlab.earlycat.cn/zcm/zcm-miniprogram.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "moment": "^2.28.0",
+    "umtrack-wx": "^2.4.6"
+  }
+}

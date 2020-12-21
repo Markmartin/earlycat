@@ -1,0 +1,19 @@
+<view class="container">
+  <view class="collect-list" wx:if="{{collectList.length > 0}}">
+    <view class="item" bindtap="openGoods" bindtouchstart="touchStart" bindtouchend="touchEnd" wx:for="{{collectList}}" wx:key="id" data-index="{{index}}">
+      <image class="img" src="{{item.picUrl}}"></image>
+      <view class="info">
+        <view class="name">{{item.name}}</view>
+        <view class="subtitle">{{item.brief}}</view>
+        <view class="price">￥{{item.retailPrice}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="no-more" wx:if="{{page > pages && pages != 0}}">已经到底啦</view>
+  <view class="no-collect" wx:if="{{collectList.length == 0 && pages == 0 && !loading}}">
+    <view class="c">
+      <image style="width: 300rpx;height: 225rpx;" src="https://sesame.oss-cn-shanghai.aliyuncs.com/fi8gflvi1ax8gcoo8h8t.png" />
+      <text>还没有收藏</text>
+    </view>
+  </view>
+</view>

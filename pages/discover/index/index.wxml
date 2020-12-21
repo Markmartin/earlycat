@@ -1,0 +1,61 @@
+<!--发现-->
+<view class="container">
+  <view class="header">
+    <view class="site">
+      <view class="d-flex">
+        <text class="iconfont icon-dingwei"></text>
+        <text class="txt">牡丹西苑</text>
+      </view>
+    </view>
+    <navigator url="/pages/search/search" hover-class="none" class="search">
+      <view class="d-flex">
+        <text class="txt">搜索</text>
+        <text class="iconfont icon-sousuo1"></text>
+      </view>
+    </navigator>
+    <view class="other">
+      <navigator hover-class="none" url="/pages/news/news" class="iconfont icon-xiaoxi"></navigator>
+    </view>
+  </view>
+  <view class="subject">
+    <image src="/images/test1.jpg"></image>
+  </view>
+  <view class="discover-nav {{navFixed ? 'discover-nav-fixed' : ''}}">
+    <text class="nav-item {{type === item.type ? 'nav-item-active' : ''}}" wx:for="{{navList}}" wx:key="id" data-id="{{item.type}}" bindtap="clickNav">{{item.name}}</text>
+  </view>
+  <view class="discover-wrap">
+    <view class="welfare-list" wx:if="{{type === 'welfare'}}">
+      <navigator url="/pages/discover/welfare/welfare?id={{item.id}}" class="welfare-item" hover-class="none" wx:for="{{welfare_list}}" wx:key="id">
+        <view class="wrap">
+          <view class="tag">新品</view>
+          <image src="{{item.hostPic}}" class="img"></image>
+          <view class="cont">
+            <view class="tt1">{{item.name}}</view>
+            <view class="tt2">
+              <text>天猫价￥{{item.originalPrice}}</text>
+              <text>799人再抢</text>
+            </view>
+            <view class="tt3">
+              <text class="txt1">￥<text>{{item.discountPrice}}</text></text>
+              <text class="txt2"><text>优惠券</text>10</text>
+            </view>
+          </view>
+        </view>
+      </navigator>
+    </view>
+    <view class="activity-list" wx:else>
+      <navigator url="/pages/discover/activity/activity?id={{item.id}}" class="activity-item" hover-class="none" wx:for="{{activity_list}}" wx:key="id">
+        <view class="pic">
+          <image src="{{item.hostPic}}"></image>
+        </view>
+        <view class="cont">
+          <view class="tt1">{{item.desc}}</view>
+          <view class="tt2">
+            <text class="txt1">{{item.address}} {{item.businessTime}}</text>
+            <text class="txt2">￥{{item.floorPrice}}</text>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+</view>

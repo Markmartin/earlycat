@@ -1,0 +1,440 @@
+@import '../../style/common.scss';
+
+$back-color: #f5f5f5;
+$header-border-color: #a4a4a4;
+$more-color: #75a694;
+$content-width: 710rpx;
+$half-content-width: 355rpx;
+$inline-content-width: 670rpx;
+// $misalignment-height: 110rpx;
+$inline-content-height: 1000rpx;
+
+@mixin pseudo-rotate($angle) {
+  position: absolute;
+  content: '';
+  display: block;
+  width: 2rpx;
+  height: 50rpx;
+  background-color: $logo-color;
+  transform: rotate($angle);
+}
+
+.homepage {
+  .header {
+    position: fixed;
+    top: -10rpx;
+    left: 0;
+    box-sizing: border-box;
+    width: 750rpx;
+    height: 90rpx;
+    padding: 15rpx 30rpx;
+    background-color: $back-color;
+    @include absolutely-center;
+
+    .search-wrapper {
+      position: relative;
+      box-sizing: border-box;
+      padding: 0 10rpx;
+      width: 100%;
+      height: 100%;
+      background: #e6e6e6;
+      border: 1px solid $header-border-color;
+      display: flex;
+      align-items: center;
+
+      .address {
+        line-height: 60rpx;
+        font-size: 25rpx;
+        padding: 0 10rpx;
+        color: $logo-color;
+      }
+
+      .arrow {
+        display: block;
+        width: 25rpx;
+        height: 25rpx;
+      }
+
+      .divider {
+        // position: relative;
+        margin: 0 10rpx;
+        width: 1px;
+        height: 25rpx;
+        background-color: $header-border-color;
+      }
+
+      .input {
+        margin-left: 10rpx;
+        height: 30rpx;
+        border: none;
+        flex-grow: 1;
+      }
+    }
+  }
+
+  .address-layer {
+    position: fixed;
+    top: 90rpx;
+    left: 10rpx;
+    max-width: 250rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    // -ms-text-overflow: ellipsis;
+    white-space: nowrap;
+    // height: 100rpx;
+    border-radius: 20rpx;
+    color: white;
+    line-height: 40rpx;
+    padding: 5rpx 20rpx;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+    z-index: 999;
+  }
+
+  .content {
+    position: fixed;
+    width: 100%;
+    top: 90rpx;
+    height: calc(100vh - 90rpx);
+    background-color: $back-color;
+
+    .banner-swiper {
+      height: 450rpx;
+
+      .banner {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .features {
+      @include absolutely-center;
+      width: 100%;
+      height: 70rpx;
+      box-sizing: border-box;
+      padding: 10rpx 0;
+      background-color: white;
+
+      .feature-text {
+        color: $theme-color;
+        padding: 0 20rpx;
+        line-height: 40rpx;
+        font-size: 35rpx;
+        border-right: 1px solid $theme-color;
+      }
+
+      .feature-text:last-child {
+        border-right: none;
+      }
+    }
+
+    .category {
+      position: relative;
+      width: 750rpx;
+      margin: 10rpx auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-content: space-between;
+      background-color: transparent;
+
+      .item {
+        margin-top: 10rpx;
+        width: 20%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+        .item-icon {
+          display: block;
+          width: 130rpx;
+          height: 130rpx;
+        }
+
+        .item-label {
+          width: 100%;
+          text-align: center;
+          font-size: 30rpx;
+          font-weight: bold;
+          color: #5e5e5e;
+        }
+      }
+    }
+
+    .bulky-goods {
+      position: relative;
+      margin-top: 10rpx;
+      width: 100%;
+      padding: 1rpx 0;
+      .theme-card {
+        position: absolute;
+        top: 0;
+        left: calc(50% - 355rpx);
+        box-sizing: border-box;
+        padding: 10rpx 15rpx;
+        width: $content-width;
+        height: calc(100% - 110rpx);
+        background-color: $logo-color;
+        border-radius: 20rpx;
+        border: 1rpx solid transparent;
+        .theme-card-header {
+          display: flex;
+          align-items: center;
+          .bulky-goods-icon {
+            width: 90rpx;
+            height: 90rpx;
+          }
+
+          .bulky-goods-label {
+            // padding: 0 5rpx;
+            color: white;
+            font-size: 50rpx;
+            line-height: 80rpx;
+            flex-grow: 1;
+            font-weight: bold;
+          }
+
+          .bulky-goods-tail {
+            width: 200rpx;
+            height: 55rpx;
+            background-color: white;
+            border-radius: 10rpx;
+            margin-right: 5rpx;
+            @include absolutely-center;
+            .bulky-goods-tail-label {
+              margin-left: 10rpx;
+              font-size: 30rpx;
+              line-height: 55rpx;
+              color: $logo-color;
+            }
+
+            .bulky-goods-tail-arrow {
+              width: 35rpx;
+              height: 35rpx;
+            }
+          }
+        }
+      }
+
+      .white-card {
+        position: relative;
+        box-sizing: border-box;
+        box-shadow: 0 5rpx 2rpx 2rpx #e6e6e6;
+        margin: 110rpx auto 0;
+        padding: 5rpx 15rpx 15rpx;
+        width: $inline-content-width;
+        background-color: white;
+        border-radius: 20rpx;
+        border: 1rpx solid transparent;
+      }
+    }
+
+    .daily-special-offer-card {
+      box-sizing: border-box;
+      margin: 20rpx auto;
+      padding: 20rpx 30rpx;
+      width: $content-width;
+      // height: auto;
+      background-color: white;
+      border-radius: 30rpx;
+      border: 1rpx solid white;
+
+      .card-header {
+        position: relative;
+        width: 100%;
+        height: 60rpx;
+        display: flex;
+        align-items: center;
+        background-color: white;
+
+        .card-title {
+          color: $logo-color;
+          font-size: 40rpx;
+          line-height: 50rpx;
+          height: 50rpx;
+          font-weight: bold;
+        }
+
+        .card-count-down-container {
+          flex-grow: 1;
+          // height: 60rpx;
+          display: flex;
+          align-items: center;
+
+          .card-count-down-title {
+            margin: 0 10rpx;
+            font-size: 35rpx;
+            line-height: 40rpx;
+            color: $logo-color;
+          }
+
+          .card-conut-down {
+            text-align: center;
+            width: 35rpx;
+            padding: 0;
+            font-size: 25rpx;
+            color: white;
+            background-color: $logo-color;
+            border-radius: 10rpx;
+          }
+
+          .colon {
+            width: 15rpx;
+            text-align: center;
+            color: $logo-color;
+          }
+        }
+
+        .card-more {
+          padding: 0 50rpx;
+          text-align: center;
+          font-size: 30rpx;
+          line-height: 50rpx;
+          color: white;
+          background-color: $more-color;
+          border-radius: 10rpx;
+        }
+      }
+
+      .card-content {
+        position: relative;
+        margin-top: 10rpx;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        background-color: white;
+
+        .card-gooods-item {
+          width: 25%;
+        }
+      }
+    }
+
+    .goods-header {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+
+      .goods-header-title-container {
+        position: relative;
+        width: 500rpx;
+        height: 60rpx;
+        border-bottom: 1rpx solid $logo-color;
+
+        .goods-header-title {
+          margin-left: 30rpx;
+          width: 190rpx;
+          color: $logo-color;
+          font-weight: bold;
+          text-align: center;
+          font-size: 40rpx;
+          line-height: 56rpx;
+          height: 56rpx;
+          border-bottom: 10rpx solid $logo-color;
+        }
+      }
+
+      .more-goods {
+        padding: 0 30rpx 0 50rpx;
+        text-align: center;
+        font-size: 35rpx;
+        line-height: 60rpx;
+        color: white;
+        background-color: $more-color;
+        border-radius: 10rpx;
+        letter-spacing: 20rpx;
+      }
+    }
+
+    .goods-content {
+      position: relative;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-content: flex-start;
+      flex-wrap: wrap;
+
+      .goods-content-item-bulky {
+        width: 310rpx;
+        margin-top: 20rpx;
+      }
+
+      .goods-content-item {
+        width: 350rpx;
+        margin-top: 20rpx;
+      }
+    }
+
+    .good-goods {
+      position: relative;
+      box-sizing: border-box;
+      margin: 20rpx auto 0;
+      width: $content-width;
+      padding: 10rpx 0 0;
+    }
+
+    .corporate-group-buying {
+      margin: 30rpx 0;
+      position: relative;
+      width: 750rpx;
+      height: 300rpx;
+
+      .corporate-group-buying-logo {
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .pre-sale-group {
+      position: relative;
+      box-sizing: border-box;
+      margin: 20rpx auto 0;
+      width: $content-width;
+      padding: 10rpx 0 0;
+    }
+
+    .best-seller {
+      position: relative;
+      box-sizing: border-box;
+      margin: 20rpx auto 0;
+      width: $content-width;
+      padding: 10rpx 0 0;
+
+      .best-seller-header {
+        position: relative;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .line {
+          position: relative;
+          flex-grow: 1;
+          height: 1rpx;
+          background-color: $logo-color;
+        }
+
+        .line:first-child::after {
+          right: -2rpx;
+          top: -23rpx;
+          @include pseudo-rotate(20deg);
+        }
+
+        .line:last-child::before {
+          left: -2rpx;
+          top: -23rpx;
+          @include pseudo-rotate(20deg);
+        }
+
+        .best-seller-header-title {
+          margin: 0 30rpx;
+          color: $logo-color;
+          text-align: center;
+          font-size: 35rpx;
+        }
+      }
+    }
+  }
+}

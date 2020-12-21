@@ -1,0 +1,19 @@
+<!--components/goodsBulkyCell/goodsBulkyCell.wxml-->
+<view class="goods-bulky-cell" bindtap="gotoDetail">
+  <view class="goods-image-container">
+    <view class="goods-image-mask" wx:if="{{!canBuy && !isGroup}}">抢光了</view>
+    <image class="goods-image" src="{{imageUrl}}"></image>
+  </view>
+
+  <view class="goods-content">
+    <view class="goods-name">{{goodsName}}</view>
+  </view>
+
+  <view class="goods-footer">
+    <view class="goods-price-container">
+      <view class="goods-price">{{goodsPrice}}/{{unit}}</view>
+      <view class="goods-original-price">原价：{{goodsOriginalPrice}}</view>
+    </view>
+    <image class="cart" src="/assets/image/common/add_cart.png" catchtap="addCart" wx:if="{{canBuy}}"></image>
+  </view>
+</view>

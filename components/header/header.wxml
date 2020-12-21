@@ -1,0 +1,17 @@
+<view class="header">
+  <view class="site">
+    <view class="d-flex">
+      <text class="iconfont icon-dingwei"></text>
+      <text class="txt">牡丹西苑</text>
+    </view>
+  </view>
+  <navigator url="/pages/search/search" hover-class="none" class="search">
+    <view class="d-flex">
+      <text class="txt">搜索</text>
+      <text class="iconfont icon-sousuo1"></text>
+    </view>
+  </navigator>
+  <view class="other">
+    <text class="iconfont icon-xiaoxi"></text>
+  </view>
+</view>

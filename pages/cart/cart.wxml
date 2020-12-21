@@ -1,0 +1,169 @@
+<view class="container">
+	<view class="no-login" wx:if="{{!hasLogin}}">
+		<view class="c">
+			<image style="width: 300rpx;height: 225rpx;"
+				src="https://sesame.oss-cn-shanghai.aliyuncs.com/fi8gflvi1ax8gcoo8h8t.png" />
+			<text>还没有登录</text>
+			<button style="background:#04B64E;" bindtap="goLogin">去登录</button>
+		</view>
+	</view>
+	<view class='login' wx:else>
+		<view class="service-policy">
+			<!-- <view class="item">当日下单，次日下午6点前到达</view> -->
+			<view class="item">{{cartTotal.checkedGoodsAmount > 29 ?'配送费已免':'满29元免运费'}}</view>
+			<!-- <view class="item">满88元免邮费</view> -->
+		</view>
+
+		<view class="no-cart" wx:if="{{cartGoods.length <= 0 && nullCartGoods.length <= 0}}">
+			<view class="c">
+				<image style="width: 300rpx;height: 225rpx;"
+					src="https://sesame.oss-cn-shanghai.aliyuncs.com/fi8gflvi1ax8gcoo8h8t.png" />
+				<text>去添加点什么吧</text>
+			</view>
+		</view>
+
+		<view class="cart-view" wx:else>
+			<view class="list">
+				<view class="group-item">
+					<view class="goods">
+						<block wx:for="{{cartGoods}}" wx:key="id">
+							<!-- <view wx:if="{{!isEditCart}}" class="item">
+								<view wx:if="{{(item.number > item.limit || item.number > item.stockNumber) && !isEditCart}}"
+									class="checkbox disabled"></view>
+								<view wx:else class="checkbox {{item.checked ? 'checked' : ''}}" bindtap="checkedItem"
+									data-item-index="{{index}}"></view>
+								<navigator url="/pages/goods/goods?id={{item.goodsId}}" hover-class="none" class="cart-goods">
+									<view class="goods-combination-image">
+										<image wx:if="{{item.acStatus === 1}}" src="../../assets/image/pre-sale.png" mode="aspectFill"
+											class="pre-icon"></image>
+										<image wx:if="{{item.acStatus === 98 || item.acStatus === 99}}"
+											src="../../assets/image/giveaway.png" mode="aspectFill" class="pre-icon"></image>
+										<image class="img" src="{{item.picUrl}}" mode="aspectFill"></image>
+									</view>
+									<view class="info">
+										<view class="t">
+											<text class="name">{{item.goodsName}}</text>
+											<text class="num">x{{item.number}}</text>
+										</view>
+										<view class="attr"><text style="color:#FF383A;margin-right:10rpx;"
+												wx:if="{{item.number > item.stockNumber}}">库存仅剩{{item.stockNumber}}份</text><text
+												style="color:#FF383A;margin-right:10rpx;"
+												wx:if="{{item.number > item.limit}}">超出限购{{item.limit}}份</text>{{ isEditCart ? '已选择:' : ''}}{{item.goodsSpecificationValues||''}}
+										</view>
+										<view class="b">
+											<text class="price">￥{{item.price}}</text>
+											<view class="selnum">
+												<view class="cut" bindtap="updateCart" data-idx="{{index}}" data-type="cut">-</view>
+												<input value="{{item.number}}" class="number" disabled="true" type="number" />
+												<view class="add" bindtap="updateCart" data-idx="{{index}}" data-type="add">+</view>
+											</view>
+										</view>
+									</view>
+								</navigator>
+							</view> -->
+
+							<view wx:if="{{isEditCart}}" class="item edit">
+								<view wx:if="{{(item.number > item.limit || item.number > item.stockNumber) && !isEditCart}}"
+									class="checkbox disabled"></view>
+								<view wx:else class="checkbox {{item.checked ? 'checked' : ''}} {{item.noGoodsStock? 'disabled' : ''}}"
+									bindtap="checkedItem" data-item-index="{{index}}"></view>
+								<view class="cart-goods">
+									<view class="goods-combination-image">
+										<image wx:if="{{item.acStatus === 1 }}" src="../../assets/image/pre-sale.png" mode="aspectFill"
+											class="pre-icon"></image>
+										<image wx:if="{{item.acStatus === 98 || item.acStatus === 99 || item.isGiveGoods}}"
+											src="../../assets/image/giveaway.png" mode="aspectFill" class="pre-icon"></image>
+										<image class="img" src="{{item.picUrl}}" mode="aspectFill"></image>
+									</view>
+									<view class="info">
+										<view class="t">
+											<text class="name">{{item.goodsName}}</text>
+											<text class="num">x{{item.number}}</text>
+										</view>
+										<view class="attr">
+											<text style="color:#FF383A;margin-right:10rpx;" wx:if="{{item.number > item.stockNumber}}">
+												库存仅剩{{item.stockNumber}}份
+											</text>
+											<text style="color:#FF383A;margin-right:10rpx;" wx:if="{{item.number > item.limit}}">
+												超出限购{{item.limit}}份
+											</text>
+											{{ isEditCart ? '已选择:' : ''}}{{item.goodsSpecificationValues||''}}
+										</view>
+										<view class="b">
+											<text class="price">￥{{item.price}}</text>
+											<view class="selnum">
+												<view class="cut" bindtap="updateCart" data-idx="{{index}}" data-type="cut">-</view>
+												<input value="{{item.number}}" class="number" disabled="true" type="number" />
+												<view class="add" bindtap="updateCart" data-idx="{{index}}" data-type="add">+</view>
+											</view>
+										</view>
+									</view>
+								</view>
+							</view>
+						</block>
+					</view>
+					<view class="disabledTitle" wx:if="{{nullCartGoods.length > 0}}">
+						<text bindtap="deleteNullCart">清除失效商品</text>
+					</view>
+					<view class="goods">
+						<view class="item" wx:for="{{nullCartGoods}}" wx:key="id">
+							<view class="checkbox disabled"></view>
+							<view class="cart-goods">
+								<image class="img" src="{{item.picUrl}}" mode="aspectFill"></image>
+								<view class="info">
+									<view class="t">
+										<text class="name">{{item.goodsName}}</text>
+										<text class="num">x{{item.number}}</text>
+									</view>
+									<view class="attr">{{item.goodsSpecificationValues||''}}</view>
+									<view class="b">
+										<text class="price">￥{{item.price}}</text>
+									</view>
+								</view>
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
+
+			<view class="give-away" wx:if="{{isGift && !isGiftExist && cartGoods.length > 0}}">
+				<view class="label">需要免费的小葱吗?</view>
+				<view class="options">
+					<view class="option unselected" bindtap="updateIsGift" data-status="{{false}}">
+						不需要
+					</view>
+					<view class="option selected" bindtap="updateIsGift" data-status="{{true}}">
+						需要
+					</view>
+				</view>
+			</view>
+
+			<view class="cart-bottom" wx:if="{{cartGoods.length > 0}}">
+				<view class="checkbox {{checkedAllStatus ? 'checked' : ''}}" bindtap="checkedAll">
+					全选({{cartTotal.checkedGoodsCount}})
+				</view>
+				<!-- <view class="total">
+					{{!isEditCart ? '￥'+cartTotal.checkedGoodsAmount : ''}}
+				</view> -->
+				<view class="total">
+					{{'￥'+cartTotal.checkedGoodsAmount}}
+				</view>
+
+				<view class='action_btn_area'>
+					<!-- <view class="{{!isEditCart ? 'edit' : 'sure'}}" bindtap="editCart">{{!isEditCart ? '编辑' : '完成'}}</view>
+					<view class="delete" bindtap="deleteCart" wx:if="{{isEditCart}}">删除({{cartTotal.checkedGoodsCount}})</view>
+					<view class="checkout" bindtap="checkoutOrder" wx:if="{{!isEditCart}}">下单</view> -->
+
+					<view class="delete" bindtap="deleteCart">删除({{cartTotal.checkedGoodsCount}})</view>
+					<view class="checkout" bindtap="checkoutOrder">下单</view>
+				</view>
+			</view>
+
+		</view>
+	</view>
+
+	<mp-dialog title="" show="{{dialogShow}}" bindbuttontap="deleteSingleGoods" buttons="{{buttons}}"
+		data-delete-index="{{deleteIndex}}">
+		<view>确定删除该商品嘛?</view>
+	</mp-dialog>
+</view>

@@ -1,0 +1,33 @@
+<import src="../../../components/hint/hint.wxml"/>
+<wxs module="filter" src="../../../utils/filter.wxs"></wxs>
+
+<view class="container">
+  <view class="list">
+    <navigator url="/pages/goods/goods?id={{item.id}}&type=group" hover-class="none" class="item" wx:for="{{list}}" wx:key="index">
+      <view class="pic">
+        <!-- <view class="tag">助农价</view> -->
+        <image class="img" src="{{item.picUrl}}" mode="aspectFill"></image>
+      </view>
+      <view class="cont">
+        <view class="tt">{{item.name}}</view>
+        <view class="time" wx:if="{{!item.expired}}">距结束{{filter.countdown(item.expireTime)}}</view>
+        <view class="info">
+          <view class="btn" style="background: #D0D0D0;olor: #fff;" wx:if="{{item.expired}}">已结束</view>
+          <view class="btn" wx:else>立即团</view>
+          <view class="plan d-flex" wx:if="{{item.expired}}">
+            <view class="price flex1"><text>￥</text>{{item.grouponPrice}}</view>
+            <view class="txt">已抢光</view>
+            <view class="bar" style="border: 1rpx solid #D0D0D0;"><view style="width:100%;background: #D0D0D0;"></view></view>
+          </view>
+          <view class="plan d-flex" wx:else>
+            <view class="price flex1"><text>￥</text>{{item.grouponPrice}}</view>
+            <view class="txt">已抢{{filter.percent(item.soldNumber,item.totalNumber)}}%</view>
+            <view class="bar"><view style="width:{{filter.percent(item.soldNumber,item.totalNumber)}}%;"></view></view>
+          </view>
+        </view>
+      </view>
+    </navigator>
+    <view class="no-more" wx:if="{{page > pages && pages != 0}}">已经到底啦</view>
+    <template wx:if="{{!loading && list.length==0 && pages == 0}}" is="hint" data="{{text:'暂无团购商品'}}"></template>
+  </view>
+</view>

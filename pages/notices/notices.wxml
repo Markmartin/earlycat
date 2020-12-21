@@ -1,0 +1,19 @@
+<!--pages/community/details/details.wxml-->
+<import src="../../lib/wxParse/wxParse.wxml"/>
+<view class="container">
+  <view class="details-head d-flex">
+    <view class="info">
+      <view class="box1">
+        <view class="pic-list" wx:if="{{detailsData.type === '0'}}">
+          <view><template is="wxParse" data="{{wxParseData:htmlContent.nodes}}"/></view>
+        </view>
+        <view class="pic-list" wx:if="{{detailsData.type === '1'}}">
+          <image class="pic-item" src="{{imgItem}}" wx:for="{{imgList}}" wx:for-item="imgItem" mode="aspectFill" lazy-load></image>
+        </view>
+        <view class="pic-list" wx:if="{{detailsData.type === '2'}}">
+          <view><web-view src="{{detailsData.content}}" /></view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,71 @@
+page{
+  background: #f1f1f1;
+}
+.list{
+  position: relative;
+  z-index: 1;
+  padding-bottom: 120rpx
+}
+.item{
+  background: #fff;
+  padding: 30rpx;
+  margin-top: 30rpx;
+}
+.item .box1{
+  font-size: 28rpx;
+}
+.item .box1 .name{
+  margin-right: 20rpx;
+}
+.item .box2{
+  margin: 20rpx 0;
+  color: #666;
+  justify-content: space-between;
+}
+.item .box2 .icon-jiantou{
+  font-size: 28rpx;
+  color: #b9b9b9;
+}
+.item .box3{
+  color: #666;
+  margin-bottom: 20rpx;
+}
+.item .box4{color: #666;}
+.item .box4 .radio{
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 100%;
+  border: #cbcccc 1rpx solid;
+  background: #fff;
+  text-align: center;
+  line-height: 40rpx;
+  margin-right: 20rpx;
+}
+.item .box4 .radio text{display: none;font-size: 24rpx;}
+.item .box4 .current .radio{
+  background: #ff8900;
+  border: #ff8900 1rpx solid;
+  color: #fff;
+}
+.item .box4 .current .radio text{display: block;}
+.add-site{
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  height: 110rpx;
+  background: #fff;
+}
+.add-site view{
+  width: 690rpx;
+  height: 90rpx;
+  text-align: center;
+  line-height: 90rpx;
+  margin-left: 30rpx;
+  margin-top: 10rpx;
+  background: #fd651f;
+  border-radius: 10rpx;
+  color: #fff;
+  font-size: 32rpx;
+}

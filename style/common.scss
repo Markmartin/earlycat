@@ -1,0 +1,20 @@
+$theme-color: #80ba64;
+$logo-color: #005d3b;
+$badge-color: #ff5151;
+$unit-color: #fe9513;
+$footer-color: #7bab98;
+$status-color: #b4282d;
+
+$goods-name-color: #474747;
+$goods-subtitle-color: #b5b5b5;
+
+html {
+  padding: 0;
+  margin: 0;
+}
+
+@mixin absolutely-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

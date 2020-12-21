@@ -1,0 +1,34 @@
+<view class="container">
+  <!-- <view class="title">填写信息</view> -->
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="section">
+      <view class="tt">社区名<text>*</text></view>
+      <input name="community" value="{{community}}" bindtap="selectBtn" placeholder="选择社区" disabled="true"></input>
+    </view>
+    <view class="section">
+      <view class="tt">门房号<text>*</text></view>
+      <input name="site" placeholder="如：5号楼104室"></input>
+    </view>
+    <view class="section">
+      <view class="tt">姓名<text>*</text></view>
+      <input name="name" placeholder="请输入姓名"></input>
+    </view>
+    <view class="section">
+      <view class="tt">手机号<text>*</text></view>
+      <input name="mobile" placeholder="请输入手机号"></input>
+    </view>
+    <view class="section">
+      <view class="tt">身份证</view>
+      <input name="identityCard" type="idcard" placeholder="请输入身份证信息"></input>
+    </view>
+    <view class="section">
+      <view class="tt">认证身份<text>*</text></view>
+      <view>
+        <text bindtap="radioChange" data-id="{{item.id}}" class="label {{selectId === item.id ? 'current' : ''}}" wx:for="{{list}}" wx:key="index">{{item.value}}</text>
+      </view>
+    </view>
+    <view class="btn-area">
+      <button hover-class="none" form-type="submit">提交审核</button>
+    </view>
+  </form>
+</view>

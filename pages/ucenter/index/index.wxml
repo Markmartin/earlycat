@@ -1,0 +1,129 @@
+<view class="container">
+  <view class="block1">
+    <view class="userInfo d-flex" bindtap="goLogin">
+      <image class="avatar" src="{{userInfo.avatar}}"></image>
+      <view class="flex1 name">{{userInfo.nickname}}</view>
+    </view>
+    <view class="d-flex numberInfo">
+      <view class="flex1" bindtap='openUrl' data-url="/pages/storedValue/index/index">
+        <view class="number">{{remaining}}</view>
+        <view class="txt">账户余额</view>
+      </view>
+      <view class="flex1" bindtap='openUrl' data-url="/pages/ucenter/collect/collect">
+        <view class="number">{{goodsCollects}}</view>
+        <view class="txt">商品收藏</view>
+      </view>
+      <view class="flex1" bindtap='openUrl' data-url="/pages/ucenter/footprint/footprint">
+        <view class="number">{{footprints}}</view>
+        <view class="txt">浏览足迹</view>
+      </view>
+      <view class="flex1" bindtap='openUrl' data-url="/pages/ucenter/couponList/couponList">
+        <view class="number">{{coupons}}</view>
+        <view class="txt">优惠券</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- <view class="news d-flex" wx:if="{{userInfo.funBuy && countDownFlag}}">
+    <image class="news-icon" src="/static/images/icon_news1.png"></image>
+    <swiper class="news-list" interval="2000" autoplay="true" circular="true" vertical="true">
+      <swiper-item>
+        <navigator url="/pages/goods/goods?id={{userInfo.funBuyGoodsId}}" hover-class="none" class="txt">
+        <view class="d-flex">
+          <view class="flex1">领取专属商品(限地推) </view>
+          <text class="tt">{{countdown}}</text>
+        </view>
+        </navigator>
+      </swiper-item>
+    </swiper>
+  </view> -->
+  <view class='orderInfo'>
+    <view class='orderInfo_head d-flex' bindtap='goOrder'>
+      <view class='tt flex1'>我的订单</view>
+      <image class='img' src='/static/images/goright.png'></image>
+    </view>
+    <view class='orderInfo_list d-flex'>
+      <view class='orderInfo_item flex1' bindtap='goOrderIndex' data-index='1' data-route='/pages/ucenter/order/order'>
+        <text class="orderInfo_item_badge" wx:if="{{order.unpaid != 0}}">{{order.unpaid}}</text>
+        <image class='orderInfo_item_image' src='https://earlycat-app.oss-cn-shanghai.aliyuncs.com/pendpay.png'>
+        </image>
+        <view class='orderInfo_item_text'>待付款</view>
+      </view>
+      <view class='orderInfo_item flex1' bindtap='goOrderIndex' data-index='2' data-route='/pages/ucenter/order/order'>
+        <text class="orderInfo_item_badge" wx:if="{{order.unship != 0}}">{{order.unship}}</text>
+        <image class='orderInfo_item_image' src='https://earlycat-app.oss-cn-shanghai.aliyuncs.com/send.png'></image>
+        <view class='orderInfo_item_text'>待发货</view>
+      </view>
+      <view class='orderInfo_item flex1' bindtap='goOrderIndex' data-index='3' data-route='/pages/ucenter/order/order'>
+        <text class="orderInfo_item_badge" wx:if="{{order.unrecv != 0}}">{{order.unrecv}}</text>
+        <image class='orderInfo_item_image' src='https://earlycat-app.oss-cn-shanghai.aliyuncs.com/receive.png'></image>
+        <view class='orderInfo_item_text'>待收货</view>
+      </view>
+      <view class='orderInfo_item flex1' bindtap='goOrderIndex' data-index='4' data-route='/pages/ucenter/order/order'>
+        <text class="orderInfo_item_badge" wx:if="{{order.uncomment != 0}}">{{order.uncomment}}</text>
+        <image class='orderInfo_item_image' src='https://earlycat-app.oss-cn-shanghai.aliyuncs.com/received.png'>
+        </image>
+        <view class='orderInfo_item_text'>已收货</view>
+      </view>
+      <view class='orderInfo_item flex1' bindtap='goOrderIndex' data-index='5'
+        data-route='/pages/ucenter/afterSaleOrder/afterSaleOrder'>
+        <!-- <text class="orderInfo_item_badge" wx:if="{{order.uncomment != 0}}">{{order.uncomment}}</text> -->
+        <image class='orderInfo_item_image' src='https://earlycat-app.oss-cn-shanghai.aliyuncs.com/aftersale.png'>
+        </image>
+        <view class='orderInfo_item_text'>售后</view>
+      </view>
+    </view>
+  </view>
+  <view class="generalizeInfo d-flex" wx:if="{{userInfo.userType !== 0}}">
+    <view class="flex1 tt">推广管理</view>
+    <view class='look' bindtap='openUrl' data-url="/pages/generalize/index/index">查看详情</view>
+  </view>
+
+  <view class="moreInfo">
+    <view class="moreInfo_head d-flex">
+      <view class="moreInfo_tt">更多功能</view>
+    </view>
+    <view class="moreInfo_list d-flex">
+      <!-- <view class="moreInfo_item" bindtap='openUrl' data-url="/pages/community/manage/manage">
+        <image class='moreInfo_image' src='/static/images/address.png'></image>
+        <view class='moreInfo_text'>小区管理</view>
+      </view> -->
+      <view class="moreInfo_item" bindtap='openUrl' data-url="/pages/ucenter/address/address">
+        <image class='moreInfo_image' src='https://earlycat-app.oss-cn-shanghai.aliyuncs.com/icon-address-manage.png'>
+        </image>
+        <view class='moreInfo_text'>地址管理</view>
+      </view>
+      <view class="moreInfo_item" bindtap='openUrl' data-url="/pages/ucenter/feedback/feedback">
+        <image class='moreInfo_image' src='https://earlycat-app.oss-cn-shanghai.aliyuncs.com/icon-feedback.png'>
+        </image>
+        <view class='moreInfo_text'>意见反馈</view>
+      </view>
+      <view class="moreInfo_item" bindtap='openUrl' data-url="/pages/frequentlyAskedQuestions/index/index">
+        <image class='moreInfo_image' src='https://earlycat-app.oss-cn-shanghai.aliyuncs.com/icon-customer.png'></image>
+        <view class='moreInfo_text'>联系客服</view>
+      </view>
+      <view class="moreInfo_item" bindtap='openUrl' data-url="/pages/recruit/recruit">
+        <image class='moreInfo_image' src='http://earlycat-app.oss-cn-shanghai.aliyuncs.com/recruit.png'></image>
+        <view class='moreInfo_text'>朝菜猫招募</view>
+      </view>
+      <!-- <view class="moreInfo_item" bindtap='applyToBecomePromoter' wx:if="{{userInfo.userType == 0}}">
+        <image class='moreInfo_image' src='http://earlycat-app.oss-cn-shanghai.aliyuncs.com/promotion.png'></image>
+        <view class='moreInfo_text'>申请推广</view>
+      </view> -->
+      <!-- <view class="moreInfo_item" bindtap='openUrl' data-url="/pages/test/test">
+        <image class='moreInfo_image' src='https://earlycat-app.oss-cn-shanghai.aliyuncs.com/stored-value.png'></image>
+        <view class='moreInfo_text'>小视频测试</view>
+      </view> -->
+      <view class="moreInfo_item" bindtap='openUrl' data-url="/pages/storedValue/index/index">
+        <image class='moreInfo_image' src='https://earlycat-app.oss-cn-shanghai.aliyuncs.com/stored-value.png'></image>
+        <view class='moreInfo_text'>储值送红包</view>
+      </view>
+    </view>
+  </view>
+  <view class="logout" wx:if="{{hasLogin}}" bindtap="exitLogin">退出登录</view>
+
+  <mp-dialog title="" show="{{dialogShow}}" bindbuttontap="requestApplication" buttons="{{buttons}}">
+    <view>确定申请成为推广者吗?</view>
+  </mp-dialog>
+
+</view>

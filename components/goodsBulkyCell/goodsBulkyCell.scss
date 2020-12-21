@@ -1,0 +1,144 @@
+@import '../../style/common.scss';
+
+$border-radius: 10rpx;
+$image-height: 310rpx;
+
+.goods-bulky-cell {
+  position: relative;
+  width: 100%;
+  background-color: #e6e6e6;
+  border-radius: 10rpx;
+  border: 1px solid #e6e6e6;
+
+  .goods-image-container {
+    position: relative;
+    width: 100%;
+
+    .is-new {
+      position: absolute;
+      left: 20rpx;
+      top: 20rpx;
+      padding: 0 20rpx 0 30rpx;
+      background-color: $theme-color;
+      color: white;
+      font-size: 25rpx;
+      height: 40rpx;
+      line-height: 40rpx;
+      border-radius: 20rpx;
+      letter-spacing: 10rpx;
+    }
+
+    .is-hot {
+      position: absolute;
+      left: 20rpx;
+      top: 20rpx;
+      padding: 0 20rpx;
+      background-color: $unit-color;
+      color: white;
+      font-size: 25rpx;
+      height: 40rpx;
+      line-height: 40rpx;
+      border-radius: 20rpx;
+      // letter-spacing: 10rpx;
+    }
+
+    .goods-image-mask {
+      width: 100%;
+      height: $image-height;
+      line-height: $image-height;
+      text-align: center;
+      font-size: 35rpx;
+      font-weight: bold;
+      border-top-left-radius: $border-radius;
+      border-top-right-radius: $border-radius;
+      background-color: rgba($color: #000000, $alpha: 0.3);
+      color: white;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    .goods-image {
+      width: 100%;
+      height: $image-height;
+      border-top-left-radius: $border-radius;
+      border-top-right-radius: $border-radius;
+    }
+  }
+
+  .goods-content {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 20rpx;
+
+    .goods-name {
+      width: 100%;
+      text-align: left;
+      // margin-top: 10rpx;
+      font-size: 25rpx;
+      line-height: 30rpx;
+      height: 60rpx;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: $goods-name-color;
+      font-weight: bold;
+    }
+
+    .goods-description {
+      width: 100%;
+      text-align: left;
+      margin-top: 10rpx;
+      font-size: 25rpx;
+      line-height: 30rpx;
+      height: 60rpx;
+      color: $goods-subtitle-color;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .goods-footer {
+    width: 100%;
+    box-sizing: border-box;
+    // margin-top: 10rpx;
+    padding: 0 0 0 20rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .goods-price-container {
+      flex-grow: 1;
+      margin-right: 10rpx;
+      .goods-price {
+        color: $unit-color;
+        font-size: 35rpx;
+        line-height: 35rpx;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .goods-original-price {
+        color: $goods-subtitle-color;
+        font-size: 25rpx;
+        line-height: 35rpx;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-decoration: line-through;
+      }
+    }
+
+    .cart {
+      display: block;
+      width: 100rpx;
+      height: 100rpx;
+    }
+  }
+}

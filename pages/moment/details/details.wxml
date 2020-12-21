@@ -1,0 +1,83 @@
+<view class="container">
+  <view class="title">{{detailsData.title}}</view>
+  <view class="user">
+    <image class="pic" src="{{detailsData.avatar}}" mode="aspectFill"></image>
+    <view class="info">
+      <view class="name">{{detailsData.nickname}}</view>
+      <view class="time">{{detailsData.addTime}}</view>
+    </view>
+    <view class="other">
+      <view>浏览{{detailsData.views}}次</view>
+    </view>
+  </view>
+  <view class="content"><text>{{detailsData.moment}}</text></view>
+  <view class="picList">
+    <image class="pic-item" src="{{item}}" wx:for="{{detailsData.picUrls}}" wx:key="index" data-list="{{detailsData.picUrls}}" data-src="{{item}}" bindtap="imgPreview" mode="widthFix" lazy-load></image>
+  </view>
+  <view class="details-tool">
+    <view class="details-nav">
+      <view class="item {{type === 'comment' ? 'current' : ''}}" data-type="comment" bindtap="clickNav">回复<text style="right:{{detailsData.comments>9?'-30rpx':'-20rpx'}}">{{detailsData.comments}}</text></view>
+      <view class="item {{type === 'like' ? 'current' : ''}}" data-type="like" bindtap="clickNav">赞<text>{{detailsData.likes}}</text></view>
+      <view class="item {{type === 'share' ? 'current' : ''}}" data-type="share" bindtap="clickNav">转发<text>{{detailsData.shares}}</text></view>
+    </view>
+    <view class="details-nav-cont">
+      <view class="comment-list" style="display: {{type === 'comment' ? 'block' : 'none'}}">
+        <view class="item" wx:for="{{comment_list}}" wx:key="id">
+          <view class="avatar"><image src="{{item.userInfo.avatar}}"></image></view>
+          <view class="cont">
+            <view class="top">
+              <view class="name">{{item.userInfo.nickname}}<text>{{item.addTime}}</text></view>
+              <view class="reply" bindtap="replyBtn" data-id="{{item.id}}" data-name="{{item.userInfo.nickname}}">回复</view>
+              <!-- <view class="time"></view> -->
+            </view>
+            <view class="txt"><text wx:if="{{item.parent}}" style="color: rgba(204,204,204,1);">回复{{item.parent.userInfo.nickname}}：</text>{{item.content}}</view>
+          </view>
+        </view>
+        <view class="loading" wx:if="{{comment_loading}}">正在加载中--评论</view>
+      </view>
+      <view class="like-list" style="display: {{type === 'like' ? 'block' : 'none'}}">
+        <view class="item d-flex" wx:for="{{like_list}}" wx:key="id">
+          <view class="avatar"><image src="{{item.userInfo.avatar}}"></image></view>
+          <view class="cont">
+            <text class="name">{{item.userInfo.nickname}}</text>
+            <text class="time">{{item.addTime}}</text>
+          </view>
+        </view>
+        <view class="loading" wx:if="{{like_loading}}">正在加载中--点赞</view>
+      </view>
+      <view class="like-list" style="display: {{type === 'share' ? 'block' : 'none'}}">
+        <view class="item d-flex" wx:for="{{share_list}}" wx:key="id">
+          <view class="avatar"><image src="{{item.userInfo.avatar}}"></image></view>
+          <view class="cont">
+            <text class="name">{{item.userInfo.nickname}}</text>
+            <text class="time">{{item.addTime}}</text>
+          </view>
+        </view>
+        <view class="loading" wx:if="{{like_loading}}">正在加载中--分享</view>
+      </view>
+      <!-- <view class="comment-list" style="display: {{type === 'share' ? 'block' : 'none'}}">
+        <view class="item d-flex" wx:for="{{share_list}}" wx:key="id">
+          <view class="avatar"><image src="{{item.userInfo.avatar}}"></image></view>
+          <view class="cont">
+            <view class="name">{{item.userInfo.nickname}}</view>
+            <view class="txt">{{item.content}}</view>
+            <view class="time">{{item.addTime}}</view>
+          </view>
+        </view>
+        <view class="loading" wx:if="{{share_loading}}">正在加载中--分享</view>
+      </view> -->
+    </view>
+  </view>
+  <view class="details-footer">
+    <view class="d-flex">
+      <input placeholder="{{placeholder}}" focus="{{focusFlag}}" bindblur="blurInput" value="{{inputValue}}" confirm-type="send" bindconfirm="bindFormSubmit"></input>
+      <view class="btn" bindtap="likeBtn" wx:if="{{!detailsData.liked}}"><image src="/static/moment/like.png"></image></view>
+      <view class="btn" wx:else><image src="/static/moment/like-select.png"></image></view>
+      <button open-type="share" hover-class="none" class="btn"><image src="/static/moment/share.png"></image></button>
+    </view>
+    <!-- <view class="d-flex box2 {{detailsFooter ? 'none' : ''}}">
+      <input placeholder="优质评论将会被优先展示" placeholder-style="color:#b9b9b9" data-flage="false" focus name="input" bindblur="detailsFooterMethod" bindinput="bindInput" focus="{{!detailsFooter}}" value="{{inputValue}}"></input>
+      <button bindtap="bindFormSubmit">发布</button>
+    </view> -->
+  </view>
+</view>

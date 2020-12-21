@@ -1,0 +1,25 @@
+<view class="container">
+  <view class="address-list" wx:if="{{ addressList.length > 0 }}">
+    <view class="item" wx:for="{{addressList}}" wx:key="id" bindtap="addressAddOrUpdate" data-address-id="{{item.id}}">
+      <view class="l">
+        <view class="name">{{item.name}}</view>
+        <view class="default" wx:if="{{item.isDefault}}">默认</view>
+      </view>
+      <view class="c">
+        <view class="mobile">{{item.tel}}</view>
+        <view class="address">{{item.province+' '+item.city+' '+item.county}}</view>
+        <view class="address">{{item.communityName}}{{item.addressDetail}}</view>
+      </view>
+      <view class="r">
+        <image catchtap="deleteAddress" data-address-id="{{item.id}}" class="del" src="/static/images/del-address.png">
+        </image>
+      </view>
+    </view>
+  </view>
+  <view class="empty-view" wx:if="{{ addressList.length == 0 && page != 1 }}">
+    <image class="icon" style="width: 300rpx;height: 225rpx;"
+      src="https://sesame.oss-cn-shanghai.aliyuncs.com/fi8gflvi1ax8gcoo8h8t.png"></image>
+    <text class="text">收货地址在哪里</text>
+  </view>
+  <view class="add-address" bindtap="addressAddOrUpdate" data-address-id="0">新建</view>
+</view>

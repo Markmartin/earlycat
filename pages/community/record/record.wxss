@@ -1,0 +1,65 @@
+.nav{
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 10;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  background: #fff;
+}
+.nav .item{
+  flex: 1;
+  font-size: 32rpx;
+  border-bottom: #f1f1f1 2rpx solid;
+}
+.nav .item.current{
+  color: #fd651f;
+  border-bottom: #fd651f 4rpx solid;
+}
+.wrap{
+  position: relative;
+  z-index: 1;
+}
+.wrap scroll-view{
+  padding-top: 100rpx;
+}
+.wrap .item{
+  position: relative;
+  padding: 30rpx;
+  border-bottom: #f1f1f1 1rpx solid;
+}
+.wrap .item .pic{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 100%;
+  overflow: hidden;
+  background: #ccc;
+}
+.wrap .item .cont{
+  flex: 1;
+  margin-left: 30rpx;
+}
+.wrap .item .cont .info{
+  padding: 5rpx 0;
+  width: 70%;
+}
+.wrap .item .cont .time{
+  color: #b9b9b9;
+}
+.wrap .item .cont .name{
+  margin-right: 20rpx;
+}
+.wrap .item .cont .tag{
+  text-align:right;
+  width: 30%;
+}
+.wrap .item .cont .tag .context{
+  background: #ff8900;
+  color: #fff;
+  font-size: 26rpx;
+  padding: 4rpx 20rpx;
+  border-radius: 20rpx;
+  display: inline;
+}

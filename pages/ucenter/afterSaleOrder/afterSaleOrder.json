@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "after-sale-order-cell": "/components/afterSaleOrderCell/afterSaleOrderCell"
+  }
+}

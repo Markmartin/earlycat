@@ -1,0 +1,7 @@
+{
+  "backgroundColor": "#f4f4f4",
+  "navigationBarTitleText": "购物车",
+  "usingComponents": {
+    "mp-dialog": "/miniprogram_npm/weui-miniprogram/dialog/dialog"
+  }
+}

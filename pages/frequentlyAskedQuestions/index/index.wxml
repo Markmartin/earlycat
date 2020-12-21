@@ -1,0 +1,42 @@
+<!--pages/frequentlyAskedQuestions/index/index.wxml-->
+<view class="frequently-asked-questions">
+  <view class="header-card-container">
+    <button class="header-card" open-type="contact">
+      <view class="header-card-left">
+        <image class="customer-service-icon"
+          src="https://earlycat-app.oss-cn-shanghai.aliyuncs.com/customer_service.png">
+        </image>
+        <text class="customer-service-label">客服会话</text>
+      </view>
+      <view class="header-card-right">
+        <image class="arrow-icon" src="/assets/image/arrow/arrow_right_dark_line.png"></image>
+        <text class="contact-label">立即联系</text>
+      </view>
+    </button>
+
+    <button class="header-card" bindtap="makePhoneCall">
+      <view class="header-card-left">
+        <image class="customer-service-icon" src="https://earlycat-app.oss-cn-shanghai.aliyuncs.com/customer_phone.png">
+        </image>
+        <text class="customer-service-label">客服电话</text>
+      </view>
+      <view class="header-card-right">
+        <image class="arrow-icon" src="/assets/image/arrow/arrow_right_dark_line.png"></image>
+        <text class="contact-label">立即拨打</text>
+      </view>
+    </button>
+  </view>
+
+  <view class="questions-label">常见问题</view>
+
+  <view class="questions-list">
+    <view wx:for="{{questions}}" wx:key="index" class="question-cell">
+      <view class="question" bindtap="toggleAnswer" data-index="{{index}}">
+        <view class="question-content">{{item.question}}</view>
+        <image class="arrow {{item.toggle?'arrow-up':'arrow-down'}}" src="/assets/image/arrow/arrow_down_dark_line.png">
+        </image>
+      </view>
+      <text wx:if="{{item.toggle}}" class="answer">{{item.answer}}</text>
+    </view>
+  </view>
+</view>

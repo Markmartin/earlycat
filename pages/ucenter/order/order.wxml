@@ -1,0 +1,74 @@
+<view class="container">
+	<view class="orders-switch">
+		<view class="item {{ showType == 0 ? 'active' : ''}}" bindtap="switchTab" data-index='0'>
+			<view class="txt">全部</view>
+		</view>
+		<view class="item {{ showType == 1 ? 'active' : ''}}" bindtap="switchTab" data-index='1'>
+			<view class="txt">待付款</view>
+		</view>
+		<view class="item {{ showType == 2 ? 'active' : ''}}" bindtap="switchTab" data-index='2'>
+			<view class="txt">待发货</view>
+		</view>
+		<view class="item {{ showType == 3 ? 'active' : ''}}" bindtap="switchTab" data-index='3'>
+			<view class="txt">待收货</view>
+		</view>
+		<view class="item {{ showType == 4 ? 'active' : ''}}" bindtap="switchTab" data-index='4'>
+			<view class="txt">已收货</view>
+		</view>
+	</view>
+	<view class="orders">
+		<view bindtap="openPage" url="../orderDetail/orderDetail?id={{item.id}}" data-id="{{item.id}}" data-idx="{{index}}"
+			class="order" wx:for="{{orderList}}" wx:key="id">
+			<view class="h">
+				<view class="l">订单编号：{{item.orderSn}}<text class="copy" catchtap="copy"
+						data-order-sn="{{item.orderSn}}">复制</text></view>
+				<view class="r">{{item.orderStatusText}}</view>
+			</view>
+			<view class="goods" wx:for="{{item.goodsList}}" wx:key="id" wx:for-item="gitem">
+				<view class="img">
+					<image wx:if="{{gitem.acStatus === 1}}" src="../../../assets/image/pre-sale.png" mode="aspectFill"
+						class="pre-icon"></image>
+					<image wx:if="{{gitem.acStatus===98 || gitem.acStatus === 99 || gitem.isGiveGoods}}"
+						src="../../../assets/image/giveaway.png" mode="aspectFill" class="pre-icon"></image>
+					<image src="{{gitem.picUrl}}" mode="aspectFill"></image>
+				</view>
+				<view class="info">
+					<text class="name">{{gitem.goodsName}}</text>
+					<text class="number">共{{gitem.number}}件商品</text>
+				</view>
+				<view class="status"></view>
+			</view>
+			<view class="b">
+				<view class="l">实付：￥{{item.actualPrice}}</view>
+				<view class="r" wx:if="{{item.handleOption.confirm}}" catchtap="getLogisticsInfo" data-index="{{index}}"
+					data-item="{{item}}">
+					<view class="t">查看物流</view>
+					<image class="arrow {{item.toggleShow?'top':'down'}}" src="/assets/image/arrow/arrow_down_dark_line.png">
+					</image>
+				</view>
+			</view>
+
+			<view class="order-express" wx:if="{{ item.handleOption.confirm && item.toggleShow }}">
+				<view class="title">
+					<!-- <view class="t">快递公司：{{expressChannel}}</view> -->
+					<view class="b">物流单号：{{item.expressInfo.orderid}}</view>
+				</view>
+				<view class="traces" wx:for="{{item.expressInfo.waybillTracker}}" wx:key="item" wx:for-item="iitem">
+					<view class="trace">
+						<view class="acceptStation">{{iitem.info}}</view>
+						<view class="acceptTime">{{iitem.time}}</view>
+					</view>
+				</view>
+			</view>
+
+		</view>
+	</view>
+	<view class="no-more" wx:if="{{page > pages && pages != 0}}">已经到底啦</view>
+	<view class="no-order" wx:if="{{orderList.length == 0 && pages == 0 && !loading}}">
+		<view class="c">
+			<image style="width: 300rpx;height: 225rpx;"
+				src="https://sesame.oss-cn-shanghai.aliyuncs.com/fi8gflvi1ax8gcoo8h8t.png" />
+			<text>还没有任何订单呢</text>
+		</view>
+	</view>
+</view>

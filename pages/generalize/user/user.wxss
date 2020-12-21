@@ -1,0 +1,64 @@
+.container{
+  padding: 30rpx;
+  position: relative;
+  z-index: 1;
+}
+.head{
+  background: #4DACFB;
+  box-shadow: 0 0 6rpx 0 rgba(205,79,79,0.14);
+  border-radius: 12rpx;
+  color: #fff;
+  padding: 30rpx;
+}
+.head .tt{
+  font-family: PingFangSC-Regular;
+  font-size: 30rpx;
+  color: #FFFFFF;
+}
+.head .number{
+  font-family: PingFangSC-Semibold;
+  font-size: 60rpx;
+  color: #FFFFFF;
+}
+.list{}
+.list .item{
+  background: #FFFFFF;
+  border: 1px solid #F1F1F1;
+  border-radius: 12rpx;
+  padding: 30rpx;
+  margin-top: 20rpx;
+}
+.list .user{
+  margin-bottom: 18rpx;
+}
+.list .user image{
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 100%;
+  margin-right: 12rpx;
+  background-color: #ccc;
+}
+.list .user .name{
+  font-family: PingFangSC-Semibold;
+  font-size: 28rpx;
+  color: #333333;
+}
+.list .txt{
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #666666;
+  margin-top: 10rpx;
+}
+
+.no-data{
+  margin-top: 240rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 28rpx;
+  color: #666666;
+  text-align: center;
+}
+.no-data image{
+  width: 276rpx;
+  height: 276rpx;
+  margin-bottom: 24rpx;
+}

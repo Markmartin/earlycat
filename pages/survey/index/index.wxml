@@ -1,0 +1,29 @@
+<import src="../../../components/hint/hint.wxml"/>
+<view class="container">
+  <template wx:if="{{errorText !== ''}}" is="hint" data="{{...errorText}}"></template>
+  <view wx:if="{{!openFlag && errorText== ''}}">
+    <text style="margin-bottom:20rpx;display:block;">{{details.discribe}}</text>
+    <button bindtap="openAnswer">开启问卷</button>
+  </view>
+  <block wx:if="{{openFlag && errorText== ''}}">
+    <view class="item" wx:for="{{details.questions}}" wx:key="id">
+      <view class="tt"><text class="text-red" wx:if="{{item.isRequired}}">*</text>{{index+1}}、{{item.questionTitle}}</view>
+      <view class="cont" style="{{item.questionType == 'completion'?'border: #ccc 1rpx solid':''}}">
+        <input wx:if="{{item.questionType == 'completion'}}" bindblur="setInput" data-idx="{{index}}"></input>
+        <radio-group class="radio-group" bindchange="radioChange" data-idx="{{index}}" wx:if="{{item.questionType == 'single'}}">
+            <radio class="radio" wx:for-items="{{item.list}}" wx:for-index="idx" wx:for-item="itemName" wx:key="idx" value="{{itemName.id}}" checked="{{itemName.checked}}">
+                <text>{{itemName.itemValue}}</text>
+            </radio>
+        </radio-group>
+        <checkbox-group bindchange="checkboxChange" data-idx="{{index}}" wx:if="{{item.questionType == 'multiple'}}">
+        <label class="checkbox" wx:for="{{item.list}}" wx:for-index="idx" wx:for-item="itemName" wx:key="idx">
+          <checkbox value="{{itemName.id}}" checked="{{itemName.checked}}"/>{{itemName.itemValue}}
+        </label>
+        </checkbox-group>
+      </view>
+    </view>
+    <view class="footer" wx:if="{{details}}">
+      <button bindtap="submitSave">提交问卷</button>
+    </view>
+  </block>
+</view>

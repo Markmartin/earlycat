@@ -1,0 +1,26 @@
+<view class="container" style="padding-top:{{navBar.height}}px;">
+  <form bindsubmit="bindFormSubmit">
+    <view class="navBar" style="height:{{navBar.height}}px;">
+      <navigator open-type="navigateBack" hover-class="none" style="margin-top:{{navBar.top}}px;padding:0 {{navBar.left}}px;height:{{navBar.buttonHeight}}px;" class="return"><image src="/static/moment/return.png"></image></navigator>
+      <button form-type="submit" hover-class="none" style="right:{{navBar.right}}px;height:{{navBar.buttonHeight}}px;line-height:{{navBar.buttonHeight}}px;top:{{navBar.top}}px"><image src="/static/moment/issue.png" /><text>发布</text></button>
+    </view>
+    <input class="title" maxlength="30" placeholder="旧物标题" name="title" />
+    <!-- <view class="content"> -->
+      <textarea class="content" auto-height maxlength="300" placeholder="旧物描述 品牌型号，新旧程度，入手渠道，转手原因..." name="content" />
+    <!-- </view> -->
+    <!-- <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" range-key="name">
+      <view class="picker">
+        {{array[index].name}}
+      </view>
+    </picker> -->
+    <view class="pic-cont">
+      <view class="pic-list d-flex">
+        <view class="item" wx:for="{{picUrls}}" wx:key="*this" data-list="{{picUrls}}" data-src="{{item}}" bindtap="imgPreview">
+          <image src="{{item}}" class="pic" mode="aspectFill"></image>
+          <image src="/static/moment/delete.png" class="img-delete" data-idx="{{index}}" catchtap="delPic"></image>
+        </view>
+        <image class="item" src="/static/moment/add_pic.png" bindtap="chooseImage" wx:if="{{picUrls.length < maxPic}}"></image>
+      </view>
+    </view>
+  </form>
+</view>

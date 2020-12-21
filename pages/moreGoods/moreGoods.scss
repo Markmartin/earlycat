@@ -1,0 +1,44 @@
+@import '../../style/common.scss';
+
+.more-goods {
+  .list-container {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 750rpx;
+    height: 100vh;
+
+    .goods {
+      padding: 10rpx 20rpx;
+
+      // 通用title
+      .title-container {
+        width: 100%;
+        border-bottom: 1px solid $theme-color;
+        display: flex;
+        justify-content: center;
+
+        .title {
+          padding: 5rpx 40rpx;
+          font-size: 35rpx;
+          border-top-left-radius: 20rpx;
+          border-top-right-radius: 20rpx;
+          text-align: center;
+          color: white;
+          background-color: $theme-color;
+        }
+      }
+
+      // 活动商品列表
+      .activity-goods-list-container {
+        width: 710rpx;
+        // background-color: yellowgreen;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+    }
+  }
+}

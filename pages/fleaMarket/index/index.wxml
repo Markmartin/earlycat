@@ -1,0 +1,4 @@
+<!--pages/fleaMarket/index/index.wxml-->
+<view class="container">
+  跳蚤市场
+</view>

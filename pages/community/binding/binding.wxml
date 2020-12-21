@@ -1,0 +1,12 @@
+<view class="container">
+  <swiper wx:if="{{details.picUrls && details.picUrls.length > 0}}" class="guide-banner" autoplay="true" circular="true" current="{{bannerIndex}}">
+    <block wx:for="{{details.picUrls}}" wx:key="index">
+      <swiper-item>
+        <image src="{{item}}"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+  <!-- <view class="title"><image src="/images/icon_home.png"/><text>{{details.name}}</text></view> -->
+  <image src="/images/welcome-_img.png" style="width:377rpx;height:76rpx;display:block;margin:0 auto;margin-top:220rpx" />
+  <view class="btn" bindtap="btn">一键回家</view>
+</view>

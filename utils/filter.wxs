@@ -1,0 +1,90 @@
+var timestampFormat = function(time) {
+  var timestamp = getDate(time);
+  console.log(timestamp.getFullYear())
+  function zeroize(num) {
+    return (String(num).length == 1 ? '0' : '') + num;
+  }
+
+  var curTimestamp = parseInt(getDate().getTime() / 1000); //当前时间戳
+  var timestampDiff = curTimestamp - timestamp; // 参数时间戳与当前时间戳相差秒数
+
+  var curDate = getDate(curTimestamp * 1000); // 当前时间日期对象
+  var tmDate = getDate(timestamp * 1000);  // 参数时间戳转换成的日期对象
+
+  var Y = tmDate.getFullYear(), m = tmDate.getMonth() + 1, d = tmDate.getDate();
+  var H = tmDate.getHours(), i = tmDate.getMinutes(), s = tmDate.getSeconds();
+
+  if (timestampDiff < 60) { // 一分钟以内
+    return "刚刚";
+  } else if (timestampDiff < 3600) { // 一小时前之内
+    return Math.floor(timestampDiff / 60) + "分钟前";
+  } else if (curDate.getFullYear() == Y && curDate.getMonth() + 1 == m && curDate.getDate() == d) {
+    return '今天' + zeroize(H) + ':' + zeroize(i);
+  } else {
+    var newDate = getDate((curTimestamp - 86400) * 1000); // 参数中的时间戳加一天转换成的日期对象
+    if (newDate.getFullYear() == Y && newDate.getMonth() + 1 == m && newDate.getDate() == d) {
+      return '昨天' + zeroize(H) + ':' + zeroize(i);
+    } else if (curDate.getFullYear() == Y) {
+      return zeroize(m) + '月' + zeroize(d) + '日 ' + zeroize(H) + ':' + zeroize(i);
+    } else {
+      return Y + '年' + zeroize(m) + '月' + zeroize(d) + '日 ' + zeroize(H) + ':' + zeroize(i);
+    }
+  }
+}
+
+var timeCutout = function(time) {
+  return time.replace(" 00:00:00", "")
+}
+
+var countdown = function(time) {
+  // 计算目标与现在时间差（毫秒）
+  var time1 = getDate(time.replace(getRegExp('-','g'),'/')).getTime()
+  var time2 = getDate().getTime()
+  var mss = time1 - time2
+  // 将时间差（毫秒）格式为：天时分秒
+  var days = parseInt(mss / (1000 * 60 * 60 * 24))
+  var hours = parseInt((mss % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+  var minutes = parseInt((mss % (1000 * 60 * 60)) / (1000 * 60))
+  var seconds = parseInt((mss % (1000 * 60)) / 1000)
+  return days + "天" + (hours < 10 ? "0" + hours : hours) + ":" + (minutes < 10 ? "0" + minutes : minutes) + ":" + (seconds < 10 ? "0" + seconds : seconds)
+}
+
+var percent = function(number1,number2) {
+  return parseInt(number1/number2*100)
+}
+var distance = function(data){
+  var number = ''
+  if(data>1000){
+    number = (data/1000).toFixed(1) + 'km'
+  }else{
+    number = data + 'm'
+  }
+  return number
+}
+
+var changeTwoDecimal = function(x){
+  var f_x = parseFloat(x)
+  if (isNaN(f_x)) {
+    return false;
+  }
+  var f_x = Math.round(x * 100) / 100;
+  var s_x = f_x.toString();
+  var pos_decimal = s_x.indexOf('.');
+  if (pos_decimal < 0) {
+    pos_decimal = s_x.length;
+    s_x += '.';
+  }
+  while (s_x.length <= pos_decimal + 2) {
+    s_x += '0';
+  }
+  return s_x;
+}
+
+module.exports = {
+  timestampFormat: timestampFormat,
+  timeCutout: timeCutout,
+  countdown: countdown,
+  percent: percent,
+  distance: distance,
+  changeTwoDecimal: changeTwoDecimal
+};

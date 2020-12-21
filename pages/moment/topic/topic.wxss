@@ -1,0 +1,133 @@
+.container{
+  padding: 30rpx;
+}
+.head{
+  display: flex;
+  align-items: center;
+}
+.head .pic{
+  width: 120rpx;
+  min-width:120rpx;
+  height: 120rpx;
+  border-radius: 12rpx;
+}
+.head .cont{
+  flex: 1;
+  margin-left: 30rpx;
+}
+.head .cont .tt{
+  font-family: PingFangSC-Regular;
+  font-size: 30rpx;
+  color: #333333;
+  letter-spacing: 0;
+  margin-bottom: 6rpx;
+}
+.head .cont .txt text{
+  font-family: PingFangSC-Regular;
+  font-size: 24rpx;
+  color: #666666;
+  letter-spacing: 0;
+  vertical-align: middle;
+  margin-right: 4rpx;
+}
+.intro{
+  margin-top: 26rpx;
+  margin-bottom: 50rpx;
+  display: flex;
+  align-items: center;
+}
+.intro .txt{
+  font-family: PingFangSC-Regular;
+  flex: 1;
+  margin-right: 40rpx;
+  font-size: 24rpx;
+  color: #999999;
+  line-height: 40rpx;
+}
+.intro .txt text{
+  font-family: PingFangSC-Medium;
+}
+.more{
+  width: 20rpx;
+  height: 20rpx;
+  vertical-align: middle;
+}
+.title{
+  display: flex;
+  align-items: center;
+  margin-bottom: 44rpx;
+}
+.title .tt{
+  font-family: PingFangSC-Medium;
+  font-size: 30rpx;
+  color: #333333;
+  letter-spacing: 0;
+}
+.discuss{
+  /* padding: 0 30rpx; */
+}
+.discuss .item{
+  margin-bottom: 60rpx;
+  display: flex;
+  align-items: flex-start;
+}
+.discuss .item .number{
+  font-family: PingFangSC-Regular;
+  font-size: 22rpx;
+  color: #666666;
+  letter-spacing: 0;
+  text-align: center;
+  margin-right: 24rpx;
+}
+.discuss .item .cont{
+  flex: 1;
+}
+.discuss .item .cont .tt{
+  font-family: PingFangSC-Regular;
+  font-size: 30rpx;
+  color: #333333;
+  letter-spacing: 0;
+  margin-bottom: 24rpx;
+}
+.discuss .item .info image{
+  width:40rpx;
+  height:40rpx;
+  vertical-align: middle;
+  border-radius: 6rpx;
+}
+.discuss .item .info .name{
+  font-family: PingFangSC-Regular;
+  font-size: 22rpx;
+  color: #666666;
+  letter-spacing: 0;
+  margin-left: 16rpx;
+  margin-right: 40rpx;
+  vertical-align: middle;
+}
+.discuss .item .info .time{
+  font-family: PingFangSC-Regular;
+  font-size: 22rpx;
+  color: #CCCCCC;
+  letter-spacing: 0;
+  vertical-align: middle;
+}
+.discuss .item .pic{
+  width:160rpx;
+  height:104rpx;
+  margin-left: 28rpx;
+  border-radius: 8rpx;
+}
+.issue{
+  position: fixed;
+  right: 30rpx;
+  bottom: 200rpx;
+  z-index: 10;
+  background-color: #04B64E;
+  border-radius: 100%;
+  width: 110rpx;
+  height: 110rpx;
+}
+.issue image{
+  width: 100%;
+  height: 100%;
+}

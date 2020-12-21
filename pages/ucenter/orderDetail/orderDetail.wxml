@@ -1,0 +1,132 @@
+<view class="container">
+  <view class="order-info">
+    <view class="item-a">下单时间：{{orderInfo.addTime}}</view>
+    <view class="item-b">订单编号：{{orderInfo.orderSn}}<text class="copy" catchtap="copy"
+        data-order-sn="{{orderInfo.orderSn}}">复制</text></view>
+    <view class="item-c">
+      <view class="l">实付：
+        <text class="cost">￥{{orderInfo.actualPrice}}</text>
+      </view>
+      <view class="r">
+        <view class="btn active" bindtap="cancelOrder" wx:if="{{handleOption.cancel}}">取消订单</view>
+        <view class="btn active" bindtap="payOrder" wx:if="{{handleOption.pay}}">去付款</view>
+        <!-- <view class="btn active" bindtap="confirmOrder" wx:if="{{handleOption.confirm}}">确认收货</view> -->
+        <view class="btn active" bindtap="deleteOrder" wx:if="{{handleOption.delete}}">删除订单</view>
+        <view class="btn active" catchtap="refundOrder" wx:if="{{handleOption.refund}}">申请退款</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="order-goods">
+    <view class="h">
+      <view class="label">商品信息</view>
+      <view class="status">{{orderInfo.orderStatusText}}</view>
+    </view>
+    <view class="goods">
+      <navigator url="/pages/goods/goods?id={{item.goodsId}}&presellId={{item.presellId}}" hover-class="none"
+        class="item" wx:for="{{orderGoods}}" wx:key="id">
+        <view class="img">
+          <image wx:if="{{item.acStatus === 1}}" src="../../../assets/image/pre-sale.png" mode="aspectFill"
+            class="pre-icon"></image>
+          <image wx:if="{{item.acStatus===98 || item.acStatus === 99 || item.isGiveGoods}}"
+            src="../../../assets/image/giveaway.png" mode="aspectFill" class="pre-icon"></image>
+          <image src="{{item.picUrl}}" mode="aspectFill"></image>
+        </view>
+        <view class="info">
+          <view class="t">
+            <text class="name">{{item.goodsName}}</text>
+            <text class="number">x{{item.number}}</text>
+          </view>
+          <view class="attr">{{item.specifications}}</view>
+          <view class="price">￥{{item.price}}</view>
+          <!-- <view class="btn active" wx:if="{{handleOption.comment && (item.comment == 0)}}">
+            <navigator url="../../commentPost/commentPost?orderId={{item.orderId}}&&valueId={{item.goodsId}}&type=0">去评价
+            </navigator>
+          </view> -->
+          <view class="btn active"
+            wx:if="{{orderGoodsInfo[index].refund === true && (item.acStatus !== 98 && item.acStatus !== 99 && !item.isGiveGoods)}}">
+            <navigator url="../../refund/refund?orderId={{item.orderId}}&goodsId={{item.goodsId}}">申请退款</navigator>
+          </view>
+          <view class="btn frozen"
+            wx:if="{{orderGoodsInfo[index].refund === false && orderGoodsInfo[index].refundStatus}}"
+            catchtap="{{emptyEvent}}">
+            <navigator url="/pages/ucenter/afterSaleOrder/afterSaleOrder?status={{orderGoodsInfo[index].refundStatus}}">
+              {{statusOptions[orderGoodsInfo[index].refundStatus]}}</navigator>
+          </view>
+          <view class="btn active"
+            wx:if="{{handleOption.rebuy && (item.acStatus !== 98 && item.acStatus !== 99 && !item.isGiveGoods)}}">
+            <navigator url="../../goods/goods?id={{item.goodsId}}&presellId={{item.presellId}}">再次购买</navigator>
+          </view>
+        </view>
+      </navigator>
+    </view>
+
+    <view class="order-bottom">
+      <view class="deliveryPoint" wx:if="{{orderInfo.deliveryPoint}}">
+        <view class="d-flex">
+          <view class="flex1">{{orderInfo.deliveryPoint.addressDetail}}</view>
+          <view class="tag">自提点</view>
+        </view>
+        <view style="margin-top:10rpx">
+          <text class="name">{{orderInfo.deliveryPoint.contactName}}</text>
+          <text class="mobile">{{orderInfo.deliveryPoint.contactMobile}}</text>
+        </view>
+      </view>
+      <view class="address" wx:else>
+        <view class="t">
+          <text class="name">{{orderInfo.consignee}}</text>
+          <text class="mobile">{{orderInfo.mobile}}</text>
+        </view>
+        <view class="b">{{orderInfo.address}}</view>
+      </view>
+      <view class="total">
+        <view class="t">
+          <text class="label">商品合计：</text>
+          <text class="txt">￥{{orderInfo.goodsPrice}}</text>
+        </view>
+        <view class="t">
+          <text class="label">运费：</text>
+          <text class="txt">+￥{{orderInfo.freightPrice}}</text>
+        </view>
+        <view class="t">
+          <text class="label">优惠：</text>
+          <text class="txt">-￥{{orderInfo.couponPrice}}</text>
+        </view>
+      </view>
+      <view class="pay-fee">
+        <text class="label">实付：</text>
+        <text class="txt">￥{{orderInfo.actualPrice}}</text>
+      </view>
+      <view class="pay-fee" wx:if="{{orderInfo.refundPrice}}">
+        <text class="label">已退款金额：</text>
+        <text class="txt">￥{{orderInfo.refundPrice}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="order-distribution" wx:if="{{ deliveryInfo.deliveryStaff }}">
+    <view>配送人员：{{deliveryInfo.deliveryStaff}}</view>
+    <view>配送电话：<text bindtap="makePhoneCall" wx:for="{{deliveryInfo.list}}" wx:key="index" data-phone="{{item}}">
+        <block wx:if="{{index>0}}">，</block>{{item}}
+      </text></view>
+  </view>
+
+  <!-- 物流信息,仅收货状态下可见 -->
+  <view class="order-express" bindtap="expandDetail" wx:if="{{ handleOption.confirm && expressInfo }}">
+    <view class="order-express">
+      <view class="title">
+        <!-- <view class="t">快递公司：{{expressChannel}}</view> -->
+        <view class="b">物流单号：{{expressInfo.orderid}}</view>
+      </view>
+      <image class="ti {{flag?'top':'down'}}" src="/assets/image/arrow/arrow_down_dark_line.png"
+        background-size="cover">
+      </image>
+    </view>
+    <view class="traces" wx:for="{{expressInfo.waybillTracker}}" wx:key="item" wx:for-item="iitem" wx:if="{{ flag }}">
+      <view class="trace">
+        <view class="acceptStation">{{iitem.info}}</view>
+        <view class="acceptTime">{{iitem.time}}</view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,32 @@
+<!--pages/integral/details/details.wxml-->
+<view class="container">
+  <view class="jf-head">
+    <swiper class="jf-banner" autoplay="true" circular="true" bindchange="changeBanner" current="{{bannerIndex}}">
+      <block wx:for="{{banner}}" wx:key="id">
+        <swiper-item>
+          <image src="{{item.url}}" mode="aspectFill" lazy-load></image>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="jf-banner-number">{{showBannerIndex}}/{{banner.length}}</view>
+  </view>
+  <view class="basic-info">
+    <view class="price">
+      <text class="integral">1500</text>积分+289元<text class="original-price">699元</text>
+    </view>
+    <view class="name">魔兽世界 部落 护腕 一只</view>
+  </view>
+  <view class="goods-attr">
+    <view class="t">商品参数</view>
+    <view class="l">
+      <view class="item" wx:for="{{attribute}}" wx:key="name">
+        <text class="left">{{item.attribute}}</text>
+        <text class="right">{{item.value}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="detail">
+    <import src="/lib/wxParse/wxParse.wxml" />
+    <template is="wxParse" data="{{wxParseData:goodsDetail.nodes}}" />
+  </view>
+</view>

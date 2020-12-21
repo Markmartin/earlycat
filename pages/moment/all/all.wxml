@@ -1,0 +1,20 @@
+<import src="../../../components/hint/hint.wxml"/>
+<view class="container">
+  <view class="nav">
+    <view class="item {{url=='CircleList'?'cur':''}}" data-url="CircleList" bindtap="navClick"><text>全部话题</text></view>
+    <view class="item {{url=='CircleMyList'?'cur':''}}" data-url="CircleMyList" bindtap="navClick"><text>我创建的</text></view>
+  </view>
+  <view class="list">
+    <navigator class="item" wx:for="{{list}}" wx:key="id" url="/pages/moment/topic/topic?id={{item.id}}" hover-class="none">
+      <image src="{{item.picUrl}}" class="pic" mode="aspectFill"></image>
+      <view class="cont">
+        <text class="name">{{item.title}}</text>
+        <text class="status {{status[item.status].class}}" wx:if="{{url=='CircleMyList'}}">{{status[item.status].text}}</text>
+      </view>
+      <view class="time">{{item.sortOrder}}条更新</view>
+    </navigator>
+    <view class="no-more" wx:if="{{page > pages && pages != 0}}">已经到底啦</view>
+    <template wx:if="{{!loading && list.length==0 && pages == 0}}" is="hint" data="{{text:'暂无话题'}}"></template>
+  </view>
+  <navigator url="/pages/moment/issue/issue?type=circle" hover-class="none" class="issue"><image src="/static/moment/issue1.png"></image></navigator>
+</view>

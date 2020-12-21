@@ -1,0 +1,177 @@
+@import '../../style/common.scss';
+
+$form-label-width: 200rpx;
+$form-content-width: 500rpx;
+$form-input-border-width: 460rpx;
+
+$form-item-height: 70rpx;
+
+$border-color: #9b9b9b;
+
+@mixin title-font-size {
+  font-size: 40rpx;
+  line-height: 40rpx;
+}
+
+@mixin form-font-size {
+  font-size: 30rpx;
+  line-height: 30rpx;
+}
+
+.selected {
+  background-color: $theme-color;
+}
+
+.unselected {
+  background-color: #d3d3d3;
+}
+
+@mixin common-radio {
+  width: 45%;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 35rpx;
+  text-align: center;
+  border-radius: 10rpx;
+  color: white;
+  margin-right: 10rpx;
+}
+
+.recruit {
+  position: relative;
+
+  .recruit-title-container {
+    margin: 0 20rpx;
+    border-bottom: 1px solid $theme-color;
+    display: flex;
+    justify-content: center;
+
+    .title {
+      padding: 5rpx 40rpx;
+      font-size: 35rpx;
+      border-top-left-radius: 20rpx;
+      border-top-right-radius: 20rpx;
+      text-align: center;
+      color: white;
+      background-color: $theme-color;
+    }
+  }
+
+  .form {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10rpx 25rpx;
+
+    .form-item-top {
+      margin-top: 20rpx;
+    }
+
+    .form-item {
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+
+      .form-item-label {
+        width: $form-label-width;
+        height: $form-item-height;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+
+        .required {
+          margin-right: 5rpx;
+          @include form-font-size;
+          color: red;
+        }
+
+        .label {
+          margin-right: 10rpx;
+          @include form-font-size;
+          color: $theme-color;
+          font-weight: bold;
+        }
+      }
+
+      .form-item-wrapper {
+        width: $form-content-width;
+        min-height: $form-item-height;
+
+        .input-wrapper {
+          width: $form-input-border-width;
+          height: $form-item-height;
+          border: 1px solid $border-color;
+          border-radius: 10rpx;
+          padding: 0 15rpx;
+          box-sizing: border-box;
+
+          .input-component {
+            width: 100%;
+            height: 100%;
+            font-size: 30rpx;
+            line-height: $form-item-height;
+          }
+        }
+
+        .textarea-wrapper {
+          position: relative;
+          width: $form-input-border-width;
+          height: 180rpx;
+          border: 1px solid $border-color;
+          border-radius: 10rpx;
+          padding: 10rpx 15rpx;
+          box-sizing: border-box;
+
+          .textarea-component {
+            width: 100%;
+            height: 100%;
+            font-size: 30rpx;
+            line-height: 30rpx;
+            // line-height: $form-item-height;
+          }
+        }
+
+        .radio-wrapper {
+          width: 100%;
+          height: $form-item-height;
+          display: flex;
+          align-items: center;
+
+          .gender-radio {
+            @include common-radio;
+          }
+
+          .drive-radio {
+            @include common-radio;
+          }
+        }
+
+        .checkbox-wrapper {
+          width: 100%;
+          min-height: $form-item-height;
+          display: flex;
+          align-content: flex-start;
+          flex-wrap: wrap;
+
+          .job-checkbox {
+            margin-top: 10rpx;
+            @include common-radio;
+            // background-color: #d3d3d3;
+          }
+        }
+      }
+    }
+
+    .submit {
+      margin: 50rpx auto 30rpx;
+      width: 500rpx;
+      height: 80rpx;
+      line-height: 80rpx;
+      font-size: 40rpx;
+      color: white;
+      background-color: $theme-color;
+      border-radius: 20rpx;
+      text-align: center;
+    }
+  }
+}

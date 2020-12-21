@@ -1,0 +1,93 @@
+@import '../../style/common.scss';
+
+$border-radius: 20rpx;
+$goods-image-height: 154rpx;
+
+.card-goods {
+  position: relative;
+  width: 100%;
+  //   height: 250rpx;
+
+  .card-goods-container {
+    width: 95%;
+    // margin: 0 auto;
+    border-radius: $border-radius;
+    border: 1px solid transparent;
+    display: flex;
+    flex-direction: column;
+
+    .goods-image-container {
+      position: relative;
+      display: block;
+      border-top-left-radius: $border-radius;
+      border-top-right-radius: $border-radius;
+      width: 100%;
+      height: $goods-image-height;
+
+      .goods-image {
+        display: block;
+        border-top-left-radius: $border-radius;
+        border-top-right-radius: $border-radius;
+        width: 100%;
+        height: $goods-image-height;
+      }
+
+      .goods-image-mask {
+        width: 100%;
+        height: $goods-image-height;
+        line-height: $goods-image-height;
+        text-align: center;
+        font-size: 35rpx;
+        font-weight: bold;
+        border-top-left-radius: $border-radius;
+        border-top-right-radius: $border-radius;
+        background-color: rgba($color: #000000, $alpha: 0.3);
+        color: white;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+    }
+
+    .card-goods-footer {
+      flex-grow: 1;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 5rpx 0 10rpx;
+      border-bottom-left-radius: $border-radius;
+      border-bottom-right-radius: $border-radius;
+      @include absolutely-center;
+      flex-direction: column;
+      background-color: #fa962d;
+
+      .price {
+        font-size: 25rpx;
+        line-height: 25rpx;
+        color: $goods-name-color;
+        box-sizing: border-box;
+        padding: 10rpx 10rpx 0;
+        width: 100%;
+        text-align: center;
+        font-weight: bold;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .original-price {
+        font-size: 25rpx;
+        line-height: 25rpx;
+        color: white;
+        box-sizing: border-box;
+        padding: 10rpx 10rpx 0;
+        width: 100%;
+        text-align: center;
+        text-decoration: line-through;
+
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+}

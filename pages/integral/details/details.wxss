@@ -1,0 +1,98 @@
+page{
+  background: #f1f1f1;
+}
+.jf-head{
+  width: 750rpx;
+  height: 700rpx;
+  position: relative;
+  z-index: 1;
+  background: #fff;
+}
+.jf-banner{
+  position: relative;
+  z-index: 1;
+  width: 750rpx;
+  height: 700rpx;
+}
+.jf-banner image {
+  width: 100%;
+  display: block;
+  height: 700rpx;
+}
+.jf-banner-number{
+  position: absolute;
+  z-index: 10;
+  right: 30rpx;
+  bottom: 30rpx;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 10rpx 24rpx;
+  color: #fff;
+  font-size: 24rpx;
+  border-radius: 30rpx;
+}
+.basic-info{
+  padding: 30rpx;
+  background: #fff;
+}
+.basic-info .price{
+  color: #ff8900;
+}
+.basic-info .integral{
+  font-size: 40rpx;
+  font-weight: 600;
+}
+.basic-info .original-price{
+  padding-left: 20rpx;
+  color: #b9b9b9;
+  text-decoration: line-through;
+}
+.basic-info .name{
+  font-size: 28rpx;
+  font-weight: 600;
+  margin-top: 10rpx;
+}
+
+.goods-attr {
+  width: 750rpx;
+  height: auto;
+  overflow: hidden;
+  padding: 0 31.25rpx 25rpx 31.25rpx;
+  background: #fff;
+}
+
+.goods-attr .t {
+  width: 687.5rpx;
+  height: 104rpx;
+  line-height: 104rpx;
+  font-size: 38.5rpx;
+}
+
+.goods-attr .item {
+  width: 687.5rpx;
+  height: 68rpx;
+  padding: 11rpx 20rpx;
+  margin-bottom: 11rpx;
+  background: #f7f7f7;
+  font-size: 38.5rpx;
+}
+
+.goods-attr .left {
+  float: left;
+  font-size: 25rpx;
+  width: 134rpx;
+  height: 45rpx;
+  line-height: 45rpx;
+  overflow: hidden;
+  color: #999;
+}
+
+.goods-attr .right {
+  float: left;
+  font-size: 36.5rpx;
+  margin-left: 20rpx;
+  width: 480rpx;
+  height: 45rpx;
+  line-height: 45rpx;
+  overflow: hidden;
+  color: #333;
+}

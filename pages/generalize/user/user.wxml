@@ -1,0 +1,18 @@
+<view class="container">
+  <view class="head">
+    <view class="tt">邀请人数</view>
+    <view class="number">{{total}}人</view>
+  </view>
+  <view class="list">
+    <view class="item" wx:for="{{list}}" wx:key="index">
+      <view class="user d-flex">
+        <image src="{{item.avatar}}" mode="aspectFill"></image>
+        <view class="name">{{item.nickname}}</view>
+      </view>
+      <view class="txt">邀请时间: {{item.addTime}}</view>
+      <!-- <view class="txt">订单数(有效): 32单</view> -->
+    </view>
+  </view>
+  <view class="no-more" wx:if="{{page > pages && pages != 0}}">已经到底啦</view>
+  <view class="no-data" wx:if="{{list.length == 0 && !loading && pages == 0}}"><image src="/static/generalize/no-user.png"></image><view>还没有邀请用户哦~</view></view>
+</view>

@@ -1,0 +1,66 @@
+<!-- pages/refund/refund.wxml -->
+<view class="refund">
+	<view class="refund-goods-container">
+		<view class="refund-goods" wx:for="{{refund.afterSaleItemVos}}" wx:key="id">
+			<view class="goods-image-container">
+				<image class="goods-image" src="{{item.picUrl}}"></image>
+			</view>
+			<view class="goods-info-container">
+				<view class="goods-info-description">
+					<view class="goods-name">{{item.goodsName}}</view>
+					<view class="goods-specification">{{item.specifications}}</view>
+				</view>
+				<view class="goods-payment">退款金额：{{item.price || null}}</view>
+			</view>
+			<view class="goods-count-container">
+				<view class="minus" wx:if="{{!refund.isAll }}" bindtap="updateRefundGoodsNumber" data-type="minus"
+					data-index="{{index}}">
+					<image class="minus-icon"
+						src="{{item.number > 1 ? 'http://earlycat-app.oss-cn-shanghai.aliyuncs.com/minus_enable.png' : 'http://earlycat-app.oss-cn-shanghai.aliyuncs.com/minus_disable.png'}}">
+					</image>
+				</view>
+				<view class="refund-number">{{item.number}}</view>
+				<view class="plus" wx:if="{{!refund.isAll }}" bindtap="updateRefundGoodsNumber" data-type="plus"
+					data-index="{{index}}">
+					<image class="plus-icon"
+						src="{{item.number < orderGoods[index].number ? 'http://earlycat-app.oss-cn-shanghai.aliyuncs.com/plus_enable.png' : 'http://earlycat-app.oss-cn-shanghai.aliyuncs.com/plus_disable.png'}}">
+						></image>
+				</view>
+			</view>
+		</view>
+	</view>
+	<picker class="refund-reason-container-picker" mode="selector" bindchange="updateRefundReason"
+		range="{{refundReasonOptions}}">
+		<view class="refund-reason-container">
+			<view class="refund-reason-label">退款原因</view>
+			<view class="refund-reason-content {{refund.reason ? 'text' : 'placeholder'}}">
+				{{refund.reason || '请选择退货原因'}}
+				<image class="refund-reason-arrow" src="../../assets/image/arrow/arrow_right_dark_line.png"></image>
+			</view>
+		</view>
+	</picker>
+	<view class="refund-description-container">
+		<view class="refund-description-label">问题描述</view>
+		<textarea class="refund-description-content" placeholder="请输入您所要描述的内容(最多150字)" maxlength="150"
+			value="{{refund.detail}}" bindinput="updateRefundDescription"></textarea>
+	</view>
+	<view class="refund-upload-container">
+		<!-- <view class="upload-title">图片上传(最多上传5张)</view> -->
+		<view class="file-list-container">
+			<view class="file-item" wx:for="{{refund.url}}" wx:key="index">
+				<image class="upload-delete" src="/assets/image/common/upload-delete.png" bindtap="deleteImage"
+					data-index="{{index}}" />
+				<image class="file-item-image" src="{{item}}" bindtap="previewImage" data-url="{{item}}" />
+			</view>
+			<view class="file-item file-item-detault" wx:if="{{refund.url.length < 5}}" bindtap="chooseImage">
+				<image class="file-item-image" src="/assets/image/common/upload.png" />
+			</view>
+		</view>
+	</view>
+	<view class="refund-tips-container">
+		<view class="tips">提示:</view>
+		<view class="tips">1.最多上传5张照片</view>
+		<view class="tips">2.部分商品需退回仓库，请您暂时保存切勿丢弃，否则可能影响您的退款。</view>
+	</view>
+	<view class="refund-submit" bindtap="submit">申请退款</view>
+</view>

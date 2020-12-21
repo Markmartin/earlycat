@@ -1,0 +1,148 @@
+<wxs module="methods">
+  function formatZero(num) {
+    return num ? (num >= 10 ? num : ('0' + num)) : '00'
+  }
+  module.exports.formatZero = formatZero
+</wxs>
+<view class="homepage">
+  <!-- 搜索框 -->
+  <view class="header">
+    <view class="search-wrapper">
+      <view class="address" bindtap="tapAddress">上海</view>
+      <image class="arrow" bindtap="tapAddress"
+        src="https://earlycat-app.oss-cn-shanghai.aliyuncs.com/solid_theme_arrow.png"></image>
+      <view class="divider"></view>
+      <input class="input" bindtap="tapSearch" placeholder="大家都在搜索：崇明香鸡" disabled="{{true}}"></input>
+    </view>
+  </view>
+  <!-- 悬浮层地址 -->
+  <view class="address-layer" wx:if="{{showOffAddress}}">{{address.addressDetail}}</view>
+  <!-- 滚动内容框 -->
+  <scroll-view class="content" scroll-y="true" refresher-enabled="{{true}}" bindrefresherrefresh="initialization"
+    refresher-triggered="{{loading}}" bindscroll="scrollEvent" bindscrolltolower="updateBestSeller">
+    <!-- 广告图 -->
+    <swiper class="banner-swiper" autoplay="true" indicator-dots="true" indicator-active-color="#fcfffa"
+      indicator-color="#9ca195">
+      <swiper-item wx:for="{{banner}}" wx:key="index" data-item="{{item}}" bindtap="tapBanner">
+        <image class="banner" mode="aspectFill" src="{{item.url}}"></image>
+      </swiper-item>
+    </swiper>
+    <!-- 特色 -->
+    <view class="features">
+      <view wx:for="{{features}}" wx:key="index" class="feature-text">{{item}}</view>
+    </view>
+    <!-- 种类 -->
+    <view class="category">
+      <view class="item" wx:for="{{categoryIcon}}" wx:key="index" data-id="{{item.id}}" bindtap="tapCategory">
+        <image class="item-icon" mode="aspectFit" src="{{item.url}}"></image>
+        <text class="item-label">{{item.label}}</text>
+      </view>
+    </view>
+    <!-- 单件批发 -->
+    <view class="bulky-goods" wx:if="{{bulkyGoods.length > 0}}">
+      <view class="theme-card">
+        <view class="theme-card-header">
+          <image class="bulky-goods-icon" src="http://earlycat-app.oss-cn-shanghai.aliyuncs.com/bulky-goods-icon.png">
+          </image>
+          <view class="bulky-goods-label">单件批发</view>
+          <view class="bulky-goods-tail" bindtap="tapMoreBulkyGoods">
+            <view class="bulky-goods-tail-label">查看更多</view>
+            <image class="bulky-goods-tail-arrow"
+              src="https://earlycat-app.oss-cn-shanghai.aliyuncs.com/logo-color-arrow.png"></image>
+          </view>
+        </view>
+      </view>
+      <view class="white-card">
+        <view class="goods-content">
+          <goods-bulky-cell class="goods-content-item-bulky" wx:for="{{bulkyGoods}}" wx:key="index"
+            groupId="{{item.presellId}}" goodsId="{{item.goodsVo.id}}" imageUrl="{{item.goodsVo.picUrl}}"
+            goodsName="{{item.goodsVo.title}}" goodsPrice="{{item.goodsVo.onlinePrice}}" unit="{{item.goodsVo.unit}}"
+            goodsOriginalPrice="{{item.goodsVo.counterPrice}}" canBuy="{{!item.isSellOut}}">
+          </goods-bulky-cell>
+        </view>
+      </view>
+    </view>
+    <!-- 今日特价 -->
+    <view class="daily-special-offer-card" wx:if="{{currentDiscountGroup}}">
+      <!-- 特价倒计时 -->
+      <view class="card-header">
+        <view class="card-title">今日特价</view>
+        <view class="card-count-down-container">
+          <view class="card-count-down-title">仅剩</view>
+          <view class="card-conut-down">{{methods.formatZero(countDownData.hours)}}</view>
+          <view class="colon">:</view>
+          <view class="card-conut-down">{{methods.formatZero(countDownData.minutes)}}</view>
+          <view class="colon">:</view>
+          <view class="card-conut-down">{{methods.formatZero(countDownData.seconds)}}</view>
+        </view>
+        <view class="card-more" bindtap="tapMoreDiscountGoods">更 多</view>
+      </view>
+      <!-- 特价商品 -->
+      <view class="card-content">
+        <card-goods wx:for="{{discountGoods}}" wx:key="id" class="card-gooods-item" groupId="{{item.presellId}}"
+          goodsId="{{item.goodsVo.id}}" imageUrl="{{item.goodsVo.picUrl}}" goodsName="{{item.goodsVo.title}}"
+          goodsPrice="{{item.goodsVo.onlinePrice}}" unit="{{item.goodsVo.unit}}"
+          goodsOriginalPrice="{{item.goodsVo.counterPrice}}" canBuy="{{!item.isSellOut}}">
+        </card-goods>
+      </view>
+    </view>
+
+    <!-- 好货精选 -->
+    <view class="good-goods" wx:if="{{hotGoods.length > 0}}">
+      <view class="goods-header">
+        <view class="goods-header-title-container">
+          <view class="goods-header-title">好货精选</view>
+        </view>
+        <view class="more-goods" bindtap="tapMore" data-type="{{goodGoodsType}}" data-title="好货精选">更多</view>
+      </view>
+      <view class="goods-content">
+        <goods-cell class="goods-content-item" wx:for="{{hotGoods}}" wx:key="index" goodsId="{{item.id}}"
+          imageUrl="{{item.picUrl}}" goodsName="{{item.title}}" goodsDescription="{{item.subtitle}}"
+          goodsPrice="{{item.onlinePrice}}" unit="{{item.unit}}" goodsOriginalPrice="{{item.counterPrice}}"
+          canBuy="{{item.totalNumber>0?true:false}}" isNew="{{item.isNew}}" isHot="{{item.isHot}}">
+        </goods-cell>
+      </view>
+    </view>
+
+    <!-- 企业团购入口 -->
+    <view class="corporate-group-buying" bindtap="tapGroupBuying">
+      <image class="corporate-group-buying-logo"
+        src="http://earlycat-app.oss-cn-shanghai.aliyuncs.com/corporate-group-buying-logo.jpeg"></image>
+    </view>
+
+    <!-- 预售 -->
+    <view class="pre-sale-group" wx:if="{{preSaleGroup.length > 0}}">
+      <view class="goods-header">
+        <view class="goods-header-title-container">
+          <view class="goods-header-title">新鲜预售</view>
+        </view>
+        <view class="more-goods" bindtap="tapMorePreSaleGoods">更多</view>
+      </view>
+
+      <view class="goods-content">
+        <goods-cell class="goods-content-item" wx:for="{{preSaleGroup}}" wx:key="index" isGroup="true"
+          groupId="{{item.id}}" imageUrl="{{item.url}}" goodsName="{{item.title}}" goodsDescription="{{item.subtitle}}"
+          goodsPrice="{{item.onlinePrice}}" unit="{{item.unit}}" goodsOriginalPrice="{{item.counterPrice}}"
+          canBuy="{{false}}">
+        </goods-cell>
+      </view>
+    </view>
+
+    <!-- 热销商品 -->
+    <view class="best-seller">
+      <view class="best-seller-header">
+        <view class="left line"></view>
+        <view class="best-seller-header-title">热销商品</view>
+        <view class="right line"></view>
+      </view>
+
+      <view class="goods-content">
+        <goods-cell class="goods-content-item" wx:for="{{bestSeller}}" wx:key="index" goodsId="{{item.id}}"
+          imageUrl="{{item.picUrl}}" goodsName="{{item.title}}" goodsDescription="{{item.subtitle}}"
+          goodsPrice="{{item.onlinePrice}}" unit="{{item.unit}}" goodsOriginalPrice="{{item.counterPrice}}"
+          canBuy="{{item.totalNumber>0?true:false}}" isNew="{{item.isNew}}" isHot="{{item.isHot}}">
+        </goods-cell>
+      </view>
+    </view>
+  </scroll-view>
+</view>

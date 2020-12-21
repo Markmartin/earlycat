@@ -1,0 +1,108 @@
+@import '../../style/common.scss';
+
+.after-sale-order-cell {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 20rpx;
+  .cell-header {
+    width: 100%;
+    height: 50rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .order-no {
+      font-size: 30rpx;
+      line-height: 30rpx;
+    }
+
+    .order-status {
+      color: $status-color;
+      font-size: 30rpx;
+      line-height: 30rpx;
+    }
+  }
+
+  .goods-list {
+    margin-top: 10rpx;
+    width: 100%;
+    .goods {
+      display: flex;
+      align-items: center;
+      height: 220rpx;
+      border-top: 1px solid #ececec;
+      border-bottom: 1px solid #ececec;
+      .goods-image-container {
+        width: 200rpx;
+        height: 200rpx;
+        .goods-icon {
+          position: absolute;
+          left: 0;
+          width: 60rpx;
+          height: 60rpx;
+        }
+        .goods-image {
+          width: 200rpx;
+          height: 200rpx;
+        }
+      }
+
+      .goods-info {
+        box-sizing: border-box;
+        width: 390rpx;
+        height: 200rpx;
+        padding: 10rpx 20rpx;
+        display: flex;
+        flex-direction: column;
+        // justify-content: center;
+
+        .goods-name {
+          line-height: 40rpx;
+          font-size: 30rpx;
+          font-weight: bold;
+        }
+        .goods-number {
+          margin-top: 10rpx;
+          line-height: 30rpx;
+          font-size: 25rpx;
+        }
+      }
+
+      .goods-refund-amount {
+        width: 120rpx;
+        height: 200rpx;
+        .refund-amount-label {
+          text-align: right;
+        }
+        .refund-amount {
+          padding: 10rpx 0;
+          text-align: right;
+          color: $status-color;
+          font-size: 30rpx;
+          line-height: 30rpx;
+        }
+      }
+    }
+  }
+
+  .cell-footer {
+    width: 100%;
+    height: 50rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .order-refund-number {
+      font-size: 30rpx;
+      line-height: 30rpx;
+    }
+
+    .order-refund-amount {
+      font-size: 30rpx;
+      line-height: 30rpx;
+      .amout {
+        color: $status-color;
+      }
+    }
+  }
+}

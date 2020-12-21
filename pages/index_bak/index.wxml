@@ -1,0 +1,97 @@
+<!-- 首页 -->
+<view class="container">
+  <!-- <header /> -->
+  <!-- <view class="header">
+    <view class="site">
+      <view class="d-flex">
+        <text class="iconfont icon-dingwei"></text>
+        <text class="txt">{{community.name}}</text>
+      </view>
+    </view>
+    <view class="other">
+      <navigator hover-class="none" url="/pages/search/search" class="iconfont icon-sousuo1"></navigator>
+    </view>
+    <view class="other">
+      <navigator hover-class="none" url="/pages/news/news" class="iconfont icon-xiaoxi"></navigator>
+    </view>
+  </view> -->
+  <swiper class="banner" indicator-dots="true" autoplay="true" circular="true" current="{{bannerIndex}}">
+    <block wx:for="{{banner}}" wx:key="id">
+      <swiper-item>
+        <image src="{{item.url}}"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view wx:if="{{notices.length > 0}}" class="news d-flex">
+    <image class="news-icon" src="/images/news-icon.png"></image>
+    <swiper class="news-list" autoplay="true" circular="true" vertical="true" current="{{noticeIndex}}">
+      <block wx:for="{{notices}}" wx:key="id">
+        <swiper-item>
+        <navigator url="/pages/notices/notices?id={{item.id}}" hover-class="none" class="txt">
+        <view>
+          <text class="tt">{{item.title}}</text>
+          <text class="icon iconfont icon-jiantou"></text>
+        </view>
+        </navigator>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <!-- <view class="menus">
+      <view class="menu-item" bindtap="pageSkip" data-url="{{item.url}}" wx:for="{{menus}}" wx:key="id">
+      <image src="{{item.iconUrl}}"></image>
+      <text>{{item.name}}</text>
+    </view>
+  </view> -->
+  <view class="page-nav {{navFixed ? 'page-nav-fixed' : ''}}">
+    <view class="nav-item {{type === item.type ? 'nav-item-active' : ''}}" wx:for="{{navList}}" wx:key="id" data-id="{{item.type}}" bindtap="clickNav">{{item.name}}</view>
+    <view bindtap="navToChatroom" hover-class="none" class="nav-item">社区大妈</view>
+  </view>
+  <view class="cont">
+    <view class="community-list">
+      <view class="community-item" wx:for="{{list}}" wx:key="id">
+        <view class="head d-flex">
+          <view class="avatar"><image src="{{item.userInfo.avatar}}"></image></view>
+          <view class="info">
+            <view class="name">{{item.userInfo.nickname}}</view>
+            <view class="box1">
+              <view class=""></view>
+              <view class="time">{{item.addTime}}</view>
+            </view>
+          </view>
+        </view>
+        <view class="cont">
+          <navigator url="/pages/community/details/details?id={{item.id}}" hover-class="none" class="txt">{{item.moment}}</navigator>
+          <view class="pic-list d-flex {{item.picUrls.length === 1 ? 'pic-list-1' : ''}} {{item.picUrls.length === 2 ? 'pic-list-2' : ''}} {{item.picUrls.length > 2 ? 'pic-list-3' : ''}}" wx:if="{{item.hasPicture && item.picUrls.length > 0}}">
+            <image class="pic-item" src="{{imgItem}}" wx:for="{{item.picUrls}}" wx:for-item="imgItem" wx:key="index" data-list="{{item.picUrls}}" data-src="{{imgItem}}" bindtap="imgPreview" mode="aspectFill" lazy-load></image>
+          </view>
+        </view>
+        <view class="tool d-flex">
+          <view class="c-left">
+            <view class="d-flex sit">
+              <view class="iconfont icon-dingwei"></view>
+              <view class="sit">{{item.communityInfo.name}}</view>
+            </view>
+          </view>
+          <view class="c-right">
+            <view class="d-flex">
+              <view class="im">
+                <button open-type="share" hover-class="none" class="icons-btn"><text class="iconfont icon-fenxiang"></text></button>
+                <text class="txt">{{item.shares}}</text>
+              </view>
+              <!-- view class="im">
+                <button bindtap="commentBtn" hover-class="none" class="icons-btn"><text class="iconfont icon-pinglun"></text></button>
+                <text class="txt">{{item.comments}}</text>
+              </view -->
+              <view class="im">
+                <button bindtap="likeBtn" data-item="{{item}}" hover-class="none" class="icons-btn"><text class="iconfont icon-xihuan {{item.liked ? 'icon-xihuan-true' : ''}}"></text></button>
+                <text class="txt">{{item.likes}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <navigator url="/pages/community/editPosts/editPosts" hover-class="none" class="issue-btn"><view class="iconfont icon-tianjiajiahaowubiankuang"></view></navigator>
+</view>

@@ -1,0 +1,60 @@
+<import src="../../../components/hint/hint.wxml" />
+
+<view class="container">
+  <view class="h">
+    <view class="item {{ status == 0 ? 'active' : ''}}" bindtap="switchTab" data-index="0">
+      <view class="txt">未使用</view>
+    </view>
+    <view class="item {{ status == 1 ? 'active' : ''}}" bindtap="switchTab" data-index="1">
+      <view class="txt">已使用</view>
+    </view>
+    <view class="item {{ status == 2 ? 'active' : ''}}" bindtap="switchTab" data-index="2">
+      <view class="txt">已过期</view>
+    </view>
+    <view class="item {{ status == 4 ? 'active' : ''}}" bindtap="switchTab" data-index="4">
+      <view class="txt">已分享</view>
+    </view>
+  </view>
+  <view class="b">
+    <view class="coupon-form" wx:if="{{status == 0}}">
+      <view class="input-box">
+        <input class="coupon-sn" placeholder="请输入优惠码" value="{{code}}" bindinput="bindExchange" />
+        <image class="clear-icon" wx:if="{{ code.length > 0 }}" src="/static/images/clear_input.png"
+          catchtap="clearExchange"></image>
+      </view>
+      <view class="add-btn" bindtap='goExchange'>兑换</view>
+    </view>
+    <!-- <view class="help" wx:if="{{status == 0}}">使用说明</view> -->
+    <view class="coupon-list">
+      <view class="item {{ status == 0 ? 'active' : ''}}" wx:for="{{couponList}}" wx:for-index="index"
+        wx:for-item="item" wx:key="id">
+        <view class="tag-container">
+          <view class="tag">{{item.tag}}</view>
+          <view class="tag" wx:if="{{item.sharer}}">来自{{item.sharer}}的分享</view>
+        </view>
+        <view wx:if="{{status == 0}}" class="donate">
+          <button open-type="share" class="donate-button" data-item="{{item}}">转赠</button>
+        </view>
+        <view wx:if="{{status == 4}}" class="receiver">
+          {{item.receiver}}
+        </view>
+        <view class="content">
+          <view class="left">
+            <view class="discount">{{item.discount}}元</view>
+            <view class="min"> 满{{item.min}}元使用</view>
+          </view>
+          <view class="right">
+            <view class="name">{{item.name}}</view>
+            <view class="time"> 有效期：{{item.startTime}} - {{item.endTime}}</view>
+          </view>
+        </view>
+        <view class=" condition">
+          <text class="txt">{{item.desc}}</text>
+          <image src="{{item.pic}}" class="icon"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="no-more" wx:if="{{page >= pages && pages != 0}}">已经到底啦</view>
+  <template wx:if="{{couponList.length == 0 && pages == 0 && !loading}}" is="hint" data="{{text:'没有优惠券'}}"></template>
+</view>

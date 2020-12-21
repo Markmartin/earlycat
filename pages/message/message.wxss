@@ -1,0 +1,7 @@
+.list{margin-bottom: 30rpx;}
+.list .item{padding: 30rpx 40rpx;border-bottom: #fafafa 10rpx solid;display: flex;justify-content:space-between;font-size: 30rpx;color: #666666;}
+.list .item .time{font-size: 26rpx;min-width: 160rpx;text-align: right;}
+
+.loading{text-align: center;font-size: 32rpx;color: #b2b2b2;padding: 20rpx;}
+.loading image{width:35rpx;height:35rpx;margin-right: 10rpx;}
+.loading image,.loading text{vertical-align: middle;}

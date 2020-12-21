@@ -1,0 +1,9 @@
+<!--pages/test/test.wxml-->
+<txv-video vid="u3210wzjl4q" playerid="u3210wzjl4q"></txv-video>
+<!-- <video src="https://earlycat-video.oss-cn-shanghai.aliyuncs.com/1607319469550542.mp4"></video> -->
+<!-- <button bindtap="chooseVideo">选择本地小视频</button>
+<video src="{{videoSrcOne}}" poster="{{posterOne}}" loop="{{true}}" show-fullscreen-btn="{{false}}"
+  show-progress="{{true}}" object-fit="contain" controls style="width:{{widthOne}}rpx;height:{{heightOne}}rpx"></video>
+<button bindtap="chooseVideoOther">选择本地小视频</button>
+<video src="{{videoSrcTwo}}" poster="{{posterTwo}}" loop="{{true}}" show-fullscreen-btn="{{false}}"
+  show-progress="{{true}}" object-fit="contain" controls style="width:{{widthTwo}}rpx;height:{{heightTwo}}rpx"></video> -->

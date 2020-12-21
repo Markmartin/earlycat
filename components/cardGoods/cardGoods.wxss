@@ -1,0 +1,92 @@
+html {
+  padding: 0;
+  margin: 0;
+}
+
+.card-goods {
+  position: relative;
+  width: 100%;
+}
+
+.card-goods .card-goods-container {
+  width: 95%;
+  border-radius: 20rpx;
+  border: 1px solid transparent;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-goods .card-goods-container .goods-image-container {
+  position: relative;
+  display: block;
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+  width: 100%;
+  height: 154rpx;
+}
+
+.card-goods .card-goods-container .goods-image-container .goods-image {
+  display: block;
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+  width: 100%;
+  height: 154rpx;
+}
+
+.card-goods .card-goods-container .goods-image-container .goods-image-mask {
+  width: 100%;
+  height: 154rpx;
+  line-height: 154rpx;
+  text-align: center;
+  font-size: 35rpx;
+  font-weight: bold;
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.card-goods .card-goods-container .card-goods-footer {
+  flex-grow: 1;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 5rpx 0 10rpx;
+  border-bottom-left-radius: 20rpx;
+  border-bottom-right-radius: 20rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #fa962d;
+}
+
+.card-goods .card-goods-container .card-goods-footer .price {
+  font-size: 25rpx;
+  line-height: 25rpx;
+  color: #474747;
+  box-sizing: border-box;
+  padding: 10rpx 10rpx 0;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-goods .card-goods-container .card-goods-footer .original-price {
+  font-size: 25rpx;
+  line-height: 25rpx;
+  color: white;
+  box-sizing: border-box;
+  padding: 10rpx 10rpx 0;
+  width: 100%;
+  text-align: center;
+  text-decoration: line-through;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

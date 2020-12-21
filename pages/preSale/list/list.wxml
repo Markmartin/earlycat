@@ -1,0 +1,50 @@
+<!-- pages/preSale/list/list.wxml -->
+<view class="pre-sale-list">
+	<view class="category-header">
+		<scroll-view class="list-group-header" scroll-x="true" enable-flex="true" scroll-into-view="tag{{currentId}}"
+			scroll-with-animation="true">
+			<view wx:for="{{preSaleCategory}}" wx:key="index" class="tag {{item.id ===currentId?'selected':'normal'}}"
+				id="tag{{item.id}}" bindtap="tapCategory" data-id="{{item.id}}" data-item="{{item}}">{{item.title}}</view>
+		</scroll-view>
+		<view class="toggle-container" bindtap="showCategoryMenu">
+			<image class="toggle-icon {{showMenu?'up':'dowm'}}" src="../../../assets/image/common/arrow-down-dark.png">
+			</image>
+		</view>
+	</view>
+
+	<view class="category-menu" wx:if="{{showMenu}}">
+		<view wx:for="{{preSaleCategory}}" wx:key="index" class="tag-item-container">
+			<view class="tag-item {{item.id ===currentId?'selected':'normal'}}" bindtap="tapCategory" data-id="{{item.id}}"
+				data-item="{{item}}">
+				{{item.title}}</view>
+		</view>
+	</view>
+
+	<scroll-view class="list-container" scroll-y="{{true}}" enable-flex="true" bindscrolltolower="loadMoreGoods">
+		<view class="pre-sale-goods">
+			<view class="title-container">
+				<view class="title">预售</view>
+			</view>
+			<view class="count-down-container">
+				<view class="right-space">{{countDownTitle}}</view>
+				<view class="border-count-down right-space" style="width:70rpx">{{countDownData.days}}天</view>
+				<view class="border-count-down">{{countDownData.hours<10?('0'+countDownData.hours):countDownData.hours}}</view>
+				<view class="colon">:</view>
+				<view class="border-count-down">{{countDownData.minutes<10?('0'+countDownData.minutes):countDownData.minutes}}
+				</view>
+				<view class="colon">:</view>
+				<view class="border-count-down">{{countDownData.seconds<10?('0'+countDownData.seconds):countDownData.seconds}}
+				</view>
+			</view>
+			<view class="estimated-delivery-date">预计最早{{currentCategory.estimatedDeliveryDate}}送达</view>
+			<view class="activity-goods-list-container">
+				<activity-goods wx:for="{{preSaleGoods}}" wx:key="index" groupId="{{item.presellId}}" isPreSale="{{true}}"
+					goodsId="{{item.goodsVo.id}}" imageUrl="{{item.goodsVo.picUrl}}" goodsName="{{item.goodsVo.title}}"
+					goodsDescription="{{item.goodsVo.subtitle}}" goodsPrice="{{item.goodsVo.onlinePrice}}"
+					unit="{{item.goodsVo.unit}}" goodsOriginalPrice="{{item.goodsVo.counterPrice}}" canBuy="{{!item.isSellOut}}">
+				</activity-goods>
+			</view>
+		</view>
+
+	</scroll-view>
+</view>

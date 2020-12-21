@@ -1,0 +1,90 @@
+/* pages/integral/store/store.wxss */
+.jf-banner{
+  position: relative;
+  z-index: 1;
+  width: 750rpx;
+  height: 300rpx;
+  background: #fff;
+}
+.jf-banner image {
+  width: 100%;
+  display: block;
+  height: 300rpx;
+}
+.block1{
+  height: 120rpx;
+  background: #fff;
+}
+.block1 .border{
+  height: 40rpx;
+  width: 2rpx;
+  background: #f1f1f1;
+}
+.block1 .nav{
+  text-align: center;
+  height: 120rpx;
+  line-height: 120rpx;
+  color: #666;
+  flex: 1;
+  font-size: 28rpx;
+}
+.block1 .nav .d-flex{
+  justify-content: center;
+}
+.block1 .nav .iconfont{
+  font-size: 40rpx;
+  color: #b9b9b9;
+}
+.block1 .nav .tt{
+  padding: 0 10rpx;
+}
+.block1 .nav .txt{
+  color: #ff8900;
+}
+.jf-head{
+  height: 130rpx;
+  line-height: 100rpx;
+  border-top: #f1f1f1 30rpx solid;
+  border-bottom: #f1f1f1 1rpx solid;
+  padding: 0 30rpx;
+}
+.jf-head .tt{
+  font-size: 32rpx;
+  font-weight: 600;
+}
+.jf-list{
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0 30rpx;
+  margin-right: -20rpx;
+}
+.jf-list .item{
+  margin-right: 20rpx;
+  width: 335rpx;
+  margin-bottom: 30rpx;
+}
+.jf-list .item .pic{
+  width: 335rpx;
+  overflow: hidden;
+}
+.jf-list .item .pic image{
+  width: 335rpx;
+  height: 335rpx;
+}
+.jf-list .item .tt{
+  font-size: 28rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+  margin-top: 20rpx;
+}
+.jf-list .item .integral{
+  color: #ff8900;
+  margin-top: 10rpx;
+}
+.jf-list .item .price{
+  color: #b9b9b9;
+  text-decoration: line-through;
+}

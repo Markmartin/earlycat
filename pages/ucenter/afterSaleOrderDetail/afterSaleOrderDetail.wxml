@@ -1,0 +1,40 @@
+<!-- pages/ucenter/afterSaleOrderDetail/afterSaleOrderDetail.wxml -->
+<view class="after-sale-order-detail">
+    <view class="header">
+        <view class="order-no">申请编号：{{orderDetail.id}}</view>
+        <view class="apply-refund-time">申请时间：<span>{{orderDetail.applyTime}}</span></view>
+        <view class="order-no">订单编号：{{orderDetail.orderSn}}</view>
+        <view class="refund-reason">退款原因：{{orderDetail.reason}}</view>
+        <view class="refund-description">退款描述：{{orderDetail.detail}}</view>
+        <view class="refund-description" wx:if="{{orderDetail.remark}}">驳回理由：{{orderDetail.remark}}</view>
+        <view class="line"></view>
+        <view class="refund-total-amount">申请退款总额：<span class="amount">¥ {{orderDetail.refundPrice}}</span></view>
+        <view class="refund-total-amount">实际退款总额：<span class="amount">¥ {{orderDetail.actualRefundPrice}}</span></view>
+    </view>
+    <view class="goods-list">
+        <view class="goods-header">
+            <view class="header-label">商品信息</view>
+            <view class="order-status">{{statusOptions[orderDetail.status]}}</view>
+        </view>
+        <view class="goods" wx:for="{{orderDetail.afterSaleItemVos}}" wx:key="index">
+            <view class="goods-image-container">
+                <image class="goods-icon" src="/assets/image/pre-sale.png" mode="aspectFill"
+                    wx:if="{{item.orderGoods.acStatus === 1}}"></image>
+                <image class="goods-image" src="{{item.orderGoods.picUrl}}"></image>
+            </view>
+            <view class="goods-info">
+                <view class="goods-name">{{item.orderGoods.goodsName}}</view>
+                <view class="goods-specification">{{item.orderGoods.specifications[0]}}</view>
+                <view class="goods-number">申请数量：{{item.number}}</view>
+                <view class="goods-number">实际数量：{{item.actualNumber}}</view>
+            </view>
+            <view class="goods-refund-amount">
+                <view class="refund-amount-label">申请金额</view>
+                <view class="refund-amount">¥ {{item.price}}</view>
+                <view class="refund-amount-label">退款金额</view>
+                <view class="refund-amount">¥ {{item.actualPrice}}</view>
+            </view>
+        </view>
+    </view>
+    <view class="footer"></view>
+</view>

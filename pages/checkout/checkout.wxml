@@ -1,0 +1,230 @@
+<view class="container">
+	<view class="address-box">
+		<view style="padding:20rpx 0 0rpx 20rpx;" wx:if="{{deliveryPoint.length > 0}}">
+			<view class="selectType">
+				<radio-group class="radio-group" bindchange="radioChange">
+					<radio class="radio" wx:for-items="{{deliveryType}}" wx:key="value" value="{{item.value}}"
+						checked="{{item.value == deliveryPointRadio}}">
+						<text>{{item.name}}</text>
+					</radio>
+				</radio-group>
+			</view>
+			<block wx:if="{{deliveryPointRadio == '0'}}">
+				<view style="padding:20rpx 0;padding-right:31.25rpx;" wx:if="{{selfPickupCoupons.length == 1}}">
+					自提赠送满{{selfPickupCoupons[0].min}}元减{{selfPickupCoupons[0].discount}}元优惠券一张</view>
+				<view style="padding:10rpx 0;padding-right:31.25rpx;" wx:if="{{selfPickupCoupons.length > 1}}">自提赠送<text
+						wx:for="{{selfPickupCoupons}}" wx:key="index">满{{item.min}}元减{{item.discount}}元<text
+							wx:if="{{index < selfPickupCoupons.length - 1}}">、</text></text>优惠券各一张</view>
+				<picker bindchange="bindPickerChange" value="{{deliveryPointIdx}}" range-key="addressDetail"
+					range="{{deliveryPoint}}">
+					<view class="picker">
+						<view class="address-item" style="padding: 0 0 40rpx 0;height:auto;">
+							<view class="m">
+								<text class="mobile" style="font-weight: 600;margin-bottom:10rpx;">{{community.name}}
+									{{deliveryPoint[deliveryPointIdx].addressDetail}}</text>
+								<text class="address">联系方式
+									{{deliveryPoint[deliveryPointIdx].contactName}}({{deliveryPoint[deliveryPointIdx].contactMobile}})</text>
+							</view>
+							<view class="r">
+								<image src="/static/images/address_right.png"></image>
+							</view>
+						</view>
+					</view>
+				</picker>
+			</block>
+		</view>
+		<block wx:if="{{deliveryPoint.length == 0 || deliveryPointRadio == '1'}}">
+			<view class="address-item" bindtap="selectAddress" wx:if="{{checkedAddress.id > 0}}">
+				<view class="l">
+					<text class="name">{{checkedAddress.name}}</text>
+					<text class="default" wx:if="{{checkedAddress.isDefault}}">默认</text>
+				</view>
+				<view class="m">
+					<text class="mobile">{{checkedAddress.tel}}</text>
+					<view class="address">{{checkedAddress.province+' '+checkedAddress.city+' '+checkedAddress.county}}
+					</view>
+					<text class="address">{{checkedAddress.addressDetail}}</text>
+				</view>
+				<view class="r">
+					<image src="/static/images/address_right.png"></image>
+				</view>
+			</view>
+			<view class="address-item address-empty" bindtap="selectAddress" wx:else>
+				<view class="m">
+					还没有收货地址，去添加
+				</view>
+				<view class="r">
+					<image src="/static/images/address_right.png"></image>
+				</view>
+			</view>
+		</block>
+	</view>
+
+	<view class="coupon-box">
+		<view class="coupon-item" bindtap="selectCoupon">
+			<view class="l" wx:if="{{couponId == 0}}">
+				<text class="name">没有可用的优惠券</text>
+				<text class="txt">0张</text>
+			</view>
+			<view class="l" wx:elif="{{couponId == -1}}">
+				<text class="name">优惠券</text>
+				<text class="txt">{{availableCouponLength}}张</text>
+			</view>
+			<view class="l" wx:else>
+				<text class="name">优惠券</text>
+				<text class="txt">-￥{{couponPrice}}元</text>
+			</view>
+			<view class="r">
+				<image src="/static/images/address_right.png"></image>
+			</view>
+		</view>
+	</view>
+
+	<view class="message-box">
+		<input class="message-item" bindinput="bindMessageInput" placeholder="如需要，请输入留言" value="{{message}}" />
+	</view>
+
+	<view class="order-box">
+		<view class="order-item">
+			<view class="l">
+				<text class="name">商品合计</text>
+			</view>
+			<view class="r">
+				<text class="txt">￥{{goodsTotalPrice}}元</text>
+			</view>
+		</view>
+		<view class="order-item">
+			<view class="l">
+				<text class="name">总运费</text>
+			</view>
+			<view class="r">
+				<text class="txt">￥{{freightPrice}}元</text>
+			</view>
+		</view>
+		<view class="order-item no-border">
+			<view class="l">
+				<text class="name">优惠券</text>
+			</view>
+			<view class="r">
+				<text class="txt">-￥{{couponPrice}}元</text>
+			</view>
+		</view>
+
+	</view>
+
+	<view class="payment-method">
+		<view class="payment-label">支付方式</view>
+		<view class="payment-cell" bindtap="updatePaymentMethod" data-pay-type="1" wx:if="{{remaining > 0}}">
+			<view class="payment-cell-method">余额支付(当前余额:{{remaining}})</view>
+			<image class="payment-cell-checkbox"
+				src="{{payType == 1 ? 'https://earlycat-app.oss-cn-shanghai.aliyuncs.com/selected.png' : 'https://earlycat-app.oss-cn-shanghai.aliyuncs.com/unselected.png'}}">
+			</image>
+			<view class="payment-cell-line"></view>
+		</view>
+		<view class="payment-cell" bindtap="updatePaymentMethod" data-pay-type="0">
+			<view class="payment-cell-method">微信支付</view>
+			<image class="payment-cell-checkbox"
+				src="{{payType == 0 ? 'https://earlycat-app.oss-cn-shanghai.aliyuncs.com/selected.png' : 'https://earlycat-app.oss-cn-shanghai.aliyuncs.com/unselected.png'}}">
+			</image>
+		</view>
+	</view>
+
+	<!-- <view class="goods-items">
+		<view class="item" wx:for="{{checkedGoodsList}}" wx:key="id">
+			<view class="img">
+				<image wx:if="{{item.acStatus === 1}}" src="../../assets/image/pre-sale.png" mode="aspectFill" class="pre-icon"></image>
+				<image src="{{item.picUrl}}" mode="aspectFill"></image>
+			</view>
+			<view class="info">
+				<view class="t">
+					<text class="name">{{item.goodsName}}</text>
+					<text class="number">x{{item.number}}</text>
+				</view>
+				<view class="m">{{item.specifications}}</view>
+				<view class="b">￥{{item.price}}</view>
+			</view>
+		</view>
+	</view> -->
+
+	<view class="order-container">
+		<view wx:for="{{orderList}}" wx:key="index" wx:for-item="order">
+			<view class="goods-items">
+				<view class="item" wx:for="{{order.cartList}}" wx:key="id">
+					<view class="img">
+						<image wx:if="{{item.acStatus===1}}" src="../../assets/image/pre-sale.png" mode="aspectFill"
+							class="pre-icon">
+						</image>
+						<image wx:if="{{item.acStatus===98 || item.acStatus === 99 || item.isGiveGoods}}"
+							src="../../assets/image/giveaway.png" mode="aspectFill" class="pre-icon">
+						</image>
+						<image src="{{item.picUrl}}" mode="aspectFill"></image>
+					</view>
+					<view class="info">
+						<view class="t">
+							<text class="name">{{item.goodsName}}</text>
+							<text class="number">x{{item.number}}</text>
+						</view>
+						<view class="m">{{item.specifications}}</view>
+						<view class="b">￥{{item.price}}</view>
+					</view>
+				</view>
+				<!-- <view class="shipping-fee">
+				<text>运费</text>
+				<text class="shipping-fee-value">￥{{order.freight}}元</text>
+			</view> -->
+			</view>
+		</view>
+	</view>
+
+	<!-- <view wx:if="{{preSaleGoodsList.length > 0}}" class="goods-items">
+		<view class="item" wx:for="{{preSaleGoodsList}}" wx:key="id">
+			<view class="img">
+				<image src="../../assets/image/pre-sale.png" mode="aspectFill" class="pre-icon"></image>
+				<image src="{{item.picUrl}}" mode="aspectFill"></image>
+			</view>
+			<view class="info">
+				<view class="t">
+					<text class="name">{{item.goodsName}}</text>
+					<text class="number">x{{item.number}}</text>
+				</view>
+				<view class="m">{{item.specifications}}</view>
+				<view class="b">￥{{item.price}}</view>
+			</view>
+		</view>
+		<view class="shipping-fee">
+			<text>运费</text>
+			<text class="shipping-fee-value">￥{{preSaleShippingFee}}元</text>
+		</view>
+	</view>
+
+	<view wx:if="{{noPreSaleGoodsList.length > 0}}" class="goods-items no-pre-sale-list">
+		<view class="item" wx:for="{{noPreSaleGoodsList}}" wx:key="id">
+			<view class="img">
+				<image src="{{item.picUrl}}" mode="aspectFill"></image>
+			</view>
+			<view class="info">
+				<view class="t">
+					<text class="name">{{item.goodsName}}</text>
+					<text class="number">x{{item.number}}</text>
+				</view>
+				<view class="m">{{item.specifications}}</view>
+				<view class="b">￥{{item.price}}</view>
+			</view>
+		</view>
+		<view class="shipping-fee">
+			<text>运费</text>
+			<text class="shipping-fee-value">￥{{noPreSaleShippingFee}}元</text>
+		</view>
+	</view> -->
+
+
+
+
+	<view class="order-total" wx:if="{{addressId!==0}}">
+		<view class="l">实付：￥{{actualPrice}}</view>
+		<view class="r" bindtap="submitOrder">去付款</view>
+	</view>
+	<view class="noCommunity d-flex" wx:else>
+		<view class="flex1">请先选择收货地址</view>
+	</view>
+</view>

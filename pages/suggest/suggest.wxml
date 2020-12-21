@@ -1,0 +1,39 @@
+<!--pages/suggest/suggest.wxml-->
+<view class="container">
+  <view class="box">
+    <view class="head">
+      <view class="tt">反馈内容</view>
+      <view class="txt">请描述你遇到的问题</view>
+    </view>
+    <view class="select-list d-flex">
+      <view class="item {{item.id === selectId ? 'current' : ''}}" data-id="{{item.id}}" wx:for="{{list}}" wx:key="id" bindtap="selectIssue">{{item.title}}</view>
+    </view>
+    <textarea placeholder="请描述您遇到的问题，我们会仔细聆听" maxlength="500" bindinput="writeEvent"></textarea>
+    <view class="word-number">{{currentWordNumber}}/500</view>
+  </view>
+  <view class="box">
+    <view class="head">
+      <view class="tt">上传截图（选填）</view>
+      <view class="txt">请提供问题的截图，帮助我们更快找到问题（{{picUrls.length}}/4）</view>
+    </view>
+    <view class="pic-cont">
+      <view class="pic-list d-flex">
+        <view class="item" wx:for="{{picUrls}}" wx:key="*this" data-list="{{picUrls}}" data-src="{{item}}" bindtap="imgPreview"><image src="{{item}}" mode="aspectFill"></image><view class="img-shade"></view><view class="iconfont icon-guanbi" data-idx="{{index}}" catchtap="delPic"></view></view>
+        <view class="item add" bindtap="chooseImage" wx:if="{{picUrls.length < maxPic}}"><text class="iconfont icon-tianjiajiahaowubiankuang"></text></view>
+      </view>
+    </view>
+  </view>
+  <view class="box">
+    <view class="head">
+      <view class="tt">联系方式</view>
+      <view class="txt">请留下您的姓名及邮箱，方便我们联系到您</view>
+    </view>
+    <view class="">
+      <input class="input" value="" placeholder="请输入姓名"></input>
+      <input class="input" value="" placeholder="请输入邮箱"></input>
+    </view>
+  </view>
+  <view class="subBox">
+    <button class="sub" hover-class="none">提交</button>
+  </view>
+</view>

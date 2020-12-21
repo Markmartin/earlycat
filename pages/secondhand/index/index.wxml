@@ -1,0 +1,37 @@
+<wxs module="filter" src="../../../utils/filter.wxs"></wxs>
+<import src="../../../components/hint/hint.wxml"/>
+
+<view class="container">
+  <view class="head">
+    <image src="/static/moment/search.png" />
+    <input placeholder="搜索" confirm-type="搜索" bindfocus="focusSearch" bindblur="blurSearch" bindconfirm="searchList" />
+  </view>
+  <view class="searchCover" wx:if="{{searchCover}}"></view>
+  <view class="location" wx:if="{{locationFlag!=='' && !locationFlag}}">
+    <view class="txt">定位失败，请开启定位</view>
+    <button hover-class="none" open-type="openSetting" bindopensetting="callback">重新定位</button>
+  </view>
+  <view class="list">
+    <navigator url="/pages/secondhand/details/details?id={{item.id}}" hover-class="none" class="item" wx:for="{{list}}" wx:key="id">
+      <image mode="aspectFill" class="pic" src="{{item.picUrls[0]}}"></image>
+      <view class="cont">
+        <view style="height:160rpx;">
+          <view class="tt">{{item.title}}</view>
+          <view class="user d-flex">
+            <image mode="aspectFill" class="avatar" src="{{item.avatar}}"></image>
+            <view class="name">{{item.nickname}}</view>
+          </view>
+        </view>
+        <view class="info d-flex">
+          <view class="txt1">{{item.communityName}}</view>
+          <view class="flex1"></view>
+          <image src="/static/moment/site.png" wx:if="{{item.distance}}"></image>
+          <view class="txt2" wx:if="{{item.distance}}">{{filter.distance(item.distance)}}</view>
+        </view>
+      </view>
+    </navigator>
+    <view class="no-more" wx:if="{{page > pages && pages != 0}}">已经到底啦</view>
+    <template wx:if="{{list.length == 0 && !loading && locationFlag && pages == 0}}" is="hint" data="{{text:'暂无数据'}}"></template>
+  </view>
+  <navigator url="/pages/secondhand/issue/issue" hover-class="none" class="issue"><image src="/static/moment/issue1.png"></image></navigator>
+</view>

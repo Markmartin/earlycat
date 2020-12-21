@@ -1,0 +1,235 @@
+@import '../../style/common.scss';
+
+$goods-item-height: 200rpx;
+$text-color: #333;
+$tips-color: #777;
+
+.refund {
+  width: 100%;
+  padding: 20rpx;
+  background-color: #ececec;
+  box-sizing: border-box;
+  min-height: 100vh;
+
+  .refund-goods-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 20rpx;
+
+    .refund-goods {
+      width: 100%;
+      height: $goods-item-height;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #d8d8d8;
+      .goods-image-container {
+        width: $goods-item-height;
+        height: 100%;
+        @include absolutely-center;
+
+        .goods-image {
+          width: 160rpx;
+          height: 160rpx;
+        }
+      }
+
+      .goods-info-container {
+        box-sizing: border-box;
+        position: relative;
+        width: 380rpx;
+        height: 100%;
+        padding: 10rpx 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 20rpx 0;
+        // justify-content: center;
+        // .goods-info-description {
+        //   .goods-name {
+        //   }
+        //   .goods-description {
+        //   }
+        // }
+
+        // .goods-payment {
+        // }
+      }
+
+      .goods-count-container {
+        @include absolutely-center;
+        width: 170rpx;
+        height: 100%;
+        .minus {
+          width: 40rpx;
+          height: 40rpx;
+          @include absolutely-center;
+          .minus-icon {
+            width: 40rpx;
+            height: 40rpx;
+          }
+        }
+
+        .refund-number {
+          margin: 0 10rpx;
+          width: 50rpx;
+          line-height: 40rpx;
+          text-align: center;
+          // padding: 0 5rpx;
+          background-color: #ececec;
+          border-radius: 20rpx;
+        }
+
+        .plus {
+          width: 40rpx;
+          height: 40rpx;
+          @include absolutely-center;
+          .plus-icon {
+            width: 40rpx;
+            height: 40rpx;
+          }
+        }
+      }
+    }
+
+    .refund-goods:last-child {
+      border: none;
+    }
+  }
+
+  .refund-reason-container {
+    box-sizing: border-box;
+    position: relative;
+    margin-top: 20rpx;
+    width: 100%;
+    height: 80rpx;
+    padding: 0 20rpx;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 20rpx;
+
+    .refund-reason-container-picker {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      z-index: 999;
+    }
+
+    .refund-reason-label {
+      width: 250rpx;
+      height: 80rpx;
+      line-height: 80rpx;
+      color: $text-color;
+    }
+
+    .refund-reason-content {
+      width: 450rpx;
+      height: 80rpx;
+      line-height: 80rpx;
+      text-align: right;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .text {
+      color: $text-color;
+    }
+
+    .placeholder {
+      color: #aaaaaa;
+    }
+
+    .refund-reason-arrow {
+      width: 35rpx;
+      height: 35rpx;
+      margin-left: 10rpx;
+    }
+  }
+
+  .refund-description-container {
+    margin-top: 20rpx;
+    .refund-description-label {
+      color: $text-color;
+    }
+
+    .refund-description-content {
+      box-sizing: border-box;
+      margin-top: 20rpx;
+      width: 100%;
+      height: 250rpx;
+      background-color: white;
+      border-radius: 20rpx;
+      padding: 20rpx;
+    }
+  }
+
+  .refund-upload-container {
+    box-sizing: border-box;
+    margin-top: 20rpx;
+    width: 100%;
+    // height: 500rpx;
+    // background-color: white;
+    // border-radius: 20rpx;
+    // padding: 20rpx;
+
+    .file-list-container {
+      // margin-top: 20rpx;
+      width: 100%;
+      height: 130rpx;
+      display: flex;
+
+      .file-item {
+        position: relative;
+        margin-right: 10rpx;
+        width: 130rpx;
+        height: 130rpx;
+        border: 1px solid #efefef;
+
+        .upload-delete {
+          position: absolute;
+          right: 0;
+          top: 0;
+          width: 30rpx;
+          height: 30rpx;
+        }
+        .file-item-image {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      .file-item-detault {
+        border: none;
+      }
+    }
+  }
+
+  .refund-tips-container {
+    margin-top: 10rpx;
+    padding-bottom: 90rpx;
+    .tips {
+      color: $tips-color;
+      font-size: 25rpx;
+    }
+  }
+
+  .refund-submit {
+    position: fixed;
+    bottom: 20rpx;
+    left: 20rpx;
+    width: 710rpx;
+    color: white;
+    background-color: $theme-color;
+    text-align: center;
+    line-height: 80rpx;
+    height: 80rpx;
+    border-radius: 20rpx;
+  }
+}

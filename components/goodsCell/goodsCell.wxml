@@ -1,0 +1,17 @@
+<!--components/goodsCell/goodsCell.wxml-->
+<view class="goods-cell" bindtap="gotoDetail">
+  <view class="goods-image-container">
+    <view class="is-new" wx:if="{{isNew}}">新品</view>
+    <view class="is-hot" wx:if="{{isHot && !isNew}}">畅销品</view>
+    <view class="goods-image-mask" wx:if="{{!canBuy && !isGroup}}">抢光了</view>
+    <image class="goods-image" src="{{imageUrl}}"></image>
+  </view>
+  <view class="goods-content">
+    <view class="goods-name">{{goodsName}}</view>
+    <view class="goods-description">{{goodsDescription}}</view>
+  </view>
+  <view class="goods-footer" wx:if="{{!isGroup}}">
+    <view class="goods-price">¥{{goodsPrice}}/{{unit}}</view>
+    <image class="cart" src="/assets/image/common/add_cart.png" catchtap="addCart" wx:if="{{canBuy}}"></image>
+  </view>
+</view>

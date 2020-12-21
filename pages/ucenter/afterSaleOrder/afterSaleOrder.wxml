@@ -1,0 +1,38 @@
+<!-- pages/ucenter/afterSaleOrder/afterSaleOrder.wxml -->
+<view class="after-sale-order">
+    <view class="order-status-switch-container">
+        <view class="switch-item" bindtap="updateStatus" data-status="{{null}}">
+            <view class="label {{status==null ? 'switch-item-active': 'switch-item-normal'}}">
+                全部
+            </view>
+        </view>
+        <view class="switch-item" bindtap="updateStatus" data-status="{{1}}">
+            <view class="label {{status==1 ? 'switch-item-active': 'switch-item-normal'}}">
+                已申请
+            </view>
+        </view>
+        <view class="switch-item" bindtap="updateStatus" data-status="{{2}}">
+            <view class="label {{status==2 ? 'switch-item-active': 'switch-item-normal'}}">
+                已完成
+            </view>
+        </view>
+        <view class="switch-item" bindtap="updateStatus" data-status="{{3}}">
+            <view class="label {{status==3 ? 'switch-item-active': 'switch-item-normal'}}">
+                已驳回
+            </view>
+        </view>
+        <view class="switch-item" bindtap="updateStatus" data-status="{{4}}">
+            <view class="label {{status==4 ? 'switch-item-active': 'switch-item-normal'}}">
+                已取消
+            </view>
+        </view>
+    </view>
+    <scroll-view class="order-list" scroll-y="true" refresher-enabled="{{true}}" enable-flex="{{true}}"
+        efresher-enabled="{{true}}" refresher-triggered="{{loading}}" bindrefresherrefresh="reloadOrders"
+        bindscrolltolower="loadMoreOrders" wx:if="{{orderList.length > 0}}">
+        <after-sale-order-cell wx:for="{{orderList}}" wx:key="index" orderId="{{item.id}}" orderNo="{{item.orderSn}}"
+            applyDate="{{item.applyTime}}" orderStatus="{{item.status}}" goodsList="{{item.afterSaleItemVos}}">
+        </after-sale-order-cell>
+    </scroll-view>
+    <view class="no-data" wx:else>还没有任何订单</view>
+</view>

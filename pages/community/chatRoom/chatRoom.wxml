@@ -1,0 +1,20 @@
+<!--pages/chatRoom/chatRoom.wxml-->
+<view class="container">
+  <scroll-view class="chat-cont" id="chatMessage">
+    <view class="item d-flex {{item.fromUserId === userId ? 'current':''}}" wx:for="{{messageList}}" wx:key="id" id="im-{{item.id}}">
+      <view class="pic" wx:if="{{item.fromUserId !== userId}}"><image src="{{item.fromUserAvatar}}"></image></view>
+      <view class="messagePic" wx:if="{{item.attachUrl != '' && item.attachUrl != null}}"><image mode='widthFix' src="{{item.attachUrl}}" data-list="{{item.attachUrl}}" data-src="{{item.attachUrl}}" bindtap="imgPreview"></image></view>
+      <view class="cont" wx:else>{{item.content}}</view>
+      <view class="pic" wx:if="{{item.fromUserId === userId}}"><open-data type="userAvatarUrl"></open-data></view>
+    </view>
+  </scroll-view>
+  <view class="chat-tool d-flex">
+    <input type="text" bindinput='inputWacth' value='{{content}}' data-model='content' cursor-spacing="8" confirm-hold="true" fixed="true"  confirm-hold="true" confirm-type="send" bindconfirm="sendMessage"></input>
+    <view class="other">
+      <view class="d-flex">
+        <view class="more" bindtap="uploadPhoto"><text class="iconfont icon-gengduo"></text></view>
+       
+      </view>
+    </view>
+  </view>
+</view>

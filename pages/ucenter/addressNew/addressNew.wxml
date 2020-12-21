@@ -1,0 +1,79 @@
+<!--pages/ucenter/addressNew/addressNew.wxml-->
+<view class="address-new">
+	<view class="title-container">
+		<view class="title">添加收货地址</view>
+	</view>
+	<view class="form-container">
+		<view class="form-item">
+			<view class="form-item-label">联系人</view>
+			<view class="form-item-wrapper">
+				<input class="form-item-input" type="text" placeholder="请填写姓名" required="true" bindinput="updateForm"
+					data-key="name" value="{{form.name}}"></input>
+			</view>
+		</view>
+
+		<view class="form-item">
+			<view class="form-item-label"></view>
+			<view class="form-item-container">
+				<view class="button {{form.gender == 0 ? 'selected':'unselected'}}" bindtap="selectGender" data-gender="0">
+					先生
+				</view>
+				<view class="button {{form.gender == 1 ? 'selected':'unselected'}}" bindtap="selectGender" data-gender="1">
+					女士
+				</view>
+			</view>
+		</view>
+
+		<view class="form-item">
+			<view class="form-item-label">手机号</view>
+			<view class="form-item-wrapper">
+				<input class="form-item-input" type="number" placeholder="请输入手机号码" required="true" bindinput="updateForm"
+					data-key="tel" value="{{form.tel}}"></input>
+			</view>
+		</view>
+
+		<view class="form-item">
+			<view class="form-item-label">所在地区</view>
+			<view class="form-item-wrapper-location">
+				<picker mode="multiSelector" value="{{addressValue}}" range="{{areaMultiArray}}" bindchange="updateArea">
+					<input class="form-item-wrapper-location-input"
+						value="{{form.province?(form.province+form.city+form.county):null}}" placeholder="请选择所在地区" required="true"
+						disabled="{{true}}"></input>
+				</picker>
+			</view>
+			<view class="form-location-container" bindtap="gotoAddressMap">定位</view>
+		</view>
+
+		<view class="form-item">
+			<view class="form-item-label">详细地址</view>
+			<view class="form-item-wrapper-textarea">
+				<textarea class="form-item-textarea" placeholder="街道,楼牌号等" focus="{{textareaFoucs}}" bindinput="updateForm"
+					data-key="addressDetail" value="{{form.addressDetail}}"></textarea>
+			</view>
+		</view>
+
+
+		<view class="form-item">
+			<view class="form-item-label">标 签</view>
+			<view class="form-item-container">
+				<view class="tag {{form.tag == 0 ? 'selected':'unselected'}}" bindtap="selectTag" data-tag="0">家</view>
+				<view class="tag {{form.tag == 1 ? 'selected':'unselected'}}" bindtap="selectTag" data-tag="1">公司</view>
+				<view class="tag {{form.tag == 2 ? 'selected':'unselected'}}" bindtap="selectTag" data-tag="2">学校</view>
+			</view>
+		</view>
+
+
+		<view class="form-item">
+			<label class="checkbox">
+				<checkbox-group bindchange="updateCheckBox" data-key="isDefault">
+					<checkbox checked="{{form.isDefault}}" color="#80ba64" />是否设为默认地址
+				</checkbox-group>
+			</label>
+		</view>
+	</view>
+
+	<view class="footer">
+		<view class="button cancle" bindtap="cancle">取消</view>
+		<view class="button save" bindtap="save">保存</view>
+	</view>
+</view>

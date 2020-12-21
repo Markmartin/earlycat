@@ -1,0 +1,4 @@
+<!--pages/lifeService/index/index.wxml-->
+<view class="container">
+  生活服务
+</view>

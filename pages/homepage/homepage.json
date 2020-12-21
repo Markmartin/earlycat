@@ -1,0 +1,10 @@
+{
+  "navigationBarBackgroundColor": "#005d3b",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "activity-goods": "/components/activityGoods/activityGoods",
+    "card-goods": "/components/cardGoods/cardGoods",
+    "goods-cell": "/components/goodsCell/goodsCell",
+    "goods-bulky-cell": "/components/goodsBulkyCell/goodsBulkyCell"
+  }
+}

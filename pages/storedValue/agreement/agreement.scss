@@ -1,0 +1,30 @@
+.agreement {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 30rpx 20rpx;
+  .agreement-header {
+    position: relative;
+    font-size: 40rpx;
+    line-height: 40rpx;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .agreement-content {
+    position: relative;
+    margin-top: 20rpx;
+    .agreement-cell {
+      width: 100%;
+      padding: 10rpx 0;
+      font-size: 30rpx;
+      line-height: 40rpx;
+    }
+  }
+
+  .agreement-footer {
+    position: relative;
+    margin-top: 20rpx;
+    font-size: 30rpx;
+    line-height: 40rpx;
+  }
+}

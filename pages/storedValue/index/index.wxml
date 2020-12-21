@@ -1,0 +1,43 @@
+<!--pages/storedValue/index/index.wxml-->
+<view class="stored-value">
+  <swiper class="stored-value-card-container" current="{{currentCardIndex}}" previous-margin="110rpx"
+    next-margin="110rpx" bindchange="updateSwiperItemIndex" bindtransition="">
+    <swiper-item wx:for="{{storedValueCardList}}" wx:key="index" class="swiper-item ">
+      <view class="stored-value-card {{currentCardIndex==index ? 'select' : 'unselect'}}">
+        <image class="stored-value-card-image" src="{{item.picUrl}}"></image>
+        <view class="stored-value-card-amount-container">
+          <view class="stored-value-card-amount">{{item.amount}}</view>
+          <view class="stored-value-card-currency-unit">元</view>
+        </view>
+        <view class="stored-value-card-amount-container">
+          <view class="stored-value-card-give-away">送{{item.aditionalAmount}}元</view>
+        </view>
+        <view class="stored-value-card-desc">{{item.desc}}</view>
+      </view>
+    </swiper-item>
+  </swiper>
+
+  <view class="stored-value-text-container">
+    <view class="stored-value-text {{currentCardIndex==index ? 'select-text' : 'unselect-text'}}"
+      wx:for="{{storedValueCardList}}" wx:key="index" bindtap="updateStoredValueText" data-index="{{index}}">
+      {{item.amount}}元
+    </view>
+  </view>
+
+  <scroll-view class="stored-value-record-container" scroll-y="true" enable-flex="true"
+    bindscrolltolower="loadMoreRecord">
+    <view class="stored-value-record-cell" wx:for="{{storedValueRecord}}" wx:key="index">
+      <view class="stored-value-record-cell-desc">{{item.payType == 0 ? '充值' : '消费'}}</view>
+      <view class="stored-value-record-cell-time">{{item.updateTime}}</view>
+      <view class="stored-value-record-cell-amount {{item.payType == 0 ? 'stored' : 'consume'}}">
+        {{(item.payType == 0 ? '+ ' : '- ')}}{{item.amount}}元</view>
+      <view class="stored-value-record-cell-aditional-amount">
+        {{ item.payType == 0 ? ('送'+item.aditionalAmount+'元') : ''}}</view>
+    </view>
+  </scroll-view>
+
+  <view class="stored-value-footer">
+    <view class="stored-value-footer-pay" bindtap="pay">需支付{{storedValueCardList[currentCardIndex].amount}}元</view>
+    <view class="protocol" bindtap="gotoAgreement">支付即表示您同意<span class="protocol-link">《充值协议》</span></view>
+  </view>
+</view>

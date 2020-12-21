@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "商品详情",
+  "usingComponents": {
+    "custom-tab-bar": "/components/custom-tab-bar/index",
+    "txv-video": "plugin://tencentvideo/video"
+  }
+}
