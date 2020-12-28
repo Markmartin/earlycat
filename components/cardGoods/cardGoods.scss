@@ -63,7 +63,7 @@ $goods-image-height: 154rpx;
       .price {
         font-size: 25rpx;
         line-height: 25rpx;
-        color: $goods-name-color;
+        // color: $goods-name-color;
         box-sizing: border-box;
         padding: 10rpx 10rpx 0;
         width: 100%;
@@ -72,6 +72,26 @@ $goods-image-height: 154rpx;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+      }
+
+      .textAnimation {
+        background: -webkit-linear-gradient(135deg, $goods-name-color, white);
+        background-size: 200% 200%;
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        -webkit-animation: gradientAnimation 3s ease infinite alternate;
+        -moz-animation: gradientAnimation 3s ease infinite alternate;
+        animation: gradientAnimation 3s ease infinite alternate;
+      }
+
+      @keyframes gradientAnimation {
+        0% {
+          background-position: 0% 0%;
+        }
+
+        100% {
+          background-position: 100% 100%;
+        }
       }
 
       .original-price {

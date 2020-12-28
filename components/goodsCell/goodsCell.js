@@ -7,7 +7,6 @@ Component({
    */
   properties: {
     isGroup: { type: Boolean, value: false },
-    isPreSale: { type: Boolean, value: false },
     groupId: { type: String, value: '' },
     goodsId: { type: String, value: '' },
     imageUrl: { type: String, value: '' },
@@ -55,8 +54,7 @@ Component({
           goodsId: goodsId,
           productId: id,
           number: 1,
-          presellId: this.properties.groupId,
-          isPresell: this.properties.isPreSale ? 1 : 0
+          presellId: this.properties.groupId
         })
         if (resp.status) {
           wx.showToast({

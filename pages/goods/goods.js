@@ -676,8 +676,7 @@ Page({
             goodsId: this.data.goods.id,
             number: this.data.number,
             productId: checkedProduct.id,
-            presellId: this.data.presellId,
-            isPresell: this.data.goods.acStatus == 1 ? 1 : 0
+            presellId: this.data.presellId
           },
           'POST'
         )
@@ -736,8 +735,7 @@ Page({
             goodsId: this.data.goods.id,
             number: this.data.number,
             productId: checkedProduct.id,
-            presellId: this.data.presellId,
-            isPresell: this.data.goods.acStatus == 1 ? 1 : 0
+            presellId: this.data.presellId
           },
           'POST'
         )

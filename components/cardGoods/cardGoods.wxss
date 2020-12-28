@@ -66,7 +66,6 @@ html {
 .card-goods .card-goods-container .card-goods-footer .price {
   font-size: 25rpx;
   line-height: 25rpx;
-  color: #474747;
   box-sizing: border-box;
   padding: 10rpx 10rpx 0;
   width: 100%;
@@ -75,6 +74,25 @@ html {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.card-goods .card-goods-container .card-goods-footer .textAnimation {
+  background: -webkit-linear-gradient(135deg, #474747, white);
+  background-size: 200% 200%;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-animation: gradientAnimation 3s ease infinite alternate;
+  -moz-animation: gradientAnimation 3s ease infinite alternate;
+  animation: gradientAnimation 3s ease infinite alternate;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
 }
 
 .card-goods .card-goods-container .card-goods-footer .original-price {
