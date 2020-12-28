@@ -61,11 +61,11 @@ $goods-image-height: 154rpx;
       background-color: #fa962d;
 
       .price {
-        font-size: 25rpx;
-        line-height: 25rpx;
+        font-size: 30rpx;
+        line-height: 30rpx;
         // color: $goods-name-color;
         box-sizing: border-box;
-        padding: 10rpx 10rpx 0;
+        padding: 10rpx 5rpx 0;
         width: 100%;
         text-align: center;
         font-weight: bold;
@@ -75,13 +75,11 @@ $goods-image-height: 154rpx;
       }
 
       .textAnimation {
-        background: -webkit-linear-gradient(135deg, $goods-name-color, white);
-        background-size: 200% 200%;
+        background: -webkit-linear-gradient(135deg, #2d2d2d, #e4e4e4);
         -webkit-text-fill-color: transparent;
         -webkit-background-clip: text;
-        -webkit-animation: gradientAnimation 3s ease infinite alternate;
-        -moz-animation: gradientAnimation 3s ease infinite alternate;
-        animation: gradientAnimation 3s ease infinite alternate;
+        background-size: 500% 500%;
+        animation: gradientAnimation 3s linear infinite alternate forwards;
       }
 
       @keyframes gradientAnimation {
@@ -90,7 +88,78 @@ $goods-image-height: 154rpx;
         }
 
         100% {
-          background-position: 100% 100%;
+          background-position: 400% 400%;
+        }
+      }
+
+      .animation_0 {
+        // background-size: 300% 300%;
+        animation: gradientAnimation_0 1s ease-in-out infinite alternate forwards;
+      }
+
+      @keyframes gradientAnimation_0 {
+        0% {
+          transform: skew(30deg, 0);
+        }
+
+        50% {
+          transform: skew(0, 0);
+        }
+
+        100% {
+          transform: skew(-30deg, 0);
+        }
+        // 0% {
+        //   background-position: 0% 0%;
+        // }
+
+        // 100% {
+        //   background-position: 200% 200%;
+        // }
+      }
+
+      .animation_1 {
+        background-size: 300% 300%;
+        animation: gradientAnimation_1 1s ease infinite alternate forwards;
+      }
+
+      @keyframes gradientAnimation_1 {
+        0% {
+          background-position: 0% 0%;
+        }
+
+        100% {
+          background-position: 200% 200%;
+        }
+      }
+
+      .animation_2 {
+        background-size: 500% 500%;
+        animation: gradientAnimation_2 3s linear infinite alternate forwards;
+      }
+
+      @keyframes gradientAnimation_2 {
+        0% {
+          background-position: 0% 0%;
+        }
+
+        100% {
+          background-position: 400% 400%;
+        }
+      }
+
+      .animation_3 {
+        background-size: 300% 300%;
+        animation: gradientAnimation_3 1.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite alternate forwards;
+      }
+
+      @keyframes gradientAnimation_3 {
+        0% {
+          background-position: 0% 0%;
+        }
+
+        100% {
+          background-position: 200% 200%;
         }
       }
 

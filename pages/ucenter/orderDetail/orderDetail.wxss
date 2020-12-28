@@ -254,12 +254,12 @@ page {
 }
 
 .order-bottom .address .b {
-  height: 35rpx;
+  /* height: 35rpx; */
   line-height: 35rpx;
   font-size: 30rpx;
   padding-right: 20rpx;
 }
-
+ 
 .order-bottom .total {
   height: 130rpx;
   padding-top: 20rpx;

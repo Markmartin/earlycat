@@ -109,17 +109,18 @@ $inline-content-height: 1000rpx;
     .features {
       @include absolutely-center;
       width: 100%;
-      height: 70rpx;
+      height: 60rpx;
       box-sizing: border-box;
       padding: 10rpx 0;
       background-color: white;
 
       .feature-text {
-        color: $theme-color;
+        color: $logo-color;
         padding: 0 20rpx;
-        line-height: 40rpx;
-        font-size: 35rpx;
-        border-right: 1px solid $theme-color;
+        line-height: 30rpx;
+        font-size: 25rpx;
+        font-weight: bold;
+        // border-right: 1px solid $theme-color;
       }
 
       .feature-text:last-child {
@@ -165,6 +166,7 @@ $inline-content-height: 1000rpx;
       margin-top: 40rpx;
       width: 100%;
       padding: 1rpx 0;
+
       .theme-card {
         position: absolute;
         top: 0;
@@ -176,9 +178,11 @@ $inline-content-height: 1000rpx;
         background-color: $logo-color;
         border-radius: 20rpx;
         border: 1rpx solid transparent;
+
         .theme-card-header {
           display: flex;
           align-items: center;
+
           .bulky-goods-icon {
             width: 90rpx;
             height: 90rpx;
@@ -200,6 +204,7 @@ $inline-content-height: 1000rpx;
             border-radius: 10rpx;
             margin-right: 5rpx;
             @include absolutely-center;
+
             .bulky-goods-tail-label {
               margin-left: 10rpx;
               font-size: 30rpx;

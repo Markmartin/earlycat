@@ -95,18 +95,18 @@ html {
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 70rpx;
+  height: 60rpx;
   box-sizing: border-box;
   padding: 10rpx 0;
   background-color: white;
 }
 
 .homepage .content .features .feature-text {
-  color: #80ba64;
+  color: #005d3b;
   padding: 0 20rpx;
-  line-height: 40rpx;
-  font-size: 35rpx;
-  border-right: 1px solid #80ba64;
+  line-height: 30rpx;
+  font-size: 25rpx;
+  font-weight: bold;
 }
 
 .homepage .content .features .feature-text:last-child {

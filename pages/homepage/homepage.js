@@ -19,7 +19,7 @@ Page({
     // 海报
     banner: [],
     // 优势
-    features: ['崇明本地直通车', '本地', '新鲜', '自然熟'],
+    features: ['• 崇明本地直通车', '• 满29元免运费', '• 24点前下单次日送达'],
     // 分类
     categoryIcon: [
       { url: 'https://earlycat-app.oss-cn-shanghai.aliyuncs.com/c1.png', label: '新鲜蔬菜', id: 16 },
