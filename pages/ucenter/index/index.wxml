@@ -93,18 +93,22 @@
         </image>
         <view class='moreInfo_text'>地址管理</view>
       </view>
-      <view class="moreInfo_item" bindtap='openUrl' data-url="/pages/ucenter/feedback/feedback">
-        <image class='moreInfo_image' src='https://earlycat-app.oss-cn-shanghai.aliyuncs.com/icon-feedback.png'>
-        </image>
-        <view class='moreInfo_text'>意见反馈</view>
+      <view class="moreInfo_item" bindtap='openUrl' data-url="/pages/storedValue/index/index">
+        <image class='moreInfo_image' src='https://earlycat-app.oss-cn-shanghai.aliyuncs.com/stored-value.png'></image>
+        <view class='moreInfo_text'>储值送红包</view>
+      </view>
+      <view class="moreInfo_item" bindtap='openUrl' data-url="/pages/recruit/recruit">
+        <image class='moreInfo_image' src='http://earlycat-app.oss-cn-shanghai.aliyuncs.com/recruit.png'></image>
+        <view class='moreInfo_text'>朝菜猫招募</view>
       </view>
       <view class="moreInfo_item" bindtap='openUrl' data-url="/pages/frequentlyAskedQuestions/index/index">
         <image class='moreInfo_image' src='https://earlycat-app.oss-cn-shanghai.aliyuncs.com/icon-customer.png'></image>
         <view class='moreInfo_text'>联系客服</view>
       </view>
-      <view class="moreInfo_item" bindtap='openUrl' data-url="/pages/recruit/recruit">
-        <image class='moreInfo_image' src='http://earlycat-app.oss-cn-shanghai.aliyuncs.com/recruit.png'></image>
-        <view class='moreInfo_text'>朝菜猫招募</view>
+      <view class="moreInfo_item" bindtap='openUrl' data-url="/pages/ucenter/feedback/feedback">
+        <image class='moreInfo_image' src='https://earlycat-app.oss-cn-shanghai.aliyuncs.com/icon-feedback.png'>
+        </image>
+        <view class='moreInfo_text'>意见反馈</view>
       </view>
       <!-- <view class="moreInfo_item" bindtap='applyToBecomePromoter' wx:if="{{userInfo.userType == 0}}">
         <image class='moreInfo_image' src='http://earlycat-app.oss-cn-shanghai.aliyuncs.com/promotion.png'></image>
@@ -114,10 +118,6 @@
         <image class='moreInfo_image' src='https://earlycat-app.oss-cn-shanghai.aliyuncs.com/stored-value.png'></image>
         <view class='moreInfo_text'>小视频测试</view>
       </view> -->
-      <view class="moreInfo_item" bindtap='openUrl' data-url="/pages/storedValue/index/index">
-        <image class='moreInfo_image' src='https://earlycat-app.oss-cn-shanghai.aliyuncs.com/stored-value.png'></image>
-        <view class='moreInfo_text'>储值送红包</view>
-      </view>
     </view>
   </view>
   <view class="logout" wx:if="{{hasLogin}}" bindtap="exitLogin">退出登录</view>

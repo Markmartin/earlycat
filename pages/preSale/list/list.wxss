@@ -34,7 +34,7 @@ html {
 }
 
 .pre-sale-list .category-header .list-group-header .selected {
-  color: #80ba64;
+  color: #005d3b;
 }
 
 .pre-sale-list .category-header .list-group-header .normal {
@@ -98,8 +98,8 @@ html {
 }
 
 .pre-sale-list .category-menu .tag-item-container .selected {
-  border: 2px solid #80ba64;
-  color: #80ba64;
+  border: 2px solid #005d3b;
+  color: #005d3b;
 }
 
 .pre-sale-list .category-menu .tag-item-container .normal {
@@ -113,11 +113,12 @@ html {
   left: 0;
   width: 750rpx;
   height: calc(100vh - 80rpx);
+  background-color: #f5f5f5;
 }
 
 .pre-sale-list .list-container .title-container {
   width: 100%;
-  border-bottom: 1px solid #80ba64;
+  border-bottom: 1px solid #005d3b;
   display: flex;
   justify-content: center;
 }
@@ -129,7 +130,7 @@ html {
   border-top-right-radius: 20rpx;
   text-align: center;
   color: white;
-  background-color: #80ba64;
+  background-color: #005d3b;
 }
 
 .pre-sale-list .list-container .count-down-container {
@@ -172,6 +173,12 @@ html {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+
+.pre-sale-list .list-container .activity-goods-list-container .goods-item {
+  position: relative;
+  width: 345rpx;
+  margin-top: 20rpx;
 }
 
 .pre-sale-list .list-container .pre-sale-goods {

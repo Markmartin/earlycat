@@ -14,6 +14,7 @@ Component({
     goodsName: { type: String, value: '' },
     goodsDescription: { type: String, value: '' },
     goodsPrice: { type: String, value: '' },
+    goodsOriginalPrice: { type: Number, value: 0 },
     unit: { type: String, value: '' },
     canBuy: { type: Boolean, value: true },
     isNew: { type: Boolean, value: false },

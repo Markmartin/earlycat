@@ -34,7 +34,7 @@ html {
 }
 
 .more-bulky-goods .category-header .list-group-header .selected {
-  color: #80ba64;
+  color: #005d3b;
 }
 
 .more-bulky-goods .category-header .list-group-header .normal {
@@ -98,8 +98,8 @@ html {
 }
 
 .more-bulky-goods .category-menu .tag-item-container .selected {
-  border: 2px solid #80ba64;
-  color: #80ba64;
+  border: 2px solid #005d3b;
+  color: #005d3b;
 }
 
 .more-bulky-goods .category-menu .tag-item-container .normal {
@@ -113,11 +113,12 @@ html {
   left: 0;
   width: 750rpx;
   height: calc(100vh - 80rpx);
+  background-color: #f5f5f5;
 }
 
 .more-bulky-goods .list-container .title-container {
   width: 100%;
-  border-bottom: 1px solid #80ba64;
+  border-bottom: 1px solid #005d3b;
   display: flex;
   justify-content: center;
 }
@@ -129,7 +130,7 @@ html {
   border-top-right-radius: 20rpx;
   text-align: center;
   color: white;
-  background-color: #80ba64;
+  background-color: #005d3b;
 }
 
 .more-bulky-goods .list-container .count-down-container {
@@ -166,6 +167,12 @@ html {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+
+.more-bulky-goods .list-container .activity-goods-list-container .goods-item {
+  position: relative;
+  width: 345rpx;
+  margin-top: 20rpx;
 }
 
 .more-bulky-goods .list-container .discount-goods {

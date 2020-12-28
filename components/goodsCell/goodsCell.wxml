@@ -11,7 +11,10 @@
     <view class="goods-description">{{goodsDescription}}</view>
   </view>
   <view class="goods-footer" wx:if="{{!isGroup}}">
-    <view class="goods-price">¥{{goodsPrice}}/{{unit}}</view>
+    <view class="goods-price-container">
+      <view class="goods-price">¥{{goodsPrice}}/{{unit}}</view>
+      <view class="goods-original-price" wx:if="{{goodsOriginalPrice != 0}}">原价：{{goodsOriginalPrice}}</view>
+    </view>
     <image class="cart" src="/assets/image/common/add_cart.png" catchtap="addCart" wx:if="{{canBuy}}"></image>
   </view>
 </view>

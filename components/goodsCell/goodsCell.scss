@@ -111,15 +111,27 @@ $image-height: 350rpx;
     justify-content: space-between;
     align-items: center;
 
-    .goods-price {
-      flex-grow: 1;
+    .goods-price-container {
       margin-right: 10rpx;
-      color: $logo-color;
-      font-size: 35rpx;
-      line-height: 100rpx;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      flex-grow: 1;
+      .goods-price {
+        color: $logo-color;
+        font-size: 35rpx;
+        line-height: 35rpx;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .goods-original-price {
+        color: $goods-subtitle-color;
+        font-size: 25rpx;
+        line-height: 35rpx;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-decoration: line-through;
+      }
     }
 
     .cart {

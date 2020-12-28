@@ -9,6 +9,7 @@ html {
   top: 0;
   width: 750rpx;
   height: 100vh;
+  background-color: #f5f5f5;
 }
 
 .more-goods .list-container .goods {
@@ -17,7 +18,7 @@ html {
 
 .more-goods .list-container .goods .title-container {
   width: 100%;
-  border-bottom: 1px solid #80ba64;
+  border-bottom: 1px solid #005d3b;
   display: flex;
   justify-content: center;
 }
@@ -29,7 +30,7 @@ html {
   border-top-right-radius: 20rpx;
   text-align: center;
   color: white;
-  background-color: #80ba64;
+  background-color: #005d3b;
 }
 
 .more-goods .list-container .goods .activity-goods-list-container {
@@ -39,4 +40,10 @@ html {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
+}
+
+.more-goods .list-container .goods .activity-goods-list-container .goods-item {
+  position: relative;
+  width: 345rpx;
+  margin-top: 20rpx;
 }

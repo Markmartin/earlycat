@@ -148,7 +148,7 @@ html {
 
 .homepage .content .bulky-goods {
   position: relative;
-  margin-top: 10rpx;
+  margin-top: 40rpx;
   width: 100%;
   padding: 1rpx 0;
 }
@@ -221,7 +221,7 @@ html {
 
 .homepage .content .daily-special-offer-card {
   box-sizing: border-box;
-  margin: 20rpx auto;
+  margin: 40rpx auto;
   padding: 20rpx 30rpx;
   width: 710rpx;
   background-color: white;

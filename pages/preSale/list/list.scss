@@ -36,13 +36,11 @@ $menu-top: 85rpx;
       }
 
       .selected {
-        color: $theme-color;
-        // background-color: $theme-color;
+        color: $logo-color;
       }
 
       .normal {
         color: black;
-        // background-color: white;
       }
     }
 
@@ -104,8 +102,8 @@ $menu-top: 85rpx;
       }
 
       .selected {
-        border: 2px solid $theme-color;
-        color: $theme-color;
+        border: 2px solid $logo-color;
+        color: $logo-color;
       }
 
       .normal {
@@ -121,11 +119,11 @@ $menu-top: 85rpx;
     left: 0;
     width: 750rpx;
     height: $list-height;
-
+    background-color: $back-color;
     // 通用title
     .title-container {
       width: 100%;
-      border-bottom: 1px solid $theme-color;
+      border-bottom: 1px solid $logo-color;
       display: flex;
       justify-content: center;
       .title {
@@ -135,7 +133,7 @@ $menu-top: 85rpx;
         border-top-right-radius: 20rpx;
         text-align: center;
         color: white;
-        background-color: $theme-color;
+        background-color: $logo-color;
       }
     }
 
@@ -177,6 +175,11 @@ $menu-top: 85rpx;
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: space-between;
+      .goods-item {
+        position: relative;
+        width: 345rpx;
+        margin-top: 20rpx;
+      }
     }
 
     // display: flex;

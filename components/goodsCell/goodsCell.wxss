@@ -1,3 +1,8 @@
+html {
+  padding: 0;
+  margin: 0;
+}
+
 .goods-cell {
   position: relative;
   width: 100%;
@@ -105,15 +110,28 @@
   align-items: center;
 }
 
-.goods-cell .goods-footer .goods-price {
-  flex-grow: 1;
+.goods-cell .goods-footer .goods-price-container {
   margin-right: 10rpx;
+  flex-grow: 1;
+}
+
+.goods-cell .goods-footer .goods-price-container .goods-price {
   color: #005d3b;
   font-size: 35rpx;
-  line-height: 100rpx;
+  line-height: 35rpx;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.goods-cell .goods-footer .goods-price-container .goods-original-price {
+  color: #b5b5b5;
+  font-size: 25rpx;
+  line-height: 35rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-decoration: line-through;
 }
 
 .goods-cell .goods-footer .cart {

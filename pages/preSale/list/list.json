@@ -1,5 +1,5 @@
 {
   "usingComponents": {
-    "activity-goods": "/components/activityGoods/activityGoods"
+    "goods-cell": "/components/goodsCell/goodsCell"
   }
 }

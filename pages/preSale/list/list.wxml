@@ -38,11 +38,11 @@
 			</view>
 			<view class="estimated-delivery-date">预计最早{{currentCategory.estimatedDeliveryDate}}送达</view>
 			<view class="activity-goods-list-container">
-				<activity-goods wx:for="{{preSaleGoods}}" wx:key="index" groupId="{{item.presellId}}" isPreSale="{{true}}"
-					goodsId="{{item.goodsVo.id}}" imageUrl="{{item.goodsVo.picUrl}}" goodsName="{{item.goodsVo.title}}"
-					goodsDescription="{{item.goodsVo.subtitle}}" goodsPrice="{{item.goodsVo.onlinePrice}}"
-					unit="{{item.goodsVo.unit}}" goodsOriginalPrice="{{item.goodsVo.counterPrice}}" canBuy="{{!item.isSellOut}}">
-				</activity-goods>
+				<goods-cell class="goods-item" wx:for="{{preSaleGoods}}" wx:key="index" groupId="{{item.presellId}}"
+					isPreSale="{{true}}" goodsId="{{item.goodsVo.id}}" imageUrl="{{item.goodsVo.picUrl}}"
+					goodsName="{{item.goodsVo.title}}" goodsDescription="{{item.goodsVo.subtitle}}"
+					goodsPrice="{{item.goodsVo.onlinePrice}}" unit="{{item.goodsVo.unit}}"
+					goodsOriginalPrice="{{item.goodsVo.counterPrice}}" canBuy="{{!item.isSellOut}}"></goods-cell>
 			</view>
 		</view>
 

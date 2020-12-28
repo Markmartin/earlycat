@@ -24,7 +24,7 @@
   <scroll-view class="list-container" scroll-y="{{true}}" enable-flex="true" bindscrolltolower="loadMoreGoods">
     <view class="discount-goods">
       <view class="title-container">
-        <view class="title">单件批发</view>
+        <view class="title">一件批发</view>
       </view>
 
       <!-- <view class="count-down-container" wx:if="{{countDownData}}">
@@ -41,11 +41,11 @@
     </view>
 
     <view class="activity-goods-list-container">
-      <activity-goods wx:for="{{bulkyGoods}}" wx:key="index" groupId="{{item.presellId}}" goodsId="{{item.goodsVo.id}}"
-        imageUrl="{{item.goodsVo.picUrl}}" goodsName="{{item.goodsVo.title}}"
+      <goods-cell class="goods-item" wx:for="{{bulkyGoods}}" wx:key="index" groupId="{{item.presellId}}"
+        goodsId="{{item.goodsVo.id}}" imageUrl="{{item.goodsVo.picUrl}}" goodsName="{{item.goodsVo.title}}"
         goodsDescription="{{item.goodsVo.subtitle}}" goodsPrice="{{item.goodsVo.onlinePrice}}"
         unit="{{item.goodsVo.unit}}" goodsOriginalPrice="{{item.goodsVo.counterPrice}}" canBuy="{{!item.isSellOut}}">
-      </activity-goods>
+      </goods-cell>
     </view>
   </scroll-view>
 </view>

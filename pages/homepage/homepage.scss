@@ -1,6 +1,5 @@
 @import '../../style/common.scss';
 
-$back-color: #f5f5f5;
 $header-border-color: #a4a4a4;
 $more-color: #75a694;
 $content-width: 710rpx;
@@ -163,7 +162,7 @@ $inline-content-height: 1000rpx;
 
     .bulky-goods {
       position: relative;
-      margin-top: 10rpx;
+      margin-top: 40rpx;
       width: 100%;
       padding: 1rpx 0;
       .theme-card {
@@ -231,7 +230,7 @@ $inline-content-height: 1000rpx;
 
     .daily-special-offer-card {
       box-sizing: border-box;
-      margin: 20rpx auto;
+      margin: 40rpx auto;
       padding: 20rpx 30rpx;
       width: $content-width;
       // height: auto;
