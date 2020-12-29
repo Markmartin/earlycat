@@ -461,6 +461,7 @@
   width: 750rpx;
   height: auto;
   overflow: hidden;
+  padding-bottom: calc(160rpx + env(safe-area-inset-bottom));
 
   image {
     width: 750rpx;
