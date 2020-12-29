@@ -10,7 +10,7 @@
 					<view class="goods-name">{{item.goodsName}}</view>
 					<view class="goods-specification">{{item.specifications}}</view>
 				</view>
-				<view class="goods-payment">退款金额：{{item.price || null}}</view>
+				<view class="goods-payment">退款金额：{{item.price || 0}}</view>
 			</view>
 			<view class="goods-count-container">
 				<view class="minus" wx:if="{{!refund.isAll }}" bindtap="updateRefundGoodsNumber" data-type="minus"
