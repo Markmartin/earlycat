@@ -21,7 +21,7 @@ html {
   position: relative;
   box-sizing: border-box;
   padding: 0 10rpx;
-  width: 100%;
+  flex: 1 1 auto;
   height: 100%;
   background: #e6e6e6;
   border: 1px solid #a4a4a4;
@@ -54,6 +54,14 @@ html {
   height: 30rpx;
   border: none;
   flex-grow: 1;
+}
+
+.homepage .header .join-enterprise-wechat {
+  width: 100rpx;
+  height: 90rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .homepage .address-layer {

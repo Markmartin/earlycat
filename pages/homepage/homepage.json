@@ -4,6 +4,7 @@
   "usingComponents": {
     "card-goods": "/components/cardGoods/cardGoods",
     "goods-cell": "/components/goodsCell/goodsCell",
-    "goods-bulky-cell": "/components/goodsBulkyCell/goodsBulkyCell"
+    "goods-bulky-cell": "/components/goodsBulkyCell/goodsBulkyCell",
+    "cell": "plugin://chatGroupPlugin/cell"
   }
 }
