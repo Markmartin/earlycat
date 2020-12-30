@@ -14,10 +14,6 @@
       <view class="divider"></view>
       <input class="input" bindtap="tapSearch" placeholder="大家都在搜索：崇明香鸡" disabled="{{true}}"></input>
     </view>
-    <view class="join-enterprise-wechat">
-      <cell bind:startmessage='startmessage' bind:completemessage="completemessage"
-        plugid='d1f3045841649cc4e32c0db111cf40a0' />
-    </view>
   </view>
   <!-- 悬浮层地址 -->
   <view class="address-layer" wx:if="{{showOffAddress}}">{{address.addressDetail}}</view>
@@ -134,9 +130,11 @@
     <!-- 热销商品 -->
     <view class="best-seller">
       <view class="best-seller-header">
-        <view class="left line"></view>
+        <image class="best-seller-label-image"
+          src="http://earlycat-app.oss-cn-shanghai.aliyuncs.com/homepage-hot-label.png"></image>
+        <!-- <view class="left line"></view>
         <view class="best-seller-header-title">热销商品</view>
-        <view class="right line"></view>
+        <view class="right line"></view> -->
       </view>
 
       <view class="goods-content">

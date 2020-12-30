@@ -110,6 +110,15 @@
         </image>
         <view class='moreInfo_text'>意见反馈</view>
       </view>
+
+      <view class="moreInfo_item">
+        <view class='moreInfo_chat'>
+          <cell bind:startmessage='startmessage' bind:completemessage="completemessage"
+            plugid='d1f3045841649cc4e32c0db111cf40a0' />
+        </view>
+
+        <view class='moreInfo_text'>加入群聊</view>
+      </view>
       <!-- <view class="moreInfo_item" bindtap='applyToBecomePromoter' wx:if="{{userInfo.userType == 0}}">
         <image class='moreInfo_image' src='http://earlycat-app.oss-cn-shanghai.aliyuncs.com/promotion.png'></image>
         <view class='moreInfo_text'>申请推广</view>

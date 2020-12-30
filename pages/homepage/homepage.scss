@@ -70,13 +70,6 @@ $inline-content-height: 1000rpx;
         flex-grow: 1;
       }
     }
-
-    .join-enterprise-wechat {
-      width: 100rpx;
-      height: 90rpx;
-      @include absolutely-center;
-      // background-color: orangered;
-    }
   }
 
   .address-layer {
@@ -420,6 +413,11 @@ $inline-content-height: 1000rpx;
         display: flex;
         justify-content: center;
         align-items: center;
+
+        .best-seller-label-image {
+          width: 750rpx;
+          height: 90rpx;
+        }
 
         .line {
           position: relative;

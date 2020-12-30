@@ -56,14 +56,6 @@ html {
   flex-grow: 1;
 }
 
-.homepage .header .join-enterprise-wechat {
-  width: 100rpx;
-  height: 90rpx;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .homepage .address-layer {
   position: fixed;
   top: 90rpx;
@@ -405,6 +397,11 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.homepage .content .best-seller .best-seller-header .best-seller-label-image {
+  width: 750rpx;
+  height: 90rpx;
 }
 
 .homepage .content .best-seller .best-seller-header .line {

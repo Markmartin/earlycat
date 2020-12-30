@@ -178,6 +178,16 @@ html {
   height: 68rpx;
 }
 
+.moreInfo_chat {
+  margin: 0 auto;
+  width: 68rpx;
+  height: 68rpx;
+  padding-bottom: 5rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .moreInfo_text {
   font-family: PingFangSC-Regular;
   font-size: 30rpx;
