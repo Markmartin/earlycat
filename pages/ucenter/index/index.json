@@ -6,5 +6,5 @@
   "usingComponents": {
     "mp-dialog": "/miniprogram_npm/weui-miniprogram/dialog/dialog",
     "cell": "plugin://chatGroupPlugin/cell"
-   }
+  }
 }

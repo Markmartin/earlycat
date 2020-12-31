@@ -136,7 +136,7 @@ Page({
     }
   },
   startmessage(e) {
-    // console.log(e)
+    console.log(e)
   },
   completemessage(e) {
     if (e.detail.errcode == 0) {

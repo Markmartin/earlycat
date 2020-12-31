@@ -116,7 +116,6 @@
           <cell bind:startmessage='startmessage' bind:completemessage="completemessage"
             plugid='d1f3045841649cc4e32c0db111cf40a0' />
         </view>
-
         <view class='moreInfo_text'>加入群聊</view>
       </view>
       <!-- <view class="moreInfo_item" bindtap='applyToBecomePromoter' wx:if="{{userInfo.userType == 0}}">
