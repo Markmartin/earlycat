@@ -8,14 +8,16 @@ Page({
   data: {
     storedValueCardList: [],
     storedValueRecord: [],
-    currentCardIndex: 0,
+    currentCardIndex: 4,
     paper: { page: 1, limit: 10, pages: 0 }
   },
 
   async updateStoredValueCard() {
     const response = await apiStoredValueCards()
     if (response.status) {
+      let index = response.data.findIndex((item) => item.amount == 800)
       this.setData({
+        currentCardIndex: index || 0,
         storedValueCardList: response.data
       })
     }
