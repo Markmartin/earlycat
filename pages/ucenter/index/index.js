@@ -363,4 +363,11 @@ Page({
       })
     }
   },
+  gotoLiveBroadcast() {
+    let roomId = 2 // 填写具体的房间号，可通过下面【获取直播房间列表】 API 获取
+    let customParams = encodeURIComponent(JSON.stringify({ path: 'pages/index/index', pid: 1 })) // 开发者在直播间页面路径上携带自定义参数（如示例中的path和pid参数），后续可以在分享卡片链接和跳转至商详页时获取，详见【获取自定义参数】、【直播间到商详页面携带参数】章节（上限600个字符，超过部分会被截断）
+    wx.navigateTo({
+      url: `plugin-private://wx2b03c6e691cd7370/pages/live-player-plugin?room_id=${roomId}&custom_params=${customParams}`
+    })
+  }
 })

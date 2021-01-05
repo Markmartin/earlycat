@@ -118,6 +118,12 @@
         </view>
         <view class='moreInfo_text'>加入群聊</view>
       </view>
+
+      <view class="moreInfo_item" bindtap='gotoLiveBroadcast'>
+        <image class='moreInfo_image' src='https://earlycat-app.oss-cn-shanghai.aliyuncs.com/icon-feedback.png'>
+        </image>
+        <view class='moreInfo_text'>小程序直播</view>
+      </view>
       <!-- <view class="moreInfo_item" bindtap='applyToBecomePromoter' wx:if="{{userInfo.userType == 0}}">
         <image class='moreInfo_image' src='http://earlycat-app.oss-cn-shanghai.aliyuncs.com/promotion.png'></image>
         <view class='moreInfo_text'>申请推广</view>
