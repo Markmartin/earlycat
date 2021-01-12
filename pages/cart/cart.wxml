@@ -65,7 +65,8 @@
 							<view wx:if="{{isEditCart}}" class="item edit">
 								<view wx:if="{{(item.number > item.limit || item.number > item.stockNumber) && !isEditCart}}"
 									class="checkbox disabled"></view>
-								<view wx:else class="checkbox {{item.checked ? 'checked' : ''}} {{item.noGoodsStock? 'disabled' : ''}}"
+								<view wx:else
+									class="checkbox {{item.checked ? 'checked' : ''}} {{item.noGoodsStock? 'disabled' : ''}} {{item.acStatus == 98 ? 'checkedUncancle' : ''}}"
 									bindtap="checkedItem" data-item-index="{{index}}"></view>
 								<view class="cart-goods">
 									<view class="goods-combination-image">

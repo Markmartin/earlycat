@@ -124,6 +124,9 @@ Page({
     if (this.data.cartGoods[itemIndex].noGoodsStock) {
       return
     }
+    if (this.data.cartGoods[itemIndex].acStatus == 98) {
+      return
+    }
     let that = this;
     let productIds = [];
     productIds.push(that.data.cartGoods[itemIndex].productId);
@@ -279,6 +282,13 @@ Page({
     let idx = event.target.dataset.idx;
     let type = event.target.dataset.type;
     let cartItem = that.data.cartGoods[idx];
+    if (cartItem.acStatus == 98) {
+      wx.showToast({
+        title: '赠品不可修改',
+        icon: 'none'
+      })
+      return
+    }
     let number = 0
     if (type == 'cut') {
       if (cartItem.number < 2) {

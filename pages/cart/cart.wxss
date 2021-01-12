@@ -164,6 +164,11 @@ page {
   background-size: 34rpx 34rpx;
 }
 
+.cart-view .item .checkbox.checkedUncancle {
+  background: url(http://earlycat-app.oss-cn-shanghai.aliyuncs.com/selected_uncancelable.png) no-repeat center;
+  background-size: 34rpx 34rpx;
+}
+
 .cart-view .item .checkbox.disabled {
   /* background: #ccc; */
   background: url(https://earlycat-app.oss-cn-shanghai.aliyuncs.com/disable_select.png) no-repeat center;
