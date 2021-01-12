@@ -212,6 +212,12 @@
           "pathName": "pages/payResult/payResult",
           "query": "status=1",
           "scene": null
+        },
+        {
+          "name": "商品详情",
+          "pathName": "pages/goods/goods",
+          "query": "id=1860& presellId=null",
+          "scene": null
         }
       ]
     }
