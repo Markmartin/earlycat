@@ -160,6 +160,8 @@ const apiGenerateOrder = async (payType, data) => await request('post', 'order/s
 const apiOrderPay = async (orderId) => await request('post', 'order/prepay', { orderId })
 // 个人信息
 const apiUserInfo = async () => await request('get', 'user/index', null)
+// 获取直播间列表
+const apiLiveRooms = async () => await request('get', 'live/getLiveInfo', { start: 0, limit: 10 })
 
 module.exports = {
   upload,
@@ -200,5 +202,6 @@ module.exports = {
   apiStoredValuePay,
   apiGenerateOrder,
   apiOrderPay,
-  apiUserInfo
+  apiUserInfo,
+  apiLiveRooms
 }

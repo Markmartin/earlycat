@@ -280,34 +280,41 @@ Page({
         if (payResponse.status) {
           this.data.payFlag = true
           const { timeStamp, nonceStr, packageValue, signType, paySign } = payResponse.data
-          wx.requestPayment({
-            timeStamp,
-            nonceStr,
-            package: packageValue,
-            signType,
-            paySign,
-            success(res) {
-              wx.showToast({
-                title: '微信支付成功',
-                mask: true
+
+          wx.showModal({
+            content: `余额不足,超出部分将使用微信支付`,
+            showCancel: false,
+            success() {
+              wx.requestPayment({
+                timeStamp,
+                nonceStr,
+                package: packageValue,
+                signType,
+                paySign,
+                success(res) {
+                  wx.showToast({
+                    title: '微信支付成功',
+                    mask: true
+                  })
+                  setTimeout(() => {
+                    wx.redirectTo({
+                      url: '/pages/payResult/payResult?status=1&orderId=' + orderId
+                    });
+                  }, 2000);
+                },
+                fail(res) {
+                  wx.showToast({
+                    title: '微信支付失败',
+                    icon: 'none'
+                  })
+                  setTimeout(() => {
+                    wx.redirectTo({
+                      url: '/pages/payResult/payResult?status=0&orderId=' + orderId
+                    });
+                  }, 2000);
+                },
               })
-              setTimeout(() => {
-                wx.redirectTo({
-                  url: '/pages/payResult/payResult?status=1&orderId=' + orderId
-                });
-              }, 2000);
-            },
-            fail(res) {
-              wx.showToast({
-                title: '微信支付失败',
-                icon: 'none'
-              })
-              setTimeout(() => {
-                wx.redirectTo({
-                  url: '/pages/payResult/payResult?status=0&orderId=' + orderId
-                });
-              }, 2000);
-            },
+            }
           })
         }
 

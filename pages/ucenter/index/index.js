@@ -2,7 +2,7 @@ var util = require('../../../utils/util.js');
 var api = require('../../../config/api.js');
 var user = require('../../../utils/user.js');
 var app = getApp();
-const { apiApplyToBecomePromoter } = require('../../../config/request')
+const { apiApplyToBecomePromoter, apiLiveRooms } = require('../../../config/request')
 
 Page({
   data: {
@@ -24,6 +24,7 @@ Page({
       unrecv: 0,
       uncomment: 0
     },
+    liveRoom: null,
     buttons: [{ text: '取消' }, { text: '确定' }],
     hasLogin: false,
     dialogShow: false
@@ -39,6 +40,7 @@ Page({
   onShow: async function () {
     await app.updateCartBadge()
     this.getData()
+    this.updateLiveRoom()
   },
   getData() {
     let that = this;
@@ -113,6 +115,21 @@ Page({
     this.setData({
       community: wx.getStorageSync('community')
     })
+  },
+  async updateLiveRoom() {
+    const response = await apiLiveRooms()
+    if (response.status) {
+      let data = JSON.parse(response.data)
+      const { errcode, room_info } = data
+      if (errcode == 0) {
+        let room = room_info.find(room => room.live_status == 101)
+        if (room) {
+          this.setData({
+            liveRoom: room
+          })
+        }
+      }
+    }
   },
   countDown: function () {
     let time1 = new Date(this.data.countdownEndTime.replace(/-/g, '/')).getTime()
@@ -364,10 +381,16 @@ Page({
     }
   },
   gotoLiveBroadcast() {
-    let roomId = 3 // 填写具体的房间号，可通过下面【获取直播房间列表】 API 获取
-    let customParams = encodeURIComponent(JSON.stringify({ path: 'pages/index/index', pid: 1 })) // 开发者在直播间页面路径上携带自定义参数（如示例中的path和pid参数），后续可以在分享卡片链接和跳转至商详页时获取，详见【获取自定义参数】、【直播间到商详页面携带参数】章节（上限600个字符，超过部分会被截断）
-    wx.navigateTo({
-      url: `plugin-private://wx2b03c6e691cd7370/pages/live-player-plugin?room_id=${roomId}&custom_params=${customParams}`
-    })
+    if (this.data.hasLogin) {
+      let roomId = this.data.liveRoom.roomid // 填写具体的房间号，可通过下面【获取直播房间列表】 API 获取
+      let customParams = encodeURIComponent(JSON.stringify({ path: 'pages/index/index', pid: 1 })) // 开发者在直播间页面路径上携带自定义参数（如示例中的path和pid参数），后续可以在分享卡片链接和跳转至商详页时获取，详见【获取自定义参数】、【直播间到商详页面携带参数】章节（上限600个字符，超过部分会被截断）
+      wx.navigateTo({
+        url: `plugin-private://wx2b03c6e691cd7370/pages/live-player-plugin?room_id=${roomId}&custom_params=${customParams}`
+      })
+    } else {
+      wx.navigateTo({
+        url: "/pages/auth/login/login"
+      });
+    }
   }
 })

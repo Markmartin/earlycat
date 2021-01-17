@@ -119,7 +119,7 @@
         <view class='moreInfo_text'>加入群聊</view>
       </view>
 
-      <view class="moreInfo_item" bindtap='gotoLiveBroadcast'>
+      <view class="moreInfo_item" wx:if="{{liveRoom}}" bindtap='gotoLiveBroadcast'>
         <image class='moreInfo_image' src='https://earlycat-app.oss-cn-shanghai.aliyuncs.com/icon-feedback.png'>
         </image>
         <view class='moreInfo_text'>小程序直播</view>

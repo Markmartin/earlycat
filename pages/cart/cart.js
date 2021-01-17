@@ -196,7 +196,7 @@ Page({
 
   checkedAll: function () {
     let that = this;
-    var productIds = this.data.cartGoods.map(function (v) {
+    var productIds = this.data.cartGoods.filter((item) => item.acStatus != 98).map(function (v) {
       return v.productId
     });
     util.request(api.CartChecked, {
