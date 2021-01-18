@@ -1,4 +1,15 @@
 <!--pages/storedValue/index/index.wxml-->
+<wxs module="methods">
+  function transactionType(typeValue) {
+    var transactionTypeOptions = {
+      '0': '充值',
+      '1': '消费',
+      '2': '退款'
+    }
+    return transactionTypeOptions[typeValue.toString()]
+  }
+  module.exports.transactionType = transactionType
+</wxs>
 <view class="stored-value">
   <swiper class="stored-value-card-container" current="{{currentCardIndex}}" previous-margin="110rpx"
     next-margin="110rpx" bindchange="updateSwiperItemIndex" bindtransition="">
@@ -27,10 +38,10 @@
   <scroll-view class="stored-value-record-container" scroll-y="true" enable-flex="true"
     bindscrolltolower="loadMoreRecord">
     <view class="stored-value-record-cell" wx:for="{{storedValueRecord}}" wx:key="index">
-      <view class="stored-value-record-cell-desc">{{item.payType == 0 ? '充值' : '消费'}}</view>
+      <view class="stored-value-record-cell-desc">{{methods.transactionType(item.payType)}}</view>
       <view class="stored-value-record-cell-time">{{item.updateTime}}</view>
-      <view class="stored-value-record-cell-amount {{item.payType == 0 ? 'stored' : 'consume'}}">
-        {{(item.payType == 0 ? '+ ' : '- ')}}{{item.amount}}元</view>
+      <view class="stored-value-record-cell-amount {{item.payType == 1 ? 'consume' : 'stored'}}">
+        {{(item.payType == 1 ? '- ' : '+ ')}}{{item.amount}}元</view>
       <view class="stored-value-record-cell-aditional-amount">
         {{ item.payType == 0 ? ('送'+item.aditionalAmount+'元') : ''}}</view>
     </view>
