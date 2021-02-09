@@ -3,6 +3,8 @@ var util = require('./utils/util.js');
 var api = require('./config/api.js');
 var user = require('./utils/user.js');
 const { apiCartGoodsCount } = require('./config/request')
+
+const { springFestivalTips } = require('./utils/tips.js')
 import 'umtrack-wx';
 
 App({
@@ -34,6 +36,7 @@ App({
     })
   },
   onShow: function (options) {
+    springFestivalTips()
     user.checkLogin().then(res => {
       this.globalData.hasLogin = true;
       this.globalData.userInfo = wx.getStorageSync('userInfo');
