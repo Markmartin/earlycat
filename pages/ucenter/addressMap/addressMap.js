@@ -40,7 +40,16 @@ Page({
   },
 
   selectAddress(e) {
-    app.globalData.address = e.currentTarget.dataset.item
+    let blockAreaList = ['金山区', '松江区', '青浦区', '奉贤区', '崇明区']
+    const { item } = e.currentTarget.dataset
+    if (blockAreaList.includes(item.district)) {
+      wx.showToast({
+        title: '该地址不在配送范围',
+        icon: 'none'
+      })
+      return
+    }
+    app.globalData.address = item
     wx.navigateBack()
   },
 
